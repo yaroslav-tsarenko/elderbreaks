@@ -1,0 +1,31 @@
+.countdown {
+  display: flex;
+  max-width: 446px;
+  justify-content: space-around;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.timeContainer {
+  background: var(--quinary-color);
+  display: flex;
+  flex-direction: column;
+  padding: 15px 25px;
+  gap: 20px;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover{
+    background: var(--tertiary-color);
+    border: 1px solid var(--secondary-color);
+  }
+
+  span{
+    font-weight: bold;
+    font-size: var(--32px);
+  }
+}

@@ -1,0 +1,41 @@
+.button {
+  display: flex;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &.outlined {
+    display: flex;
+    gap: 10px;
+    background-color: var(--quaternary-color);
+    color: var(--white);
+    font-size: var(--20px);
+    border: 1px solid var(--secondary-color);
+    border-radius: 55px;
+    padding: 15px 50px;
+    font-weight: 700;
+
+    &:hover {
+      background-color: var(--tertiary-color);
+    }
+  }
+
+  &.orange {
+    display: flex;
+    gap: 10px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-size: var(--20px);
+    border-radius: 55px;
+    padding: 20px 75px;
+    font-weight: 700;
+    transition: 0.2s ease-in-out;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+
+    &:hover{
+      background: var(--secondary-color-light);
+    }
+  }
+}
