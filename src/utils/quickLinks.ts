@@ -1,32 +1,39 @@
+import Leaderboards from '@/assets/images/leaderboards.png';
+import Games from '@/assets/images/games.png';
+import Raffles from '@/assets/images/raffles.png';
+import PointsStore from '@/assets/images/points-store.png';
+import Calendar from '@/assets/images/calendar.png';
+import AllBonuses from '@/assets/images/all-bonuses.png';
+
 export const quickLinks = [
     {
         title: 'Leaderboards',
-        image: '../assets/images/leaderboards.png',
+        image: Leaderboards,
         link: '/leaderboards',
     },
     {
         title: 'All Bonuses',
-        image: '../assets/images/all-bonuses.png',
+        image: AllBonuses,
         link: '/last-video',
     },
     {
         title: 'Games',
-        image: '../assets/images/games.png',
+        image: Games,
         link: '/cases',
     },
     {
         title: 'Raffles',
-        image: '../assets/images/raffles.png',
+        image: Raffles,
         link: '/calendar',
     },
     {
         title: 'Points Store',
-        image: '../assets/images/points-store.png',
+        image: PointsStore,
         link: '/all-bonuses',
     },
     {
         title: 'Calendar',
-        image: '../assets/images/calendar.png',
+        image: Calendar,
         link: '/all-bonuses',
     },
 ];

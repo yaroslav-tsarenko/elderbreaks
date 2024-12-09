@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from "./Footer.module.scss"
+import styles from "./Footer.module.scss";
 import Link from "next/link";
-import FooterLogo from "../../../public/assets/icons/elderbreaks-logo.svg";
+import FooterLogo from "@/assets/icons/elderbreaks-logo.svg";
 import Image from "next/image";
-import facebook from "../../../public/assets/icons/facebook.svg";
-import viber from "../../../public/assets/icons/viber.svg";
-import instagram from "../../../public/assets/icons/instagram.svg";
+import facebook from "@/assets/icons/facebook.svg";
+import viber from "@/assets/icons/viber.svg";
+import instagram from "@/assets/icons/instagram.svg";
 
 const Footer = () => {
     return (
@@ -13,7 +13,7 @@ const Footer = () => {
             <div className={styles.footerInner}>
                 <div className={styles.footerUpper}>
                     <div className={styles.footerLogo}>
-                        <Image src={FooterLogo} alt="Footer logo" width="307"/>
+                        <Image src={FooterLogo} alt="Footer logo" width="307" height="150"/>
                         <p>Copyright@2024 ElderBreaks</p>
                     </div>
                     <div className={styles.footerNav}>
@@ -38,17 +38,16 @@ const Footer = () => {
                         <h3>Stay up to date</h3>
                         <div className={styles.footerSocials}>
                             <Link className={styles.social} href="https://facebook.com">
-                                <Image src={facebook} alt={facebook}/>
+                                <Image src={facebook} alt="Facebook"/>
                             </Link>
                             <Link className={styles.social} href="https://viber.com">
-                                <Image src={viber} alt={viber}/>
+                                <Image src={viber} alt="Viber"/>
                             </Link>
                             <Link className={styles.social} href="https://instagram.com">
-                                <Image src={instagram} alt={instagram}/>
+                                <Image src={instagram} alt="Instagram"/>
                             </Link>
                         </div>
                     </div>
-
                 </div>
                 <hr/>
                 <div className={styles.footerBottom}>

@@ -9,7 +9,7 @@ const QuickLinkItem: FC<QuickLinkItemProps> = ({ image, link, title }) => {
             href={link}
             className={styles.quickLinkItem}
             style={{
-                backgroundImage: `url(${image})`,
+                backgroundImage: `url(${image.src})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 backgroundSize: 'cover'

@@ -1,5 +1,7 @@
+import {StaticImageData} from "next/image";
+
 export interface QuickLinkItemProps {
-    image: string;
+    image: StaticImageData;
     link: string;
     title: string;
 }

@@ -40,7 +40,6 @@ const LeaderBoards = () => {
                         />
                     ))}
                 </div>
-                <CountdownTimer/>
                 <p className={styles.leaderBoardUpdates}>Leaderboard updates every 30-60 minutes</p>
                 <Button variant="orange" icon={FaCrown}>
                     leaderboard

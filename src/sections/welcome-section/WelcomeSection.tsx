@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./WelcomeSection.module.scss";
 import Button from "@/components/button/Button";
-import GunImage from "../../../public/assets/images/gun.png";
-import GiftImage from "../../../public/assets/images/gift.png";
+import GunImage from "@/assets/images/gun.png";
+import GiftImage from "@/assets/images/gift.png";
 import Image from "next/image";
 import { FaSignInAlt } from 'react-icons/fa';
 
