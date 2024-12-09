@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from "./Footer.module.scss";
 import Link from "next/link";
-import FooterLogo from "@/assets/images/logo.png";
 import Image from "next/image";
-import facebook from "@/assets/images/facebook.png";
-import viber from "@/assets/images/viber.png";
-import instagram from "@/assets/images/instagram.png";
+import FooterLogo from "../../assets/images/logo.png";
+import facebook from "../../assets/images/facebook.png";
+import viber from "../../assets/images/viber.png";
+import instagram from "../../assets/images/instagram.png";
 
 const Footer = () => {
     return (
