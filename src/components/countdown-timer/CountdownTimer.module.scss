@@ -4,6 +4,7 @@
   justify-content: space-around;
   margin: 0 auto;
   gap: 20px;
+  z-index: 999;
 }
 
 .timeContainer {
@@ -11,6 +12,7 @@
   display: flex;
   flex-direction: column;
   padding: 15px 25px;
+  border: 1px solid var(--quinary-color);
   gap: 20px;
   border-radius: 10px;
   text-align: center;

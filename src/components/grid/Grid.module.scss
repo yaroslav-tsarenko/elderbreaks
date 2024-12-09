@@ -1,0 +1,19 @@
+.gridTwoColumns{
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  width: 100%;
+  align-items: center;
+  align-content: start;
+  justify-content: start;
+  justify-items: start;
+  gap: 15px;
+  max-width: 1368px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .gridTwoColumns{
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}

@@ -4,11 +4,15 @@
     --primary-color-body: #060101;
     --secondary-color: #f66629;
     --secondary-color-light: #d16f45;
+    --secondary-color-dark: #4f1800;
     --tertiary-color: #120402;
     --tertiary-color-light: #0d0101;
     --gold: #f09b00;
+    --gold-light: #ffac23;
     --quaternary-color: #2a0909;
     --quinary-color: #430f0f;
+    --senary-color: #2d0808;
+    --grey: #987D7A;
     --white: #fff;
     --14px: 0.875rem;
     --16px: 1rem;
