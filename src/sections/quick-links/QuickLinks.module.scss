@@ -1,0 +1,21 @@
+.quickLinks{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-align: center;
+
+  h2{
+    color: var(--white);
+    font-size: var(--64px);
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+
+    span{
+        color: var(--secondary-color);
+    }
+  }
+}

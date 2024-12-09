@@ -12,6 +12,7 @@
   &:hover {
     background-color: var(--tertiary-color);
     box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.5);
+    color: var(--secondary-color-light);
   }
 
   &:hover::before {
