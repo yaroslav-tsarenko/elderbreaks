@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from "./Footer.module.scss";
 import Link from "next/link";
-import FooterLogo from "@/assets/icons/elderbreaks-logo.svg";
+import FooterLogo from "@/assets/images/logo.png";
 import Image from "next/image";
-import facebook from "@/assets/icons/facebook.svg";
-import viber from "@/assets/icons/viber.svg";
-import instagram from "@/assets/icons/instagram.svg";
+import facebook from "@/assets/images/facebook.png";
+import viber from "@/assets/images/viber.png";
+import instagram from "@/assets/images/instagram.png";
 
 const Footer = () => {
     return (
@@ -13,7 +13,7 @@ const Footer = () => {
             <div className={styles.footerInner}>
                 <div className={styles.footerUpper}>
                     <div className={styles.footerLogo}>
-                        <Image src={FooterLogo.src} alt="Footer logo" width="307" height="150"/>
+                        <Image src={FooterLogo.src} alt="Footer logo" width="307" height="80"/>
                         <p>Copyright@2024 ElderBreaks</p>
                     </div>
                     <div className={styles.footerNav}>
