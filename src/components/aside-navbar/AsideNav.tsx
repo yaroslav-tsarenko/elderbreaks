@@ -29,7 +29,7 @@ const AsideNav = () => {
                 }`}
             >
                 <Image
-                    src={Logo}
+                    src={Logo.src}
                     alt="Logo"
                     width="172"
                     height="42"
