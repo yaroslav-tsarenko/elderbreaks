@@ -13,7 +13,7 @@ const Footer = () => {
             <div className={styles.footerInner}>
                 <div className={styles.footerUpper}>
                     <div className={styles.footerLogo}>
-                        <Image src={FooterLogo} alt="Footer logo" width="307" height="150"/>
+                        <Image src={FooterLogo.src} alt="Footer logo" width="307" height="150"/>
                         <p>Copyright@2024 ElderBreaks</p>
                     </div>
                     <div className={styles.footerNav}>
@@ -38,13 +38,13 @@ const Footer = () => {
                         <h3>Stay up to date</h3>
                         <div className={styles.footerSocials}>
                             <Link className={styles.social} href="https://facebook.com">
-                                <Image src={facebook} alt="Facebook"/>
+                                <Image src={facebook.src} alt="Facebook" width="30" height="30"/>
                             </Link>
                             <Link className={styles.social} href="https://viber.com">
-                                <Image src={viber} alt="Viber"/>
+                                <Image src={viber.src} alt="Viber" width="30" height="30"/>
                             </Link>
                             <Link className={styles.social} href="https://instagram.com">
-                                <Image src={instagram} alt="Instagram"/>
+                                <Image src={instagram.src} alt="Instagram" width="30" height="30"/>
                             </Link>
                         </div>
                     </div>

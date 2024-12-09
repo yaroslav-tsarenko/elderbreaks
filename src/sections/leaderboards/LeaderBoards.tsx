@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./LeaderBoards.module.scss"
 import {players} from "@/utils/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
-import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import Button from "@/components/button/Button";
 import { FaCrown } from "react-icons/fa";
 
