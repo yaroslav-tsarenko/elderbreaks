@@ -1,9 +1,10 @@
 import React from 'react';
+import PointsShopLayout from "@/sections/points-shop-layout/PointsShopLayout";
 
 const PointsShop = () => {
     return (
         <>
-            points shop
+            <PointsShopLayout/>
         </>
     );
 };
