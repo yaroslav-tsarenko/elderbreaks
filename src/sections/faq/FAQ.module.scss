@@ -1,0 +1,14 @@
+.faq {
+  width: 100%;
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.faqContainer {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}

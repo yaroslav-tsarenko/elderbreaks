@@ -1,0 +1,27 @@
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    font-size: var(--32px);
+    font-weight: bold;
+    color: var(--gold);
+  }
+
+  p {
+    font-size: var(--14px);
+    color: var(--white);
+    max-width: 200px;
+  }
+}
+
+.image {
+  width: 216px;
+  height: auto;
+  object-fit: contain;
+}

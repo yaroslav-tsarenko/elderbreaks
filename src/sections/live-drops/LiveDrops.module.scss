@@ -1,0 +1,14 @@
+.liveDrops {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.liveDropsContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1368px;
+  margin: 0 auto;
+
+}

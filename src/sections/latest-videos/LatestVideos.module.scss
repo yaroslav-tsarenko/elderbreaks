@@ -1,0 +1,27 @@
+.latestVideos {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  h2 {
+    display: flex;
+    text-transform: uppercase;
+    font-size: var(--64px);
+    color: var(--white);
+    gap: 10px;
+    text-align: center;
+    margin: 0 auto;
+
+    span {
+      color: var(--secondary-color);
+    }
+  }
+}
+
+.latestVideosContent{
+  max-width: 1368px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}

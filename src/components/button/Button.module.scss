@@ -3,6 +3,11 @@
   outline: none;
   border: none;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 
   &.outlined {
     display: flex;
@@ -36,7 +41,7 @@
     z-index: 999;
     box-shadow: 0px 2px 6px rgb(246, 102, 41);
 
-    &:hover{
+    &:hover {
       background: var(--secondary-color-light);
     }
   }

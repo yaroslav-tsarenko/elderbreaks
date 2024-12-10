@@ -1,24 +1,21 @@
 import React from 'react';
-import PageWrapper from "@/components/page-wrapper/PageWrapper";
-import AsideNav from "@/components/aside-navbar/AsideNav";
 import WelcomeSection from "@/sections/welcome-section/WelcomeSection";
 import LeaderBoards from "@/sections/leaderboards/LeaderBoards";
-import PageContent from "@/components/page-content/PageContent";
-import Footer from "@/components/footer/Footer";
 import QuickLinks from "@/sections/quick-links/QuickLinks";
+import LatestVideos from "@/sections/latest-videos/LatestVideos";
+import Stats from "@/sections/stats/Stats";
+import FAQ from "@/sections/faq/FAQ";
 
 const Home = () => {
     return (
         <>
-            <PageWrapper>
-                <AsideNav/>
-                <PageContent>
-                    <WelcomeSection/>
-                    <LeaderBoards/>
-                    <QuickLinks/>
-                </PageContent>
-            </PageWrapper>
-            <Footer/>
+            <WelcomeSection/>
+            <LeaderBoards/>
+            <QuickLinks/>
+            <LatestVideos/>
+            <Stats/>
+            <LatestVideos type="Hightlights"/>
+            <FAQ/>
         </>
 
     );

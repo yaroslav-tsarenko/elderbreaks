@@ -1,0 +1,71 @@
+.howItWorks {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  background: url("../../assets/images/how-it-works-bg.png") no-repeat center;
+  background-size: cover;
+}
+
+.howItWorksPoints {
+  display: grid;
+  max-width: 1368px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 90px;
+}
+
+.howItWorksPoint {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  max-width: 207px;
+
+  p:first-child {
+    font-size: var(--36px);
+    border-radius: 55px;
+    padding: 14px 27px;
+    font-weight: bold;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    color: var(--gold);
+    border: 2px dashed var(--gold);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  h3 {
+    font-size: var(--24px);
+    font-weight: bold;
+    color: var(--white);
+  }
+
+  p:last-child {
+    font-size: var(--14px);
+    color: var(--grey-light);
+  }
+}
+
+.info {
+  display: flex;
+  gap: 20px;
+  max-width: 1368px;
+  margin: 0 auto;
+  text-align: left;
+  align-content: center;
+  padding: 27px 30px;
+  background: var(--secondary-color-dark-2);
+  border-radius: 25px;
+  justify-content: center;
+    align-items: center;
+
+
+  p{
+    max-width: 774px;
+    font-size: var(--20px);
+    color: var(--grey-light);
+  }
+}
