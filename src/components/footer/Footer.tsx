@@ -2,10 +2,8 @@ import React from 'react';
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import FooterLogo from "../../assets/images/logo.png";
-import facebook from "../../assets/images/facebook.png";
-import viber from "../../assets/images/viber.png";
-import instagram from "../../assets/images/instagram.png";
+import FooterLogo from "../../assets/images/elderbreaks-logo.svg";
+import { FaFacebookF, FaViber, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -38,13 +36,13 @@ const Footer = () => {
                         <h3>Stay up to date</h3>
                         <div className={styles.footerSocials}>
                             <Link className={styles.social} href="https://facebook.com">
-                                <Image src={facebook.src} alt="Facebook" width="30" height="30"/>
+                                <FaFacebookF/>
                             </Link>
                             <Link className={styles.social} href="https://viber.com">
-                                <Image src={viber.src} alt="Viber" width="30" height="30"/>
+                                <FaViber/>
                             </Link>
                             <Link className={styles.social} href="https://instagram.com">
-                                <Image src={instagram.src} alt="Instagram" width="30" height="30"/>
+                                <FaInstagram/>
                             </Link>
                         </div>
                     </div>

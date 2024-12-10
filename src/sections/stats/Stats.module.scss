@@ -1,0 +1,17 @@
+.stats {
+  display: flex;
+  padding: 30px;
+  background: linear-gradient(to bottom, var(--bordo), var(--secondary-color-dark-2));
+  border: 1px solid var(--secondary-color);
+  width: 100%;
+  border-radius: 50px;
+  justify-content: space-around;
+  max-width: 1368px;
+  margin: 0 auto;
+}
+
+.statsContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 150px;
+}

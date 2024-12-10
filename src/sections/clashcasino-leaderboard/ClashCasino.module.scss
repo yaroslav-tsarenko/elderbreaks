@@ -1,0 +1,75 @@
+.clashcasino {
+  background: url("../../assets/images/clashcasino-bg.png") no-repeat center;
+  background-size: cover;
+  padding: 0 0 120px 0;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sectionHeader {
+  display: flex;
+  align-content: end;
+  justify-content: end;
+  padding: 30px;
+}
+
+.clashcasinoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1032px;
+  margin: 0 auto;
+  text-align: center;
+  align-content: center;
+
+  h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--64px);
+    color: var(--gold);
+    display: flex;
+    gap: 10px;
+
+    span {
+      color: var(--white);
+    }
+  }
+
+  h4 {
+    color: var(--white);
+    font-size: var(--20px);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: var(--64px);
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, var(--gold), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: var(--24px);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+.code{
+  display: flex;
+  padding: 20px 160px;
+  border-radius: 15px;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  align-content: center;
+    background: var(--secondary-color-dark-2);
+    color: var(--white);
+  border: 1px solid var(--secondary-color-dark);
+}

@@ -4,6 +4,7 @@ import {players} from "@/utils/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
 import Button from "@/components/button/Button";
 import { FaCrown } from "react-icons/fa";
+import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 
 const LeaderBoards = () => {
     return (
@@ -39,6 +40,7 @@ const LeaderBoards = () => {
                         />
                     ))}
                 </div>
+                <CountdownTimer/>
                 <p className={styles.leaderBoardUpdates}>Leaderboard updates every 30-60 minutes</p>
                 <Button variant="orange" icon={FaCrown}>
                     leaderboard

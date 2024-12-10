@@ -1,0 +1,97 @@
+.card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  gap: 15px;
+  background: linear-gradient(to bottom, var(--quaternary-color), var(--secondary-color-dark-2));
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 35px;
+
+  h4 {
+    color: var(--white);
+    font-size: var(--24px);
+    font-weight: bold;
+  }
+}
+
+.leaderboard {
+  display: flex;
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 55px;
+  text-transform: uppercase;
+  justify-content: space-around;
+  gap: 20px;
+  height: 46px;
+  width: 268px;
+  padding: 20px;
+  align-items: center;
+  align-content: center;
+  position: relative;
+
+  h3:last-child {
+    color: var(--secondary-color);
+  }
+
+  h3:first-child {
+    color: var(--white);
+  }
+}
+
+.totalPool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(to right, var(--secondary-color), var(--gold));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: var(--24px);
+
+  h3{
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: var(--16px);
+    font-weight: bold;
+  }
+}
+
+.dateInfo {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 2fr);
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+
+  h3 {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 10px 20px;
+    color: var(--secondary-color);
+    border-radius: 55px;
+    border: 1px solid var(--secondary-color);
+    background: var(--secondary-color-dark-2);
+  }
+}
+
+.nickname {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 305px;
+  padding: 20px;
+  -webkit-background-clip: text;
+  color: white;
+  font-weight: bold;
+  font-size: var(--24px);
+}

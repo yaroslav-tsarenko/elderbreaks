@@ -1,0 +1,41 @@
+.drop {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  border: 1px solid var(--secondary-color-dark);
+  background: linear-gradient(to bottom, #130a09, #0000);
+  border-radius: 25px;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+
+  h3 {
+    display: flex;
+    gap: 10px;
+    font-size: var(--36px);
+    font-weight: bold;
+    color: var(--secondary-color);
+
+    span {
+      color: var(--white);
+    }
+  }
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-weight: bold;
+
+  p:first-child {
+    color: var(--secondary-color);
+    font-size: var(--20px);
+  }
+
+  p:last-child {
+    color: var(--grey-light);
+    font-size: var(--20px);
+  }
+}

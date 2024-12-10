@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Logo from "@/assets/images/logo.png";
+import Logo from "@/assets/images/elderbreaks-logo.svg";
 import Image from "next/image";
 import styles from "./AsideNav.module.scss";
 import { links } from "@/utils/links";
 import AsideNavItem from "@/components/aside-nav-item/AsideNavItem";
+import Link from "next/link";
 
 const AsideNav = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -28,13 +29,14 @@ const AsideNav = () => {
                     isSticky ? styles.isSticky : ""
                 }`}
             >
-                <Image
-                    src={Logo.src}
-                    alt="Logo"
-                    width="172"
-                    height="42"
-                    className={styles.logo}
-                />
+                <Link href={"/"}>
+                    <Image
+                        src={Logo.src}
+                        alt="Logo"
+                        width="172"
+                        height="42"
+                        className={styles.logo}/>
+                </Link>
                 <div className={styles.asideNav}>
                     {links.map((link, index) => (
                         <AsideNavItem

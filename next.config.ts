@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
             use: ['@svgr/webpack'],
         });
 
+        config.infrastructureLogging = {
+            level: 'error', // Suppresses non-critical warnings
+        };
+
         return config;
     },
 };

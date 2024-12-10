@@ -1,0 +1,14 @@
+.leaderboardHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1368px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.leaderboardHistoryContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}

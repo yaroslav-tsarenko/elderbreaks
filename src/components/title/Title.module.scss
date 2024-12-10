@@ -1,0 +1,22 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+
+  h2{
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    color: var(--white);
+    margin: 0 auto;
+    font-size: var(--64px);
+    text-transform: uppercase;
+
+    span{
+        color: var(--secondary-color);
+    }
+  }
+}

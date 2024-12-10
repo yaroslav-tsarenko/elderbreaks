@@ -19,7 +19,7 @@ export const links = [
     {
         title: 'Calendar',
         icon: FaCalendarAlt,
-        link: '/calendar',
+        link: '/advent-calendar',
     },
     {
         title: 'All Bonuses',
@@ -32,8 +32,8 @@ export const links = [
         link: '/raffles',
     },
     {
-        title: 'Point Store',
+        title: 'Point Shop',
         icon: FaStore,
-        link: '/point-store',
+        link: '/points-shop',
     },
 ];
