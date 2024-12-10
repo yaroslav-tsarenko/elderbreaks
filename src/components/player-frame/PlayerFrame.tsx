@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { PlayerFrameProps } from "@/types/playerFrame";
 import styles from "./PlayerFrame.module.scss";
-import Image from "next/image";
 
 const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place }) => {
     let className;
@@ -20,7 +19,7 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
 
     return (
         <div className={className}>
-            {avatar ? <Image src={avatar.src} alt={"avatar"} className={styles.avatar} width="110" height="110"/> : "none" }
+            {avatar ? <img src={avatar.src} alt={"avatar"} className={styles.avatar} width="110" height="110"/> : "none" }
             <h4>{nickname}</h4>
             <div className={styles.playerCredentials}>
                 <p>xp wagered:</p>
