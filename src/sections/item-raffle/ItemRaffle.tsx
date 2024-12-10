@@ -3,8 +3,8 @@
 import React, {useState} from 'react';
 import styles from "./ItemRaffle.module.scss"
 import Image from "next/image";
-import knife from "@/assets/images/knife.svg"
-import progressbar from "@/assets/images/progressbar.svg"
+import knife from "../../../public/assets/images/knife.svg"
+import progressbar from "../../../public/assets/images/progressbar.svg"
 import Button from "@/components/button/Button";
 import {FaSignInAlt} from "react-icons/fa";
 import HowItWorks from "@/sections/how-it-works/HowItWorks";

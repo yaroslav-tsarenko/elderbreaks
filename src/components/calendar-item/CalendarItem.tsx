@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './CalendarItem.module.scss';
-import gamdom from "@/assets/images/gamdombday.svg";
+import gamdom from "../../../public/assets/images/gamdombday.svg";
 import Image from "next/image";
 import {CalendarItemProps} from "@/types/calendarItemProps";
 

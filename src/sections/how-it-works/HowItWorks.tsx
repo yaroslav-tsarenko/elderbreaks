@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import styles from "./HowItWorks.module.scss";
 import Title from "@/components/title/Title";
 import Image from "next/image";
-import InfoIcon from "@/assets/images/info-icon.svg";
+import InfoIcon from "../../../public/assets/images/info-icon.svg";
 import { HowItWorksProps } from "@/types/howItWorks";
 import Button from "@/components/button/Button";
 import {FaEye} from "react-icons/fa";

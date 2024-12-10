@@ -5,7 +5,7 @@ import styles from "./RaffleItem.module.scss";
 import { RaffleItemProps } from "@/types/raffleItem";
 import Image from "next/image";
 import Button from "@/components/button/Button";
-import winnerBadge from "@/assets/images/winner-badge.svg"
+import winnerBadge from "../../../public/assets/images/winner-badge.svg"
 import Link from "next/link";
 
 const RaffleItem: FC<RaffleItemProps> = ({ data, title, lot, type, winnerName, winnerAvatar, image }) => {

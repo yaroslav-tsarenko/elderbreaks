@@ -5,7 +5,7 @@ import styles from "./RafflesSection.module.scss";
 import Button from "@/components/button/Button";
 import {FaSignInAlt} from "react-icons/fa";
 import Image from "next/image";
-import floatingCase from "@/assets/images/floating-case.svg";
+import floatingCase from "../../../public/assets/images/floating-case.svg";
 
 const RafflesSection = () => {
     return (
