@@ -6,17 +6,8 @@ const nextConfig: NextConfig = {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
-
-        // Suppress non-critical warnings
-        config.infrastructureLogging = {
-            level: 'error',
-        };
-
         return config;
     },
-
-    // Disable output file tracing to avoid file locking issues
-    outputFileTracing: false,
 };
 
 export default nextConfig;
