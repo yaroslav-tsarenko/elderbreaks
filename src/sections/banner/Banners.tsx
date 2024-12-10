@@ -1,3 +1,5 @@
+"use server";
+
 import React from 'react';
 import styles from "./Banner.module.scss"
 import Button from "@/components/button/Button";

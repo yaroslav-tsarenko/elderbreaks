@@ -8,7 +8,7 @@ import {FaCrown, FaGamepad, FaGift, FaCopy} from "react-icons/fa";
 const BonusCard = () => {
     return (
         <div className={styles.card}>
-            <Image src={gamdom} alt="Gamdom" width={188} height={43}/>
+            <Image src={gamdom.src} alt="Gamdom" width={188} height={43}/>
             <div className={styles.percetange}>
                 <h2>
                     up to 65%

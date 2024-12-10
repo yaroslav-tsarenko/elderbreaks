@@ -1,3 +1,5 @@
+"use client";
+
 import React, {FC} from 'react';
 import styles from "./ActiveRaffles.module.scss";
 import Title from "@/components/title/Title";

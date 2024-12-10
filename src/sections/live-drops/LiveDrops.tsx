@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Title from "@/components/title/Title";
 import styles from "./LiveDrops.module.scss";

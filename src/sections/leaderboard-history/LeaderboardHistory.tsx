@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from 'react';
 import styles from "./LeaderboardHistory.module.scss";
 import Title from "@/components/title/Title";

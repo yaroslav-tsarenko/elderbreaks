@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import styles from "./PointsShopLayout.module.scss";
 import Image from "next/image";
@@ -24,7 +26,7 @@ const PointsShopLayout = () => {
                 </div>
                 <div className={styles.infoSecond}>
                     <div className={styles.infoSecondContainer}>
-                        <Image src={InfoIcon} alt="Info icon" width={75} height={75}/>
+                        <Image src={InfoIcon.src} alt="Info icon" width={75} height={75}/>
                         <div className={styles.infoDescription}>
                             <h2>Attention!</h2>
                             <p>All redemptions will be manually reviewed. Prize will go to active community member.

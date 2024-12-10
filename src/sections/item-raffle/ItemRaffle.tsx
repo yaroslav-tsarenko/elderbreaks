@@ -32,7 +32,7 @@ const ItemRaffle = () => {
             </div>
             <div className={styles.itemRaffleInner}>
                 <div className={styles.imageRaffleContainer}>
-                    <Image src={knife} alt="knife" width={370} height={278}/>
+                    <Image src={knife.src} alt="knife" width={370} height={278}/>
                 </div>
                 <div className={styles.itemRaffleDescription}>
                     <h2>Knife Repper fade</h2>
@@ -66,7 +66,7 @@ const ItemRaffle = () => {
                         <p>Tickets left:</p>
                         <h4>5000</h4>
                     </div>
-                    <Image src={progressbar} className={styles.progress} alt="progress" width={725} height={27}/>
+                    <Image src={progressbar.src} className={styles.progress} alt="progress" width={725} height={27}/>
                     <div className={styles.ticketInfo}>
                         <p>Max tickets:</p>
                         <h4>10000</h4>

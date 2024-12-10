@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import styles from "./EndedRaffles.module.scss";
 import Title from "@/components/title/Title";

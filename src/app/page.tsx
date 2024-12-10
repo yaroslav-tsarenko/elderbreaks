@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import WelcomeSection from "@/sections/welcome-section/WelcomeSection";
 import LeaderBoards from "@/sections/leaderboards/LeaderBoards";
