@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import styles from "./RafflesSection.module.scss";
 import Button from "@/components/button/Button";

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC } from 'react';
 import styles from "./RaffleItem.module.scss";
 import { RaffleItemProps } from "@/types/raffleItem";
@@ -10,7 +12,7 @@ const RaffleItem: FC<RaffleItemProps> = ({ data, title, lot, type, winnerName, w
     return (
         <Link className={styles.raffleItem} href="/raffles-item">
             <div className={styles.raffleItemContent}>
-                <Image src={image} alt={"Raffle Item"} width={153} height={157} />
+                <Image src={image.src} alt={"Raffle Item"} width={153} height={157} />
                 <p>{data}</p>
             </div>
             <div className={styles.raffleItemContent}>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import styles from "./LeaderBoards.module.scss"
 import {players} from "@/utils/players";

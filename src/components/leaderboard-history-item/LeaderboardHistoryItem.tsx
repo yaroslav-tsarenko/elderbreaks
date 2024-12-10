@@ -21,7 +21,7 @@ const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
                 <h3>leaderboard</h3><h3>{leaderboard}</h3>
             </div>
             <div className={styles.nickname}>
-                <Image src={avatar} alt={"Avatar"} width={50} height={50}/>
+                <Image src={avatar.src} alt={"Avatar"} width={50} height={50}/>
                 <p>{nickname}</p>
             </div>
             <div className={styles.dateInfo}>

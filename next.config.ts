@@ -7,12 +7,16 @@ const nextConfig: NextConfig = {
             use: ['@svgr/webpack'],
         });
 
+        // Suppress non-critical warnings
         config.infrastructureLogging = {
-            level: 'error', // Suppresses non-critical warnings
+            level: 'error',
         };
 
         return config;
     },
+
+    // Disable output file tracing to avoid file locking issues
+    outputFileTracing: false,
 };
 
 export default nextConfig;
