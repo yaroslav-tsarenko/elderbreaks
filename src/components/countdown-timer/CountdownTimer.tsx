@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './CountdownTimer.module.scss';
 
 interface TimeLeft {
@@ -10,10 +10,14 @@ interface TimeLeft {
     seconds: number;
 }
 
-const CountdownTimer = () => {
+interface CountdownTimerProps {
+    preference?: 'default' | 'calendar';
+}
+
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ preference = 'default' }) => {
     const calculateTimeLeft = (): TimeLeft => {
         const difference = +new Date('2024-12-31T00:00:00') - +new Date();
-        let timeLeft: TimeLeft = {days: 0, hours: 0, minutes: 0, seconds: 0};
+        let timeLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
         if (difference > 0) {
             timeLeft = {
@@ -39,11 +43,13 @@ const CountdownTimer = () => {
 
     return (
         <div className={styles.countdown}>
-            <div className={styles.timeContainer}>
-                <span>{timeLeft.days}</span>
-                <p>D</p>
-            </div>
-            <div className={styles.timeContainer}>
+            {preference === 'default' && (
+                <div className={styles.timeContainer}>
+                    <span>{timeLeft.days}</span>
+                    <p>D</p>
+                </div>
+            )}
+            <div className={`${styles.timeContainer} ${preference === 'calendar' && styles.active}`}>
                 <span>{timeLeft.hours}</span>
                 <p>H</p>
             </div>

@@ -6,7 +6,7 @@
     --secondary-color-light: #d16f45;
     --secondary-color-dark: #4f1800;
     --secondary-color-dark-2: #110908;
-    --secondary-color-dark-transparent: rgba(17, 9, 8, 0.54);
+    --secondary-color-dark-transparent: rgba(17, 9, 8, 0.36);
     --tertiary-color: #120402;
     --tertiary-color-light: #0d0101;
     --bordo: #2d0808;
@@ -15,6 +15,7 @@
     --gold-light: #ffac23;
     --quaternary-color: #2a0909;
     --quinary-color: #430f0f;
+    --beige: #e1a26a;
     --senary-color: #2d0808;
     --grey: #987D7A;
     --grey-light: #D6B7B4;
@@ -27,6 +28,7 @@
     --32px: 2rem;
     --36px: 2.25rem;
     --64px: 5rem;
+    --110px: 6.875rem;
 }
 
 * {

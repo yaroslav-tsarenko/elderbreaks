@@ -14,7 +14,7 @@ export const links = [
     {
         title: 'Cases',
         icon: FaBriefcase,
-        link: '/cases',
+        link: '/vip-rewards',
     },
     {
         title: 'Calendar',

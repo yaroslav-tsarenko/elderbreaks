@@ -1,0 +1,13 @@
+.endedRaffles{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.rafflesContent {
+  display: grid;
+  max-width: 1368px;
+  margin: 0 auto 40px auto;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}

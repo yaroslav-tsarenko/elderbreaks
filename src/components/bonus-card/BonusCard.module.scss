@@ -1,0 +1,88 @@
+.card {
+  height: fit-content;
+  width: 273px;
+  padding: 30px 17px;
+  background: linear-gradient(to bottom, var(--secondary-color-dark-2), var(--tertiary-color));
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  gap: 30px;
+
+
+}
+
+.percetange {
+  display: flex;
+  flex-direction: column;
+
+
+  h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: var(--20px);
+    color: var(--white);
+  }
+}
+
+.promo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.promoCode {
+  padding: 10px 30px;
+  border-radius: 55px;
+  gap: 20px;
+  width: 100%;
+  box-shadow: 0px 0px 10px 0px var(--secondary-color-dark);
+  background: var(--secondary-color-dark-2);
+  border: 2px solid var(--secondary-color-dark);
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+
+  span {
+    font-size: var(--14px);
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+}
+
+.copyIcon {
+  font-size: var(--24px);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    font-size: var(--14px);
+    color: var(--gold);
+  }
+}

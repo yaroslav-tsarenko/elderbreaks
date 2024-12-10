@@ -1,0 +1,60 @@
+.banners {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 0 70px;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1368px;
+  margin: 0 auto;
+  border: 1px solid var(--secondary-color-dark);
+  width: 100%;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 50px 0 50px 0;
+  border-radius: 25px;
+
+  &:first-child {
+    background: url("../../assets/images/points-store-bg.png") no-repeat center;
+    background-size: cover;
+  }
+
+  &:nth-child(2) {
+    background: url("../../assets/images/raffles-bg.png") no-repeat center;
+    background-size: cover;
+  }
+
+  &:last-child {
+    background: url("../../assets/images/leaderboards-bg.png") no-repeat center;
+    background-size: cover;
+  }
+
+  h2 {
+    font-size: var(--64px);
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: var(--20px);
+    color: var(--white);
+  }
+}
+
+.customBackground {
+  background-size: cover;
+  background-position: center;
+}
+
+.bannerButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}

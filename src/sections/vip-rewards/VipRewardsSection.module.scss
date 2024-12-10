@@ -1,0 +1,147 @@
+.vipSectionBg {
+  height: fit-content;
+  width: 100%;
+  gap: 60px;
+  background: url("../../assets/images/vip-reward-bg.png") no-repeat center;
+  background-size: cover;
+  justify-content: space-between;
+  display: flex;
+  padding: 0 0 50px 0;
+  flex-direction: column;
+}
+
+.sectionHeader {
+  display: flex;
+  align-content: end;
+  justify-content: end;
+  padding: 30px;
+}
+
+.ticketInfo:last-child {
+  font-size: var(--36px);
+  color: var(--secondary-color);
+
+  p {
+    color: var(--secondary-color);
+  }
+}
+
+.vipSectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1057px;
+  margin: 0 auto;
+  text-align: center;
+
+  h1 {
+    font-size: var(--64px);
+    background: linear-gradient(90deg, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    font-weight: 900;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: var(--36px);
+    background: linear-gradient(90deg, var(--gold), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.roobet {
+  display: flex;
+  padding: 30px 70px;
+  justify-content: space-between;
+  background: var(--quaternary-color);
+  border-radius: 25px;
+  width: 95%;
+  margin: 0 auto;
+  align-content: center;
+  max-width: 1368px;
+  justify-items: center;
+  align-items: center;
+
+  p {
+    font-size: var(--16px);
+    font-weight: bold;
+    color: var(--grey-light);
+    max-width: 498px;
+  }
+}
+
+.maxTickets {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  max-width: 1368px;
+  margin: 20px auto;
+}
+
+.ticketsProgress {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-around;
+  padding: 30px;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.progress {
+  height: 65px;
+}
+
+.ticketInfo {
+
+  p {
+    font-size: var(--20px);
+    color: var(--grey-light);
+  }
+}
+
+.ticketInfo:first-child {
+  font-size: var(--36px);
+  color: var(--beige);
+}
+
+.wagers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 20px;
+  max-width: 1368px;
+  margin: 0 auto;
+}
+
+.wagerItem {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: linear-gradient(to bottom, var(--secondary-color-dark-2), var(--secondary-color-dark-3));
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 15px;
+
+  span{
+    display: flex;
+    gap: 30px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+
+  p {
+    font-size: var(--16px);
+    font-weight: bold;
+    color: var(--white);
+  }
+}

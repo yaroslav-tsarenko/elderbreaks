@@ -1,0 +1,85 @@
+.raffleItem {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  align-content: center;
+  align-items: center;
+  width: 264px;
+  text-decoration: none;
+  justify-content: center;
+  background: linear-gradient(to bottom, var(--bordo), var(--tertiary-color));
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 25px;
+  color: var(--white);
+}
+
+.raffleItemContent:first-child {
+  text-align: center;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  height: 50%;
+  padding: 25px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 25px 25px 0 0;
+  background: linear-gradient(to top, var(--bordo), var(--tertiary-color));
+
+  p {
+    font-weight: bold;
+  }
+}
+
+
+.raffleItemContent:last-child {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  flex-direction: column;
+  height: 50%;
+
+  span {
+    font-size: var(--14px);
+    font-weight: bold;
+    padding: 11px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
+    color: var(--secondary-color);
+    border-radius: 55px;
+    border: 1px solid var(--secondary-color);
+  }
+}
+
+.winnerBadge {
+  display: flex;
+  border-radius: 15px;
+  padding: 15px 21px;
+  background: var(--bordo-dark);
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  align-content: flex-start;
+  gap: 10px;
+
+  span {
+    border: none;
+    font-size: var(--14px);
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+}
+
+.winnerBadgeIcon{
+  position: absolute;
+  display: flex;
+  right: 0;
+  top: 0;
+}
