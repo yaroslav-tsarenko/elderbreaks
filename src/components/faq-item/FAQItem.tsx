@@ -16,6 +16,8 @@ const FAQItem: FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) => {
                 <Image
                     src={triangleIcon}
                     alt="Expand/Collapse"
+                    width={36}
+                    height={36}
                     className={`${styles.icon} ${isOpen ? styles.open : ""}`}
                 />
             </div>
