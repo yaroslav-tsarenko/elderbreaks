@@ -27,7 +27,6 @@ const VipRewardsSection = () => {
                     <Button variant="orange-non-centered" icon={FaEye}>Verify</Button>
                 </div>
             </div>
-
             <div className={styles.maxTickets}>
                 <hr />
                 <div className={styles.ticketsProgress}>
