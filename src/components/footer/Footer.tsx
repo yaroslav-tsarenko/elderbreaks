@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import FooterLogo from "../../assets/images/elderbreaks-logo.svg";
+import FooterLogo from "../../../public/assets/images/elderbreaks-logo.svg";
 import { FaFacebookF, FaViber, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {

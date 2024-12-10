@@ -1,5 +1,5 @@
-import raffle from "../assets/images/knife.svg"
-import avatar from "../assets/images/avatar.png"
+import raffle from "../../public/assets/images/knife.svg"
+import avatar from "../../public/assets/images/avatar.png"
 
 export const raffles = [
     {

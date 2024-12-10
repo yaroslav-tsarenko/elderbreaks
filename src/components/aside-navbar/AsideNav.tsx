@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Logo from "@/assets/images/elderbreaks-logo.svg";
+import Logo from "../../../public/assets/images/elderbreaks-logo.svg";
 import Image from "next/image";
 import styles from "./AsideNav.module.scss";
 import { links } from "@/utils/links";

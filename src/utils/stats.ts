@@ -1,6 +1,6 @@
-import guns from "@/assets/images/guns.svg";
-import cases from "@/assets/images/case.svg";
-import ticket from "@/assets/images/ticket.svg";
+import guns from "../../public/assets/images/guns.svg";
+import cases from "../../public/assets/images/case.svg";
+import ticket from "../../public/assets/images/ticket.svg";
 import {StatItemProps} from "@/types/statItem";
 
 
