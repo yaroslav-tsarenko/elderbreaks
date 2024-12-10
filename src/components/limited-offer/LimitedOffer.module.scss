@@ -1,0 +1,62 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: linear-gradient(to bottom, var(--secondary-color-dark-2), var(--quaternary-color));
+  border-radius: 25px;
+  padding: 20px 40px;
+  width: fit-content;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  border: 1px solid var(--secondary-color-dark);
+}
+
+.header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+    gap: 20px;
+  color: var(--gold);
+
+  span{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    font-size: var(--14px);
+    gap: 5px;
+  }
+}
+
+.dollar {
+  width: 14px;
+  height: 14px;
+  color: var(--secondary-color-dark-2);
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+    font-size: var(--20px);
+    color: var(--white);
+
+  p{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+
+    span{
+        color: var(--secondary-color);
+    }
+  }
+}

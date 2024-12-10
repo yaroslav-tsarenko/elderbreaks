@@ -1,0 +1,331 @@
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url("../../assets/images/points-shop-bg.png") no-repeat center;
+  background-size: cover;
+  padding: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-content: end;
+  justify-content: end;
+  padding: 30px;
+}
+
+
+.infoSecond {
+  display: flex;
+  gap: 20px;
+  max-width: 1368px;
+  margin: 0 auto;
+  text-align: left;
+  align-content: center;
+  padding: 27px 30px;
+  background: var(--secondary-color-dark-2);
+  border-radius: 25px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.infoDescription {
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+  gap: 10px;
+
+  h2 {
+    color: var(--gold);
+    font-size: var(--20px);
+    font-weight: normal;
+  }
+
+  p {
+    font-size: var(--16px);
+    color: var(--grey-light);
+  }
+}
+
+.infoSecondContainer {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  justify-items: center;
+
+  p {
+    max-width: 574px;
+    font-size: var(--20px);
+    color: var(--white);
+  }
+}
+
+.sectionDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1057px;
+  margin: 0 auto;
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 8rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: var(--20px);
+    color: var(--white);
+    text-transform: uppercase;
+  }
+}
+
+.metricPointsContent {
+  display: grid;
+  max-width: 1368px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 0 auto;
+}
+
+.limitedOfferContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1368px;
+  margin: 0 auto;
+}
+
+.searchInner {
+  max-width: 1368px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  background: linear-gradient(to bottom, var(--secondary-color-dark-2), var(--secondary-color-dark));
+  width: 100%;
+  border-radius: 25px;
+  border: 1px solid var(--secondary-color-dark);
+  padding: 30px 40px;
+  margin: 0 auto;
+}
+
+.searchbar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  color: var(--secondary-color);
+  background: var(--secondary-color-dark-2);
+  padding: 15px 0 15px 32px;
+  border-radius: 25px;
+  width: 466px;
+  border: 1px solid var(--secondary-color-dark);
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: var(--white);
+    font-size: var(--20px);
+  }
+}
+
+.filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  color: var(--secondary-color);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+  }
+}
+
+.metricPoints {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  p {
+    font-size: var(--20px);
+    color: var(--white);
+    text-align: center;
+  }
+}
+
+.metricPoints:nth-child(2),
+.metricPoints:nth-child(3) {
+
+  p {
+    font-size: var(--24px);
+    color: var(--gold);
+    font-weight: bold;
+  }
+}
+
+.metricImage {
+  margin: 0 0 10px 0;
+  display: flex;
+  object-fit: contain;
+}
+
+.searchOptions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+
+  select {
+    padding: 18px 24px;
+    border-radius: 25px;
+    height: 100%;
+    border: 1px solid var(--secondary-color-dark);
+    background: var(--secondary-color-dark-2);
+    color: var(--white);
+    font-size: var(--20px);
+    outline: none;
+  }
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  max-width: 1368px;
+  width: 100%;
+  margin: 0 auto;
+  background: url("../../assets/images/howl-bg.png") no-repeat center;
+  background-size: cover;
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 25px;
+  padding: 50px;
+}
+
+.bannerLeft {
+  width: 55%;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  flex-direction: column;
+
+
+  h2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+
+    span {
+      color: var(--white);
+    }
+  }
+
+  p {
+    font-size: var(--24px);
+    color: var(--white);
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 10px;
+    color: var(--white);
+
+    span {
+      color: var(--gold);
+    }
+  }
+}
+
+.bannerButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.howl {
+  display: flex;
+  width: 45%;
+  height: auto;
+}
+
+.howItWorksPoints {
+  display: grid;
+  padding: 40px 0;
+  max-width: 1368px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 90px;
+  width: 100%;
+}
+
+.howItWorksPoint {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-content: center;
+  justify-content: center;
+
+  align-items: center;
+  text-align: center;
+  max-width: 207px;
+
+  p:first-child {
+    font-size: var(--36px);
+    border-radius: 55px;
+    padding: 14px 27px;
+    font-weight: bold;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    color: var(--gold);
+    border: 2px dashed var(--gold);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  h3 {
+    font-size: var(--20px);
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  p:last-child {
+    font-size: var(--14px);
+    color: var(--grey-light);
+  }
+}
