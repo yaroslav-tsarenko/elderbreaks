@@ -11,11 +11,9 @@ const LeaderboardHistory = () => {
     useEffect(() => {
         setIsClient(true);
     }, []);
-
     if (!isClient) {
         return null; // or a loading spinner
     }
-
     return (
         <div className={styles.leaderboardHistory}>
             <Title h2="leaderboard" span="history"/>
