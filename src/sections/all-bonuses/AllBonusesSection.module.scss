@@ -1,0 +1,139 @@
+.allBonusesSection {
+  display: flex;
+  flex-direction: column;
+  background: url("../../assets/images/all-bonuses-bg.png") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  gap: 70px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-content: end;
+  justify-content: end;
+  padding: 30px;
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  gap: 20px;
+
+
+  h3 {
+    font-size: var(--64px);
+    text-transform: uppercase;
+    background: linear-gradient(to right, var(--gold), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    font-size: var(--110px);
+    background: linear-gradient(to right, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: var(--24px);
+  }
+}
+
+.boost {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 50px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  border: 1px solid var(--secondary-color-dark);
+  background: url("../../assets/images/promo-bg.png") no-repeat center;
+  background-size: cover;
+  border-radius: 25px;
+  width: 95%;
+
+  p {
+    font-size: var(--24px);
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 10rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3 {
+    font-size: var(--36px);
+    color: var(--white);
+    display: flex;
+    gap: 10px;
+    text-transform: uppercase;
+
+    span {
+      color: var(--gold);
+    }
+  }
+}
+
+.promoSection {
+  display: flex;
+  gap: 10px;
+}
+
+.promoCode {
+  padding: 20px 30px;
+  border-radius: 55px;
+  gap: 80px;
+  box-shadow: 0px 0px 10px 0px var(--secondary-color-dark);
+  background: var(--secondary-color-dark-2);
+  border: 1px solid var(--secondary-color-dark);
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+
+  span {
+    font-size: var(--24px);
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+}
+
+.copyIcon {
+  font-size: var(--24px);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.amazingRewards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.amazingRewardsContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1368px;
+}

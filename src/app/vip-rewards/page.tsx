@@ -1,9 +1,10 @@
 import React from 'react';
+import VipRewardsSection from "@/sections/vip-rewards/VipRewardsSection";
 
 const VIPRewards = () => {
     return (
         <>
-           vip rewards
+          <VipRewardsSection/>
         </>
     );
 };

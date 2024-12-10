@@ -1,0 +1,129 @@
+.calendarSection {
+  background: url("../../assets/images/advent-calendar.png") no-repeat center;
+  background-size: cover;
+
+}
+
+.sectionHeader {
+  display: flex;
+  align-content: end;
+  justify-content: end;
+  padding: 30px;
+}
+
+.calendarHeading {
+  text-align: center;
+
+  h2 {
+    background: linear-gradient(45deg, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: var(--64px);
+  }
+
+  h3 {
+    background: var(--gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--64px);
+  }
+
+  h4 {
+    background: linear-gradient(45deg, var(--secondary-color), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--36px);
+  }
+}
+
+.calendarMetrics {
+  display: flex;
+  max-width: 1368px;
+  margin: 0 auto;
+  gap: 70px;
+  width: fit-content;
+  padding: 40px;
+  align-items: flex-start;
+  border-radius: 15px;
+  background: var(--secondary-color-dark-transparent);
+}
+
+.calendarSectionBlock{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+    align-items: center;
+  align-content: center;
+  font-size: var(--24px);
+}
+
+.circleProgress {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  margin: 0 auto;
+}
+
+.progressCircle {
+  width: 100%;
+  height: 100%;
+}
+
+.circleBg {
+  fill: none;
+  stroke: var(--secondary-color-dark-2);
+  stroke-width: 3.8;
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.6); /* Gold box shadow */
+}
+
+.circleBorder {
+  fill: none;
+  stroke: var(--secondary-color-light);
+  stroke-width: 4;
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.6); /* Gold box shadow */
+}
+
+.circleInnerBorder {
+  fill: none;
+  stroke: var(--secondary-color-light);
+  stroke-width: 2.5;
+}
+
+.circle {
+  fill: none;
+  stroke: var(--secondary-color);
+  stroke-width: 3.8;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.circleText {
+  fill: var(--secondary-color);
+  font-size: 0.6em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.circleStreak {
+  display: flex;
+  height: 86px;
+  width: 86px;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: var(--24px);
+  border-radius: 55px;
+  border: 2px solid var(--secondary-color-light);
+  background: linear-gradient(to bottom, var(--tertiary-color-light), var(--quaternary-color));
+
+  span{
+    color: var(--secondary-color);
+  }
+}

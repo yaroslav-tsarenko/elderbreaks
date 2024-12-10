@@ -49,6 +49,56 @@
   }
 }
 
+.infoSecond {
+  display: flex;
+  gap: 20px;
+  max-width: 1368px;
+  margin: 0 auto;
+  text-align: left;
+  align-content: center;
+  padding: 27px 30px;
+  background: var(--secondary-color-dark-2);
+  border-radius: 25px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.freeEntry{
+  display: flex;
+  flex-direction: column;
+  max-width: 1057px;
+  margin: 0 auto;
+  text-align: left;
+  gap: 20px;
+
+  h3{
+    text-transform: uppercase;
+    font-size: var(--36px);
+    font-weight: bold;
+  }
+
+  p{
+    font-size: var(--20px);
+    color: var(--grey-light);
+  }
+}
+
+.infoSecondContainer {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  justify-items: center;
+
+  p{
+    max-width: 774px;
+    font-size: var(--24px);
+    font-weight: bold;
+    color: var(--white);
+  }
+}
+
 .info {
   display: flex;
   gap: 20px;
@@ -60,12 +110,29 @@
   background: var(--secondary-color-dark-2);
   border-radius: 25px;
   justify-content: center;
-    align-items: center;
+  align-items: center;
 
 
-  p{
+  p {
     max-width: 774px;
     font-size: var(--20px);
     color: var(--grey-light);
   }
+}
+
+.howItWorksPointsSecond {
+  display: grid;
+  max-width: 1368px;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 90px;
+}
+
+.howItWorksSecond {
+  padding: 90px 0;
+
+  background: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
