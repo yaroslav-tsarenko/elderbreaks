@@ -1,7 +1,7 @@
 .allBonusesSection {
   display: flex;
   flex-direction: column;
-  background: url("../../assets/images/all-bonuses-bg.png") no-repeat center;
+  background: url("../../../public/assets/images/all-bonuses-bg.png") no-repeat center;
   background-size: cover;
   width: 100%;
   gap: 70px;
@@ -55,7 +55,7 @@
   justify-items: center;
   text-align: center;
   border: 1px solid var(--secondary-color-dark);
-  background: url("../../assets/images/promo-bg.png") no-repeat center;
+  background: url("../../../public/assets/images/promo-bg.png") no-repeat center;
   background-size: cover;
   border-radius: 25px;
   width: 95%;

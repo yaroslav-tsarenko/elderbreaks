@@ -1,5 +1,5 @@
 .firstPlace {
-  background: url("../../assets/images/first-place-frame.svg") no-repeat center;
+  background: url("../../../public/assets/images/first-place-frame.svg") no-repeat center;
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
 }
 
 .secondPlace {
-  background: url("../../assets/images/second-place-frame.svg") no-repeat center;
+  background: url("../../../public/assets/images/second-place-frame.svg") no-repeat center;
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@
 }
 
 .defaultPlace {
-  background: url("../../assets/images/third-place-frame.svg") no-repeat center;
+  background: url("../../../public/assets/images/third-place-frame.svg") no-repeat center;
   background-size: contain;
   display: flex;
   flex-direction: column;

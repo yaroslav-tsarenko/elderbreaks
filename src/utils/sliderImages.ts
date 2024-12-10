@@ -1,8 +1,8 @@
-import clash from "@/assets/images/clash.svg"
-import packDraw from "@/assets/images/packdraw.svg"
-import gamDom from "@/assets/images/gamdom.svg"
-import gpoints from "@/assets/images/gpoints.svg"
-import rain from "@/assets/images/rain.svg"
+import clash from "../../public/assets/images/clash.svg"
+import packDraw from "../../public/assets/images/packdraw.svg"
+import gamDom from "../../public/assets/images/gamdom.svg"
+import gpoints from "../../public/assets/images/gpoints.svg"
+import rain from "../../public/assets/images/rain.svg"
 
 export const sliderImages = [
     {
