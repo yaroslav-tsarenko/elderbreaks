@@ -3,7 +3,6 @@
 import React, { FC } from 'react';
 import styles from "./HowItWorks.module.scss";
 import Title from "@/components/title/Title";
-import Image from "next/image";
 import InfoIcon from "../../../public/assets/images/info-icon.svg";
 import { HowItWorksProps } from "@/types/howItWorks";
 import Button from "@/components/button/Button";
@@ -33,7 +32,7 @@ const HowItWorks: FC<HowItWorksProps> = ({ style }) => {
                         </div>
                     </div>
                     <div className={styles.info}>
-                        <Image src={InfoIcon.src} alt="Info icon" width={75} height={75} />
+                        <img src={InfoIcon.src} alt="Info icon" width={75} height={75} />
                         <p>
                             Please note, to ensure a fair gaming environment, refrain from misusing the system. Each user will be manually checked for compliance with leaderboard rules and abuse.
                         </p>
@@ -66,7 +65,7 @@ const HowItWorks: FC<HowItWorksProps> = ({ style }) => {
                     </div>
                     <div className={styles.infoSecond}>
                         <div className={styles.infoSecondContainer}>
-                            <Image src={InfoIcon.src} alt="Info icon" width={75} height={75}/>
+                            <img src={InfoIcon.src} alt="Info icon" width={75} height={75}/>
                             <p>
                                 Please play responsibly - <br/> read the information before playing!
                             </p>

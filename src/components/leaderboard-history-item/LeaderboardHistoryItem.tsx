@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import styles from "./LeaderboardHistoryItem.module.scss";
 import {LeaderboardHistoryItemProps} from "@/types/leaderboardHistoryItem";
 import { FaEye } from 'react-icons/fa';
-import Image from "next/image";
 import Button from "@/components/button/Button";
 
 const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
@@ -21,7 +20,7 @@ const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
                 <h3>leaderboard</h3><h3>{leaderboard}</h3>
             </div>
             <div className={styles.nickname}>
-                <Image src={avatar.src} alt={"Avatar"} width={50} height={50}/>
+                <img src={avatar.src} alt={"Avatar"} width={50} height={50}/>
                 <p>{nickname}</p>
             </div>
             <div className={styles.dateInfo}>
