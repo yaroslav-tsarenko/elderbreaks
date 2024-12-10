@@ -3,7 +3,7 @@
 import React, { FC } from 'react';
 import styles from "./HowItWorks.module.scss";
 import Title from "@/components/title/Title";
-import InfoIcon from "../../../public/assets/imgs/info-icon.svg";
+import InfoIcon from "../../../public/assets/images/info-icon.svg";
 import { HowItWorksProps } from "@/types/howItWorks";
 import Button from "@/components/button/Button";
 import {FaEye} from "react-icons/fa";
