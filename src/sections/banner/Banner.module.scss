@@ -20,17 +20,17 @@
   border-radius: 25px;
 
   &:first-child {
-    background: url("../../../public/assets/images/points-store-bg.png") no-repeat center;
+    background: url("../../../public/points-store-bg.png") no-repeat center;
     background-size: cover;
   }
 
   &:nth-child(2) {
-    background: url("../../../public/assets/images/raffles-bg.png") no-repeat center;
+    background: url("../../../public/raffles-bg.png") no-repeat center;
     background-size: cover;
   }
 
   &:last-child {
-    background: url("../../../public/assets/images/leaderboards-bg.png") no-repeat center;
+    background: url("../../../public/leaderboards-bg.png") no-repeat center;
     background-size: cover;
   }
 

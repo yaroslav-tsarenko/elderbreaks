@@ -1,7 +1,7 @@
 import { PlayerFrameProps } from "@/types/playerFrame";
-import player1 from "../../public/assets/images/player1.png"
-import player2 from "../../public/assets/images/player2.png"
-import player3 from "../../public/assets/images/player3.png"
+import player1 from "../../public/player1.png"
+import player2 from "../../public/player2.png"
+import player3 from "../../public/player3.png"
 
 export const players: PlayerFrameProps[] = [
     {

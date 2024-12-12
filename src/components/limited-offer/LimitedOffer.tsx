@@ -2,9 +2,9 @@ import React from 'react';
 import Image from "next/image";
 import Button from "@/components/button/Button";
 import styles from "./LimitedOffer.module.scss";
-import fireIcon from "../../../public/assets/images/fire-icon.svg";
-import saveIcon from "../../../public/assets/images/save-icon.svg";
-import watches from "../../../public/assets/images/watches.png";
+import fireIcon from "../../../public/fire-icon-png.png";
+import saveIcon from "../../../public/save-icon-png.png";
+import watches from "../../../public/watches.png";
 import {PiCurrencyDollarSimpleFill} from "react-icons/pi";
 
 

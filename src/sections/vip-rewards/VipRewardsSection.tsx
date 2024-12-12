@@ -3,10 +3,10 @@ import React from 'react';
 import styles from "./VipRewardsSection.module.scss"
 import Button from "@/components/button/Button";
 import { FaSignInAlt, FaEye, FaBox } from "react-icons/fa";
-import roobet from "../../../public/assets/images/roobet.svg";
-import wagerIcon from "../../../public/assets/images/wager-icon.svg";
+import roobet from "../../../public/roobet-png.png";
+import wagerIcon from "../../../public/wager-icon-png.png";
 import Image from "next/image";
-import progressbar from "../../../public/assets/images/progressbar.svg";
+import progressbar from "../../../public/progress-bar-png.png";
 import { wagers } from "@/utils/wagers";
 
 const VipRewardsSection = () => {

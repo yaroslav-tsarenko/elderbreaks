@@ -1,6 +1,6 @@
-import guns from "../../public/assets/images/guns-png.png";
-import cases from "../../public/assets/images/case-png.png";
-import ticket from "../../public/assets/images/tickets-png.png";
+import guns from "../../public/guns-png.png";
+import cases from "../../public/case-png.png";
+import ticket from "../../public/tickets-png.png";
 import {StatItemProps} from "@/types/statItem";
 
 
