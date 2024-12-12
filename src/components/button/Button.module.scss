@@ -23,6 +23,14 @@
     &:hover {
       background-color: var(--tertiary-color);
     }
+
+    @media screen and (max-width: 1180px) {
+      &.outlined {
+        padding: 7px 30px;
+        height: 100%;
+        font-size: var(--14px);
+      }
+    }
   }
 
   &.orange-outlined {

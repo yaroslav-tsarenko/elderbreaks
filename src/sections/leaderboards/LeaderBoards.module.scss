@@ -88,3 +88,48 @@
   gap: 70px;
   margin: 0 auto;
 }
+
+.slider {
+  display: none;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  z-index: 9999;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+    justify-items: center;
+}
+
+.slide {
+  min-width: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1028px) {
+  .players {
+    display: none;
+  }
+
+  .slider {
+    display: flex;
+  }
+
+  .outlinedContainer{
+    height: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .leaderBoardsContent {
+    flex-direction: column;
+    padding: 20px;
+    align-content: center;
+    text-align: center;
+  }
+}
+

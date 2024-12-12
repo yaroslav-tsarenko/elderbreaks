@@ -27,3 +27,10 @@
   flex-direction: column;
   overflow-y: auto;
 }
+
+@media screen and (max-width: 1180px) {
+  .aside {
+    display: none;
+  }
+
+}
