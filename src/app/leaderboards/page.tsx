@@ -10,7 +10,7 @@ const Leaderboards = () => {
     return (
         <>
             <ClashCasino/>
-            <HowItWorks/>
+            <HowItWorks style="1"/>
             <LeaderBoards/>
             <Leaders/>
             <LeaderboardHistory/>

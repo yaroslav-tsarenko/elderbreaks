@@ -5,7 +5,7 @@ import styles from "./RaffleItem.module.scss";
 import { RaffleItemProps } from "@/types/raffleItem";
 import Image from "next/image";
 import Button from "@/components/button/Button";
-import winnerBadge from "../../../public/assets/images/winner-badge.svg"
+import winnerBadge from "../../../public/winner-badge-png.png"
 import Link from "next/link";
 
 const RaffleItem: FC<RaffleItemProps> = ({ data, title, lot, type, winnerName, winnerAvatar, image }) => {
@@ -22,7 +22,7 @@ const RaffleItem: FC<RaffleItemProps> = ({ data, title, lot, type, winnerName, w
                     <div className={styles.winnerBadge}>
                         {winnerAvatar ? <Image src={winnerAvatar} alt={"Winner Avatar"} width={50} height={50} /> : null}
                         <p>{winnerName}</p>
-                        <Image src={winnerBadge} className={styles.winnerBadgeIcon} alt={"Winner Badge"} width={50} height={50} />
+                        <Image src={winnerBadge} className={styles.winnerBadgeIcon} alt={"Winner Badge"} width={70} height={18}  />
                     </div>
                 ) : (
                     <Button variant="orange-small">join</Button>

@@ -10,7 +10,7 @@ const FullWidthSlider = () => {
             <button><FaArrowLeft/></button>
             <div className={styles.sliderContent}>
                 {sliderImages.map(image => (
-                    <Image key={image.id} src={image.src} alt={image.alt} className={styles.sliderImage} />
+                    <Image key={image.id} src={image.src} alt={image.alt} className={styles.sliderImage} width="120" height="40" />
                 ))}
             </div>
             <button><FaArrowRight/></button>

@@ -1,4 +1,4 @@
-import avatar from "../../public/assets/images/avatar.png"
+import avatar from "../../public/avatar.png"
 import {LeaderboardHistoryItemProps} from "@/types/leaderboardHistoryItem";
 
 export const leaderboardHistoryItems: LeaderboardHistoryItemProps[] = [

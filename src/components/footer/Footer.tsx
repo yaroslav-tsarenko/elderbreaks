@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import FooterLogo from "../../../public/assets/images/elder-logo.png";
+import FooterLogo from "../../../public/elder-logo.png";
 import { FaFacebookF, FaViber, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
             <div className={styles.footerInner}>
                 <div className={styles.footerUpper}>
                     <div className={styles.footerLogo}>
-                        <Image src={FooterLogo.src} alt="Footer logo" width="307" height="80"/>
+                        <Image src={FooterLogo.src} alt="Footer logo" width="307" height="64"/>
                         <p>Copyright@2024 ElderBreaks</p>
                     </div>
                     <div className={styles.footerNav}>

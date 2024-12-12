@@ -1,9 +1,9 @@
 import { HighlightedVideoProps } from "@/types/highlightedVideo";
-import coverImage1 from "../../public/assets/images/videoPreview1.png";
-import coverImage2 from "../../public/assets/images/videoPreview2.png";
-import coverImage3 from "../../public/assets/images/videoPreview3.png";
-import coverImage4 from "../../public/assets/images/videoPreview4.png";
-import avatar from "../../public/assets/images/avatar.png";
+import coverImage1 from "../../public/videoPreview1.png";
+import coverImage2 from "../../public/videoPreview2.png";
+import coverImage3 from "../../public/videoPreview3.png";
+import coverImage4 from "../../public/videoPreview4.png";
+import avatar from "../../public/avatar.png";
 export const highlightedVideos: HighlightedVideoProps[] = [
 
     {

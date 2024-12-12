@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./BonusCard.module.scss";
 import Image from "next/image";
-import gamdom from "../../../public/assets/images/gamdom.svg"
+import gamdom from "../../../public/gamdom-32-png.png"
 import Button from "@/components/button/Button";
 import {FaCrown, FaGamepad, FaGift, FaCopy} from "react-icons/fa";
 

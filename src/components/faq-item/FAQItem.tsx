@@ -3,7 +3,7 @@
 import React, { FC } from "react";
 import styles from "./FAQItem.module.scss";
 import { FAQItemProps } from "@/types/faq";
-import triangleIcon from "../../../public/assets/images/faq-arrow-png.png";
+import triangleIcon from "../../../public/faq-arrow-png.png";
 import Image from "next/image";
 
 const FAQItem: FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) => {
