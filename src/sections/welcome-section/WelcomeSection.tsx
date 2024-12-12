@@ -4,14 +4,10 @@ import Button from "@/components/button/Button";
 import GunImage from "../../../public/gun.png";
 import GiftImage from "../../../public/gift.png";
 import Image from "next/image";
-import { FaSignInAlt } from 'react-icons/fa';
 
 const WelcomeSection = () => {
     return (
         <section className={styles.welcomeSection}>
-            <div className={styles.sectionHeader}>
-                <Button variant="outlined" icon={FaSignInAlt}>Login</Button>
-            </div>
             <div className={styles.sectionContent}>
                 <Image src={GunImage} className={styles.gunImage} alt="Gun Image" width={402} height={351}/>
                 <h3>welcome</h3>

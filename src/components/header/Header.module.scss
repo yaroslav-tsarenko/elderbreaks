@@ -1,0 +1,101 @@
+.header {
+  flex-direction: column;
+  background: #060101;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+  width: 100%;
+  transition: top 0.3s ease-in-out, position 0.3s ease-in-out;
+  position: sticky;
+  top: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.header.fixed {
+  position: sticky; /* Keep sticky during menu open */
+  top: 0;
+}
+
+.headerLogo {
+  margin: 15px 0 10px 0;
+}
+
+.header.sticky {
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.headerButtons {
+  display: flex;
+  width: 100%;
+  padding: 15px 20px;
+  justify-content: space-between;
+}
+
+.buttonBurger {
+  display: flex;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+  width: 34px;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 9px 7px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: var(--secondary-color-dark);
+  }
+}
+
+.menu {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  background: #060101;
+  transition: height 0.5s ease-in-out;
+  height: 0; /* Default to hidden */
+  z-index: 9999;
+}
+
+.linkIcon{
+  color: var(--secondary-color);
+}
+
+.menuLink {
+  color: var(--white);
+  font-size: var(--20px);
+  text-decoration: none;
+  display: flex;
+  padding: 20px 30px;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 10px;
+
+  &:hover {
+    background: var(--secondary-color-dark);
+    color: var(--secondary-color);
+  }
+}
+
+.slideDown {
+  height: 100vh; /* Fully expand the menu */
+}
+
+.slideUp {
+  height: 0; /* Collapse the menu */
+}
+
+@media screen and (max-width: 1180px) {
+  .header {
+    display: flex;
+  }
+}
