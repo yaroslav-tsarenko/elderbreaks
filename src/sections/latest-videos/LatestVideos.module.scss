@@ -36,4 +36,10 @@
     padding: 15px;
   }
 
+  @media screen and (max-width: 1028px){
+    .latestVideosContent{
+      display: none;
+    }
+  }
+
 }
