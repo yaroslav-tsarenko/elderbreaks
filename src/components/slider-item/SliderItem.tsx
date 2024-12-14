@@ -1,4 +1,3 @@
-// SliderItem.tsx
 import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import styles from './SliderItem.module.scss';
@@ -25,19 +24,21 @@ const SliderItem: React.FC<SliderItemProps> = ({ slidesToShow, children }) => {
     }, [slidesToShow]);
 
     const handleDotClick = (index: number) => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
         setCurrentIndex(index);
+        setTimeout(() => setIsTransitioning(false), 300);
     };
 
     const handleSwipe = (deltaX: number) => {
         if (isTransitioning) return;
         setIsTransitioning(true);
 
-        setTimeout(() => {
-            setIsTransitioning(false);
-        }, 300);
-
-        const newIndex = (currentIndex - Math.sign(deltaX) + React.Children.count(children)) % React.Children.count(children);
+        const totalSlides = React.Children.count(children);
+        const newIndex = (currentIndex - Math.sign(deltaX) + totalSlides) % totalSlides;
         setCurrentIndex(newIndex);
+
+        setTimeout(() => setIsTransitioning(false), 300);
     };
 
     return (
@@ -58,7 +59,7 @@ const SliderItem: React.FC<SliderItemProps> = ({ slidesToShow, children }) => {
                 style={{
                     transform: `translateX(-${currentIndex * slideWidth}px)`,
                     width: `${React.Children.count(children) * slideWidth}px`,
-                    transition: isTransitioning ? 'transform 0.3s ease-in-out' : 'none',
+                    transition: 'transform 0.3s ease-in-out',
                 }}
             >
                 {React.Children.map(children, (child, index) => (

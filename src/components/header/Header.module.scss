@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   justify-items: center;
-  gap: 10px;
+  gap: 1px;
   width: 100%;
   transition: top 0.3s ease-in-out, position 0.3s ease-in-out;
   position: sticky;
@@ -20,7 +20,7 @@
 }
 
 .headerLogo {
-  margin: 15px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 .header.sticky {
@@ -32,7 +32,7 @@
 .headerButtons {
   display: flex;
   width: 100%;
-  padding: 15px 20px;
+  padding: 10px 20px;
   justify-content: space-between;
 }
 

@@ -20,6 +20,7 @@ const SwiperSlide = dynamic(
 import "swiper/swiper-bundle.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Title from "@/components/title/Title";
+import SliderItem from "@/components/slider-item/SliderItem";
 
 const LatestVideos: FC<LatestVideoProps> = ({ type }) => {
     return (
@@ -48,19 +49,34 @@ const LatestVideos: FC<LatestVideoProps> = ({ type }) => {
                     ))}
                 </Swiper>
             ) : (
-                <div className={styles.latestVideosContent}>
-                    {highlightedVideos.map((video, index) => (
-                        <HighlightedVideo
-                            key={index}
-                            nickname={video.nickname}
-                            description={video.description}
-                            videoUrl={video.videoUrl}
-                            hashTags={video.hashTags}
-                            coverImage={video.coverImage}
-                            avatar={video.avatar}
-                        />
-                    ))}
-                </div>
+                <>
+                    <div className={styles.latestVideosContent}>
+                        {highlightedVideos.map((video, index) => (
+                            <HighlightedVideo
+                                key={index}
+                                nickname={video.nickname}
+                                description={video.description}
+                                videoUrl={video.videoUrl}
+                                hashTags={video.hashTags}
+                                coverImage={video.coverImage}
+                                avatar={video.avatar}
+                            />
+                        ))}
+                    </div>
+                    <SliderItem slidesToShow={2}>
+                        {highlightedVideos.map((video, index) => (
+                            <HighlightedVideo
+                                key={index}
+                                nickname={video.nickname}
+                                description={video.description}
+                                videoUrl={video.videoUrl}
+                                hashTags={video.hashTags}
+                                coverImage={video.coverImage}
+                                avatar={video.avatar}
+                            />
+                        ))}
+                    </SliderItem>
+                </>
             )}
             {type ? null : (
                 <Button icon={FaYoutube} variant="orange">

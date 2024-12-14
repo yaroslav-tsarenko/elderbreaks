@@ -19,3 +19,27 @@
     }
   }
 }
+
+.quickLinksContent{
+  padding: 0 20px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1368px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1028px) {
+  .quickLinksContent{
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .quickLinksContent{
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
