@@ -15,6 +15,10 @@
     font-size: var(--24px);
     font-weight: bold;
   }
+
+  @media screen and (max-width: 1028px) {
+    padding: 20px 10px;
+  }
 }
 
 .leaderboard {

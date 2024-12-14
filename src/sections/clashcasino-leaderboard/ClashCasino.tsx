@@ -2,16 +2,11 @@
 
 import React from 'react';
 import styles from "./ClashCasino.module.scss";
-import Button from "@/components/button/Button";
-import {FaSignInAlt} from "react-icons/fa";
 import FullWidthSlider from "@/components/full-width-slider/FullWidthSlider";
 
 const ClashCasino = () => {
     return (
         <section className={styles.clashcasino}>
-            <div className={styles.sectionHeader}>
-                <Button variant="outlined" icon={FaSignInAlt}>Login</Button>
-            </div>
             <div className={styles.clashcasinoContent}>
                 <h1>
                     clashcasino

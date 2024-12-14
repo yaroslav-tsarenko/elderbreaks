@@ -11,5 +11,10 @@
   gap: 40px;
   max-width: 1368px;
   margin: 0 auto;
+}
 
+@media screen and (max-width: 1028px) {
+  .liveDropsContent{
+    display: none;
+  }
 }

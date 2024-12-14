@@ -13,6 +13,11 @@
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
   gap: 90px;
+
+  @media screen and (max-width: 1028px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+  }
 }
 
 .howItWorksPoint {
@@ -48,6 +53,11 @@
     font-size: var(--14px);
     color: var(--grey-light);
   }
+
+  @media screen and (max-width: 768px) {
+   max-width: 100%;
+    padding: 0 10px;
+  }
 }
 
 .infoSecond {
@@ -65,7 +75,7 @@
   width: 100%;
 }
 
-.freeEntry{
+.freeEntry {
   display: flex;
   flex-direction: column;
   max-width: 1057px;
@@ -73,13 +83,13 @@
   text-align: left;
   gap: 20px;
 
-  h3{
+  h3 {
     text-transform: uppercase;
     font-size: var(--36px);
     font-weight: bold;
   }
 
-  p{
+  p {
     font-size: var(--20px);
     color: var(--grey-light);
   }
@@ -92,7 +102,7 @@
   align-items: center;
   justify-items: center;
 
-  p{
+  p {
     max-width: 774px;
     font-size: var(--24px);
     font-weight: bold;
@@ -105,6 +115,7 @@
   gap: 20px;
   max-width: 1368px;
   margin: 0 auto;
+  width: 100%;
   text-align: left;
   align-content: center;
   padding: 27px 30px;
@@ -118,7 +129,20 @@
     max-width: 774px;
     font-size: var(--20px);
     color: var(--grey-light);
+    @media screen and (max-width: 768px) {
+      font-size: var(--14px);
+    }
   }
+
+  @media screen and (max-width: 768px) {
+   width: 95%;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
 }
 
 .howItWorksPointsSecond {

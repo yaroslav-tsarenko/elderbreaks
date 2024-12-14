@@ -12,3 +12,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
+
+@media screen and (max-width: 1028px) {
+  .leaderboardHistoryContent{
+    display: none;
+  }
+  .leaderboardHistory{
+  }
+}

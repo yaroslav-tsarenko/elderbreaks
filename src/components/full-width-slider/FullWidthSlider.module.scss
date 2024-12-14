@@ -1,45 +1,69 @@
 .slider {
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 40px 20px;
   background: var(--secondary-color-dark-transparent);
+  position: relative;
+  overflow: hidden;
 
-  button {
+  .arrowButton {
     display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--white);
     font-size: var(--32px);
-    border-radius: 55px;
-    padding: 5px;
+    border-radius: 50%;
+    padding: 10px;
     border: 3px solid var(--white);
     background: transparent;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 
     &:hover {
-      border: 3px solid var(--secondary-color);
+      border-color: var(--secondary-color);
       color: var(--secondary-color);
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--16px);
+      border: 2px solid var(--white);
     }
   }
 }
 
 .sliderContent {
-  display: flex;
   width: 100%;
-  justify-content: space-around;
-  align-content: center;
-  justify-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.sliderItem {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  justify-items: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 130px;
 }
 
 .sliderImage {
-  display: flex;
   object-fit: contain;
   cursor: pointer;
+  margin: 0 50px 0 0;
   border: 1px solid transparent;
-  transition: 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 
   &:hover {
-    scale: 1.1;
+    transform: scale(1.1);
   }
 }

@@ -10,6 +10,10 @@
   align-items: center;
   padding: 20px;
 
+  @media screen and (max-width: 768px) {
+    padding: 20px 5px;
+  }
+
   h3 {
     display: flex;
     gap: 10px;
@@ -20,6 +24,14 @@
     span {
       color: var(--white);
     }
+    @media screen and (max-width: 768px) {
+      font-size: var(--20px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    gap: 20px;
+    width: 100%;
   }
 }
 
@@ -32,10 +44,17 @@
   p:first-child {
     color: var(--secondary-color);
     font-size: var(--20px);
+    @media screen and (max-width: 768px) {
+      font-size: var(--12px);
+    }
   }
 
   p:last-child {
     color: var(--grey-light);
     font-size: var(--20px);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--12px);
+    }
   }
 }
