@@ -15,3 +15,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 150px;
 }
+
+@media screen and (max-width: 1028px) {
+  .statsContent {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

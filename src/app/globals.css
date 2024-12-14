@@ -11,6 +11,7 @@
     --tertiary-color-light: #0d0101;
     --bordo: #2d0808;
     --bordo-dark: #130a09;
+    --linear-gradient: linear-gradient(45deg, var(--secondary-color-dark-2), var(--tertiary-color));
     --gold: #f09b00;
     --gold-light: #ffac23;
     --quaternary-color: #2a0909;
@@ -20,6 +21,7 @@
     --grey: #987D7A;
     --grey-light: #D6B7B4;
     --white: #fff;
+    --12px: 0.75rem;
     --14px: 0.875rem;
     --16px: 1rem;
     --18px: 1.125rem;
@@ -33,6 +35,7 @@
 
 * {
     margin: 0;
+   /* outline: 2px solid white;*/
     padding: 0;
     box-sizing: border-box;
     font-family: "Anek Latin", sans-serif;

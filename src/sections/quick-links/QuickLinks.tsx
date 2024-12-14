@@ -3,12 +3,12 @@ import styles from './QuickLinks.module.scss';
 import Grid from "@/components/grid/Grid";
 import { quickLinks } from "@/utils/quickLinks";
 import QuickLinkItem from "@/components/quick-link-item/QuickLinkItem";
+import Title from "@/components/title/Title";
 
 const QuickLinks = () => {
     return (
         <div className={styles.quickLinks}>
-            <h2>Quick<span>Links</span></h2>
-            <hr/>
+            <Title h2="Quick" span="Links" />
             <Grid columns={"3, 2fr"}>
                 {quickLinks.map((link, index) => (
                     <QuickLinkItem

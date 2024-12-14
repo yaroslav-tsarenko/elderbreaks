@@ -19,14 +19,12 @@ const SwiperSlide = dynamic(
 
 import "swiper/swiper-bundle.css";
 import { Pagination, Navigation } from "swiper/modules";
+import Title from "@/components/title/Title";
 
 const LatestVideos: FC<LatestVideoProps> = ({ type }) => {
     return (
         <div className={styles.latestVideos}>
-            <h2>
-                {type ? "highlights" : "latest"}<span>videos</span>
-            </h2>
-            <hr />
+            <Title h2={type ? "highlights" : "latest"} span="videos" />
             {type === "Highlights" ? (
                 <Swiper
                     spaceBetween={50}

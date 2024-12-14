@@ -20,3 +20,16 @@
     }
   }
 }
+
+@media screen and (max-width: 1028px) {
+  .title {
+    gap: 20px !important;
+    margin: 15px 0 !important;
+
+    h2 {
+      gap: 10px !important;
+      font-size: var(--36px) !important;
+    }
+  }
+
+}

@@ -33,6 +33,11 @@
 
   h2{
     font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+      text-align: left;
+      font-size: var(--16px);
+    }
   }
 }
 
@@ -58,4 +63,10 @@
 .faqAnswer.open {
   max-height: 500px; /* Adjust as needed */
   transition: max-height 0.5s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .faqItem{
+    padding: 15px 20px;
+  }
 }
