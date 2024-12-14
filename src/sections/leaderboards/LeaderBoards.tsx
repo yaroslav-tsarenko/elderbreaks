@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./LeaderBoards.module.scss";
 import { players } from "@/utils/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
@@ -11,26 +11,6 @@ import SliderItem from "@/components/slider-item/SliderItem";
 
 const LeaderBoards = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const sliderRef = useRef<HTMLDivElement>(null);
-    const touchStartXRef = useRef<number | null>(null);
-
-    const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartXRef.current = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        if (touchStartXRef.current === null) return;
-        const touchEndX = e.touches[0].clientX;
-        const touchDiff = touchStartXRef.current - touchEndX;
-
-        if (touchDiff > 50) {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % players.length);
-            touchStartXRef.current = null;
-        } else if (touchDiff < -50) {
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + players.length) % players.length);
-            touchStartXRef.current = null;
-        }
-    };
 
     useEffect(() => {
         const interval = setInterval(() => {

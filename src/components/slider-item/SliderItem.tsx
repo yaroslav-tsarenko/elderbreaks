@@ -1,50 +1,84 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { SliderItemProps } from '@/types/slider';
+// SliderItem.tsx
+import React, { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './SliderItem.module.scss';
+import { SliderItemProps } from '@/types/slider';
 
-const SliderItem: React.FC<SliderItemProps> = ({ children, slidesToShow }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+const SliderItem: React.FC<SliderItemProps> = ({ slidesToShow, children }) => {
     const sliderRef = useRef<HTMLDivElement>(null);
-    const touchStartXRef = useRef<number | null>(null);
-
-    const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartXRef.current = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        if (touchStartXRef.current === null) return;
-        const touchEndX = e.touches[0].clientX;
-        const touchDiff = touchStartXRef.current - touchEndX;
-
-        if (touchDiff > 50) {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % React.Children.count(children));
-            touchStartXRef.current = null;
-        } else if (touchDiff < -50) {
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + React.Children.count(children)) % React.Children.count(children));
-            touchStartXRef.current = null;
-        }
-    };
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [slideWidth, setSlideWidth] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % React.Children.count(children));
-        }, 3000);
+        const updateSlideWidth = () => {
+            if (sliderRef.current) {
+                const width = sliderRef.current.offsetWidth;
+                setSlideWidth(width / slidesToShow);
+            }
+        };
+        updateSlideWidth();
+        window.addEventListener('resize', updateSlideWidth);
+        return () => {
+            window.removeEventListener('resize', updateSlideWidth);
+        };
+    }, [slidesToShow]);
 
-        return () => clearInterval(interval);
-    }, [children]);
+    const handleDotClick = (index: number) => {
+        setCurrentIndex(index);
+    };
+
+    const handleSwipe = (deltaX: number) => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+
+        setTimeout(() => {
+            setIsTransitioning(false);
+        }, 300);
+
+        const newIndex = (currentIndex - Math.sign(deltaX) + React.Children.count(children)) % React.Children.count(children);
+        setCurrentIndex(newIndex);
+    };
 
     return (
-        <div className={styles.slider} ref={sliderRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
-            <div className={styles.sliderTrack} style={{ transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)` }}>
+        <div
+            className={styles.sliderContainer}
+            ref={sliderRef}
+            onTouchStart={(e) => {
+                const touchStartX = e.touches[0].clientX;
+                e.currentTarget.ontouchmove = (moveEvent) => {
+                    const deltaX = touchStartX - moveEvent.touches[0].clientX;
+                    handleSwipe(deltaX);
+                    e.currentTarget.ontouchmove = null;
+                };
+            }}
+        >
+            <div
+                className={styles.slider}
+                style={{
+                    transform: `translateX(-${currentIndex * slideWidth}px)`,
+                    width: `${React.Children.count(children) * slideWidth}px`,
+                    transition: isTransitioning ? 'transform 0.3s ease-in-out' : 'none',
+                }}
+            >
                 {React.Children.map(children, (child, index) => (
-                    <div key={index} className={styles.slide} style={{ width: `${100 / slidesToShow}%` }}>
+                    <div
+                        key={index}
+                        className={styles.slide}
+                        style={{ width: `${slideWidth}px` }}
+                    >
                         {child}
                     </div>
                 ))}
             </div>
             <div className={styles.pagination}>
-                {React.Children.map(children, (_, index) => (
-                    <div key={index} className={`${styles.dot} ${index === currentIndex ? styles.active : ''}`} />
+                {Array.from({ length: React.Children.count(children) }).map((_, index) => (
+                    <div
+                        key={index}
+                        className={`${styles.dot} ${currentIndex === index ? styles.activeDot : ''}`}
+                        onClick={() => handleDotClick(index)}
+                        style={currentIndex === index ? { animation: 'merge 0.3s ease-in-out' } : {}}
+                    />
                 ))}
             </div>
         </div>

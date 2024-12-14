@@ -106,3 +106,24 @@
     scale: 1.2;
   }
 }
+
+@media screen and (max-width: 1028px) {
+  .footerUpper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footerUpper{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 30px;
+  }
+}

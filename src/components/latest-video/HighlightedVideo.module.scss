@@ -2,7 +2,8 @@
   max-height: 366px;
   display: flex;
   flex-direction: column;
-  width: 264px;
+  max-width: 264px;
+  width: 100%;
   height: 100%;
   text-decoration: none;
 }
@@ -29,6 +30,11 @@
   gap: 10px;
   color: var(--gold);
   font-weight: bold;
+
+  @media screen and (max-width: 768px) {
+    height: 153px;
+    width: 100%;
+  }
 }
 
 .videoContent:last-child {
@@ -42,14 +48,32 @@
   border-radius: 0 0 25px 25px;
   gap: 10px;
 
+  @media screen and (max-width: 768px) {
+    height: fit-content;
+  }
+
   p:first-child {
     font-size: var(--20px);
     text-transform: lowercase;
     color: var(--white);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--14px);
+    }
   }
 
   p:last-child {
     font-size: var(--14px);
     color: var(--secondary-color);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--12px);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video{
+    max-height: 230px;
   }
 }

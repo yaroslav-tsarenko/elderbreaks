@@ -9,7 +9,6 @@ const Raffles = () => {
             <RafflesSection/>
             <ActiveRaffles h2="Active" span="Ruffles"/>
             <EndedRaffles/>
-
         </>
     );
 };
