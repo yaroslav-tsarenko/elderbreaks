@@ -5,6 +5,31 @@
   gap: 5px;
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
+}
+
+.leaderWrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--secondary-color-dark);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+  }
 }
 
 .tableLore {
@@ -27,8 +52,23 @@
   }
 }
 
-.leadersContent{
+.leadersContent {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+@media screen and (max-width: 1028px) {
+
+  .leaders {
+    width: 1368px;
+  }
+
+  .leaderWrapper {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    overflow: auto;
+  }
+
 }

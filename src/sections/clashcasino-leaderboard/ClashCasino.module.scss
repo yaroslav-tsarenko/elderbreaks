@@ -61,7 +61,7 @@
   }
 }
 
-.code{
+.code {
   display: flex;
   padding: 20px 160px;
   border-radius: 15px;
@@ -69,7 +69,43 @@
   text-align: center;
   margin: 0 auto;
   align-content: center;
-    background: var(--secondary-color-dark-2);
-    color: var(--white);
+  background: var(--secondary-color-dark-2);
+  color: var(--white);
   border: 1px solid var(--secondary-color-dark);
+}
+
+@media screen and (max-width: 1080px) {
+
+  .clashcasino{
+    padding: 40px 0 80px 0;
+  }
+
+  .clashcasinoContent {
+    gap: 20px;
+    text-align: center;
+    padding: 0 10px;
+
+    .code {
+      max-width: 400px;
+      width: 100%;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: var(--24px);
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: var(--64px);
+    }
+
+    p {
+      font-size: var(--16px);
+    }
+  }
 }
