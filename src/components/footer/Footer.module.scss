@@ -33,9 +33,14 @@
   max-width: 820px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 20px;
 
   p {
     color: var(--grey);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--12px);
+    }
   }
 }
 

@@ -15,7 +15,7 @@ const FAQ: FC = () => {
 
     return (
         <div className={styles.faq}>
-         <Title h2="frequently asked" span="questions"/>
+         <Title h2="frequently asked" span="questions" column={true}/>
             <div className={styles.faqContainer}>
                 {faqs.map((faq, index) => (
                     <FAQItem

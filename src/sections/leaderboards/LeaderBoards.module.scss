@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  padding: 0 20px;
 }
 
 .leaderBoardsContent {
@@ -120,7 +121,14 @@
   }
 
   .outlinedContainer{
-    height: 95%;
+    display: none;
+  }
+
+  .leaderBoardsPlayers{
+    border: 2px solid var(--secondary-color-dark);
+    background: linear-gradient(to bottom, #2d0808, #100101);
+    border-radius: 35px;
+    padding: 20px 18px;
   }
 }
 

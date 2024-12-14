@@ -30,7 +30,7 @@
   h1 {
     font-size: 8rem;
     text-transform: uppercase;
-    background: linear-gradient(45deg, var(--secondary-color), var(--secondary-color-light));
+    background: linear-gradient(45deg, var(--secondary-color), var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3);
@@ -87,9 +87,26 @@
   }
 }
 
-@media screen and (max-width: 768px){
-  .gunImage{
+@media screen and (max-width: 768px) {
+  .gunImage {
     width: 116px;
     height: auto;
+  }
+
+  .giftImage {
+    width: 134px;
+    height: auto;
+  }
+
+  .sectionContent {
+    h1, h2, h3 {
+      font-size: var(--32px);
+    }
+
+    p {
+      font-size: var(--16px);
+      padding: 0 20px;
+      font-weight: 500;
+    }
   }
 }

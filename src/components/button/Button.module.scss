@@ -95,6 +95,14 @@
     &:hover {
       background: var(--secondary-color-light);
     }
+
+    @media screen and (max-width: 468px) {
+      &.orange {
+        padding: 15px 25px;
+        font-size: var(--16px);
+      }
+
+    }
   }
 
   &.orange-non-centered {

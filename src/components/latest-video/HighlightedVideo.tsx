@@ -14,7 +14,7 @@ const HighlightedVideo: FC<HighlightedVideoProps> = ({ nickname, description, vi
                 backgroundSize: 'cover'
             }}>
                 <div className={styles.nickname}>
-                    <Image src={avatar.src} alt={nickname} width={47} height={47}  />
+                    <Image src={avatar.src} className={styles.avatar} alt={nickname} width={47} height={47}  />
                     <p>
                         {nickname}
                     </p>
