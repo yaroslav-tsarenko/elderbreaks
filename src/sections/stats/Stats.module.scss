@@ -21,3 +21,15 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .statsContent {
+    gap: 20px;
+  }
+
+  .stats{
+    width: 90%;
+  }
+
+}
+

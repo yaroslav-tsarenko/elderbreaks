@@ -1,6 +1,7 @@
 .countdown {
   display: flex;
   max-width: 446px;
+  width: 100%;
   justify-content: space-around;
   margin: 0 auto;
   gap: 20px;
@@ -38,6 +39,17 @@
   span{
     font-weight: bold;
     font-size: var(--32px);
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 12px 20px;
+    gap: 10px;
+    font-size: var(--16px);
+
+    span{
+      font-weight: bold;
+      font-size: var(--20px);
+    }
   }
 }
 

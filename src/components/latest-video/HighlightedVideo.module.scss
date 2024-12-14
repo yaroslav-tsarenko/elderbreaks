@@ -32,8 +32,9 @@
   font-weight: bold;
 
   @media screen and (max-width: 768px) {
-    height: 153px;
+    height: 208px;
     width: 100%;
+    padding: 10px;
   }
 }
 
@@ -50,6 +51,7 @@
 
   @media screen and (max-width: 768px) {
     height: fit-content;
+    padding: 10px;
   }
 
   p:first-child {
@@ -75,5 +77,12 @@
 @media screen and (max-width: 768px) {
   .video{
     max-height: 230px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .avatar{
+    width: 30px;
+    height: 30px;
   }
 }

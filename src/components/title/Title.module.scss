@@ -6,7 +6,7 @@
   text-align: center;
   align-content: center;
 
-  h2{
+  h2 {
     display: flex;
     gap: 20px;
     font-weight: bold;
@@ -15,8 +15,16 @@
     font-size: var(--64px);
     text-transform: uppercase;
 
-    span{
-        color: var(--secondary-color);
+    span {
+      color: var(--secondary-color);
+    }
+  }
+
+  &.column {
+    @media screen and (max-width: 768px) {
+      h2 {
+        flex-direction: column;
+      }
     }
   }
 }
@@ -31,5 +39,4 @@
       font-size: var(--36px) !important;
     }
   }
-
 }
