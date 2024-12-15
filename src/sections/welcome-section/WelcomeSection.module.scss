@@ -3,6 +3,10 @@
   background-size: cover;
   padding: 120px 0 120px 0;
   position: relative;
+
+    @media screen and (max-width: 768px) {
+        padding: 30px 0 70px 0;
+    }
 }
 
 .sectionHeader {
@@ -57,8 +61,12 @@
 
 .gunImage {
   position: absolute;
-  right: 0;
+  right: -10%;
 
+  @media screen and (max-width: 768px) {
+    right: 0;
+    top: 15%;
+  }
 }
 
 .giftImage {
