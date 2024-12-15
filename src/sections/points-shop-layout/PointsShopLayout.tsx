@@ -5,7 +5,7 @@ import styles from "./PointsShopLayout.module.scss";
 import Image from "next/image";
 import InfoIcon from "../../../public/info-icon-png.png";
 import Button from "@/components/button/Button";
-import {FaSearch, FaSignInAlt} from "react-icons/fa";
+import {FaSearch} from "react-icons/fa";
 import {LuCircleDollarSign} from "react-icons/lu";
 import filter from "../../../public/filter-icon.png"
 import cube from "../../../public/cube-png.png"
@@ -21,9 +21,6 @@ const PointsShopLayout = () => {
     return (
         <>
             <div className={styles.section}>
-                <div className={styles.sectionHeader}>
-                    <Button variant="outlined" icon={FaSignInAlt}>Login</Button>
-                </div>
                 <div className={styles.infoSecond}>
                     <div className={styles.infoSecondContainer}>
                         <Image src={InfoIcon.src} alt="Info icon" width={75} height={75}/>

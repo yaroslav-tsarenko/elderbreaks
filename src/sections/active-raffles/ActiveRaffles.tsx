@@ -6,6 +6,7 @@ import Title from "@/components/title/Title";
 import { raffles } from "@/utils/raffles";
 import RaffleItem from "@/components/raffle-item/RaffleItem";
 import {ActiveRafflesProps} from "@/types/activeRaffles";
+import SliderItem from "@/components/slider-item/SliderItem";
 
 const ActiveRaffles:FC<ActiveRafflesProps> = ({h2, span}) => {
     return (
@@ -22,6 +23,17 @@ const ActiveRaffles:FC<ActiveRafflesProps> = ({h2, span}) => {
                     />
                 ))}
             </div>
+            <SliderItem slidesToShow={2}>
+                {raffles.map((raffle, index) => (
+                    <RaffleItem
+                        key={index}
+                        data={raffle.data}
+                        title={raffle.title}
+                        lot={raffle.lot}
+                        image={raffle.image}
+                    />
+                ))}
+            </SliderItem>
         </div>
     );
 };

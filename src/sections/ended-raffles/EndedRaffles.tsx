@@ -5,6 +5,7 @@ import styles from "./EndedRaffles.module.scss";
 import Title from "@/components/title/Title";
 import {raffles} from "@/utils/raffles";
 import RaffleItem from "@/components/raffle-item/RaffleItem";
+import SliderItem from "@/components/slider-item/SliderItem";
 
 const EndedRaffles = () => {
     return (
@@ -24,6 +25,20 @@ const EndedRaffles = () => {
                     />
                 ))}
             </div>
+            <SliderItem slidesToShow={2}>
+                {raffles.map((raffle, index) => (
+                    <RaffleItem
+                        key={index}
+                        data={raffle.data}
+                        title={raffle.title}
+                        lot={raffle.lot}
+                        image={raffle.image}
+                        winnerName={raffle.winnerName}
+                        winnerAvatar={raffle.winnerAvatar}
+                        type="winner"
+                    />
+                ))}
+            </SliderItem>
         </div>
     );
 };

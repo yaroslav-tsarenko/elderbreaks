@@ -23,7 +23,7 @@ const Banners = () => {
                 <p>Our exclusive leaderboard rewards the highest wagered users under the supported codes.</p>
                 <div className={styles.bannerButtons}>
                     <Button variant="orange">Join Competition</Button>
-                    <Button variant="outlined" icon={FaEye}>Learn More</Button>
+                    <Button variant="outlined-non-responsive" icon={FaEye}>Learn More</Button>
                 </div>
             </div>
         </div>

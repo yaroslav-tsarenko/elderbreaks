@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from "./AdventCalendarSection.module.scss";
-import Button from "@/components/button/Button";
-import { FaSignInAlt } from "react-icons/fa";
 import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 
 const AdventCalendarSection = () => {
@@ -10,9 +8,6 @@ const AdventCalendarSection = () => {
 
     return (
         <section className={styles.calendarSection}>
-            <div className={styles.sectionHeader}>
-                <Button variant="outlined" icon={FaSignInAlt}>Login</Button>
-            </div>
             <div className={styles.calendarHeading}>
                 <h3>Advent Calendar</h3>
                 <h2>$150,000</h2>

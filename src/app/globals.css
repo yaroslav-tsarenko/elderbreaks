@@ -21,6 +21,7 @@
     --grey: #987D7A;
     --grey-light: #D6B7B4;
     --white: #fff;
+    --11px: 0.6875rem;
     --12px: 0.75rem;
     --14px: 0.875rem;
     --16px: 1rem;
@@ -29,6 +30,7 @@
     --24px: 1.5rem;
     --32px: 2rem;
     --36px: 2.25rem;
+    --50px: 3.125rem;
     --64px: 5rem;
     --110px: 6.875rem;
 }

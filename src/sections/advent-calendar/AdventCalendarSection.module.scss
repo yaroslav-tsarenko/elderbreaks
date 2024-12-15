@@ -1,14 +1,7 @@
 .calendarSection {
   background: url("../../../public/advent-calendar.png") no-repeat center;
   background-size: cover;
-
-}
-
-.sectionHeader {
-  display: flex;
-  align-content: end;
-  justify-content: end;
-  padding: 30px;
+  padding: 40px 20px;
 }
 
 .calendarHeading {
@@ -20,6 +13,10 @@
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-size: var(--64px);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--36px);
+    }
   }
 
   h3 {
@@ -29,6 +26,10 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: var(--64px);
+    @media screen and (max-width: 768px) {
+
+      font-size: var(--36px);
+    }
   }
 
   h4 {
@@ -51,14 +52,42 @@
   align-items: flex-start;
   border-radius: 15px;
   background: var(--secondary-color-dark-transparent);
+
+  @media screen and (max-width: 1028px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+    "first first"
+    "second third";
+    align-items: center;
+    gap: 15px;
+
+    & > :nth-child(1) {
+      grid-area: first;
+      justify-self: center;
+    }
+
+    & > :nth-child(2) {
+      grid-area: second;
+    }
+
+    & > :nth-child(3) {
+      grid-area: third;
+    }
+
+    p{
+      font-size: var(--20px);
+    }
+  }
 }
 
-.calendarSectionBlock{
+.calendarSectionBlock {
   display: flex;
   flex-direction: column;
   gap: 30px;
   justify-content: center;
-    align-items: center;
+  align-items: center;
   align-content: center;
   font-size: var(--24px);
 }
@@ -123,7 +152,7 @@
   border: 2px solid var(--secondary-color-light);
   background: linear-gradient(to bottom, var(--tertiary-color-light), var(--quaternary-color));
 
-  span{
+  span {
     color: var(--secondary-color);
   }
 }

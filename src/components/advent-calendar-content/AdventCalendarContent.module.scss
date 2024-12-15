@@ -1,6 +1,13 @@
-.grid{
-    display: grid;
-    grid-template-columns: repeat(6, 0fr);
-    gap: 10px;
-    margin: 0 auto;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 0fr);
+  gap: 10px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1120px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

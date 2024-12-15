@@ -12,6 +12,10 @@
   justify-items: center;
   text-align: center;
   border: 1px solid var(--secondary-color-dark);
+
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+  }
 }
 
 .header {
@@ -57,6 +61,15 @@
 
     span{
         color: var(--secondary-color);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    h2{
+        font-size: var(--16px);
+    }
+    p{
+        font-size: var(--14px);
     }
   }
 }
