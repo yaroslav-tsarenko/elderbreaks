@@ -73,6 +73,11 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media screen and (max-width: 1028px) {
+    flex-direction: column;
+    font-size: var(--14px);
+  }
 }
 
 .freeEntry {
@@ -93,6 +98,18 @@
     font-size: var(--20px);
     color: var(--grey-light);
   }
+  
+  @media screen and (max-width: 1028px) {
+    padding: 20px;
+
+    h3 {
+      font-size: var(--20px);
+    }
+
+    p {
+      font-size: var(--14px);
+    }
+  }
 }
 
 .infoSecondContainer {
@@ -107,6 +124,10 @@
     font-size: var(--24px);
     font-weight: bold;
     color: var(--white);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--14px);
+    }
   }
 }
 
@@ -151,6 +172,11 @@
   margin: 0 auto;
   grid-template-columns: repeat(4, 1fr);
   gap: 90px;
+
+  @media screen and (max-width: 1028px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 10px;
+  }
 }
 
 .howItWorksSecond {

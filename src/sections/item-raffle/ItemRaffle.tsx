@@ -4,11 +4,10 @@ import React, {useState} from 'react';
 import styles from "./ItemRaffle.module.scss"
 import Image from "next/image";
 import knife from "../../../public/knife-png.png"
-import progressbar from "../../../public/progress-bar-png.png"
 import Button from "@/components/button/Button";
-import {FaSignInAlt} from "react-icons/fa";
 import HowItWorks from "@/sections/how-it-works/HowItWorks";
 import ActiveRaffles from "@/sections/active-raffles/ActiveRaffles";
+import ProgressBar from "@/components/progress-bar/ProgressBar";
 
 const ItemRaffle = () => {
     const [quantity, setQuantity] = useState(1);
@@ -27,12 +26,9 @@ const ItemRaffle = () => {
     };
     return (
         <div className={styles.itemRaffle}>
-            <div className={styles.sectionHeader}>
-                <Button variant="outlined" icon={FaSignInAlt}>Login</Button>
-            </div>
             <div className={styles.itemRaffleInner}>
                 <div className={styles.imageRaffleContainer}>
-                    <Image src={knife.src} alt="knife" width={370} height={278}/>
+                    <Image src={knife.src} className={styles.knifeImage} alt="knife" width={370} height={278}/>
                 </div>
                 <div className={styles.itemRaffleDescription}>
                     <h2>Knife Repper fade</h2>
@@ -66,10 +62,27 @@ const ItemRaffle = () => {
                         <p>Tickets left:</p>
                         <h4>5000</h4>
                     </div>
-                    <Image src={progressbar.src} className={styles.progress} alt="progress" width={725} height={27}/>
+                    <div className={styles.progressBar}>
+                        <ProgressBar percentage={50}/>
+                    </div>
                     <div className={styles.ticketInfo}>
                         <p>Max tickets:</p>
                         <h4>10000</h4>
+                    </div>
+                </div>
+                <div className={styles.ticketsProgressMobile}>
+                    <div className={styles.tickets}>
+                        <div className={styles.ticketInfo}>
+                            <p>Tickets left:</p>
+                            <h4>5000</h4>
+                        </div>
+                        <div className={styles.ticketInfo}>
+                            <p>Max tickets:</p>
+                            <h4>10000</h4>
+                        </div>
+                    </div>
+                    <div className={styles.progressBar}>
+                        <ProgressBar percentage={50}/>
                     </div>
                 </div>
                 <hr/>

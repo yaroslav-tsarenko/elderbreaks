@@ -4,7 +4,11 @@
   flex-direction: column;
   background: url("../../../public/points-shop-bg.png") no-repeat center;
   background-size: cover;
-  padding: 20px;
+  padding: 140px 20px 20px 20px;
+
+  @media screen and (max-width: 768px) {
+    padding: 30px;
+  }
 }
 
 .sectionHeader {
@@ -13,7 +17,6 @@
   justify-content: end;
   padding: 30px;
 }
-
 
 .infoSecond {
   display: flex;
@@ -28,6 +31,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media screen and (max-width: 1028px) {
+    flex-direction: column;
+  }
 }
 
 .infoDescription {
@@ -45,6 +52,12 @@
   p {
     font-size: var(--16px);
     color: var(--grey-light);
+    max-width: 574px;
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--12px);
+      font-weight: normal;
+    }
   }
 }
 
@@ -54,12 +67,6 @@
   justify-content: flex-start;
   align-items: center;
   justify-items: center;
-
-  p {
-    max-width: 574px;
-    font-size: var(--20px);
-    color: var(--white);
-  }
 }
 
 .sectionDescription {
@@ -70,6 +77,10 @@
   margin: 0 auto;
   text-align: center;
 
+  @media screen and (max-width: 768px) {
+    gap: 20px;
+  }
+
   h1 {
     text-transform: uppercase;
     font-size: 8rem;
@@ -77,12 +88,21 @@
     background: linear-gradient(to right, var(--secondary-color), var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--50px);
+    }
   }
 
   p {
     font-size: var(--20px);
     color: var(--white);
     text-transform: uppercase;
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--20);
+      text-transform: capitalize;
+    }
   }
 }
 
@@ -92,6 +112,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+  }
 }
 
 .limitedOfferContent {
@@ -100,6 +125,17 @@
   gap: 20px;
   max-width: 1368px;
   margin: 0 auto;
+  padding: 0 10px;
+
+  @media screen and (max-width: 1028px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+  }
 }
 
 .searchInner {
@@ -123,6 +159,12 @@
   border: 1px solid var(--secondary-color-dark);
   padding: 30px 40px;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
 }
 
 .searchbar {
@@ -149,6 +191,12 @@
     color: var(--white);
     font-size: var(--20px);
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 15px;
+  }
 }
 
 .filter {
@@ -163,6 +211,11 @@
   p {
     font-size: 1.5rem;
     color: var(--secondary-color);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--14px);
+
+    }
   }
 }
 
@@ -173,12 +226,28 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+  text-align: center;
   justify-items: center;
 
   p {
     font-size: var(--20px);
     color: var(--white);
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--14px);
+      color: var(--grey-light);
+    }
+  }
+
+  h2 {
+    font-size: var(--20px);
+    color: var(--white);
+    font-weight: bold;
+
+    @media screen and (max-width: 768px) {
+      color: var(--white);
+    }
   }
 }
 
@@ -189,6 +258,10 @@
     font-size: var(--24px);
     color: var(--gold);
     font-weight: bold;
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--20px);
+    }
   }
 }
 
@@ -196,6 +269,11 @@
   margin: 0 0 10px 0;
   display: flex;
   object-fit: contain;
+
+  @media screen and (max-width: 768px) {
+    width: 80px;
+    height: auto;
+  }
 }
 
 .searchOptions {
@@ -215,6 +293,11 @@
     color: var(--white);
     font-size: var(--20px);
     outline: none;
+
+    @media screen and (max-width: 768px) {
+      width: 50%;
+      padding: 10px 15px;
+    }
   }
 }
 
@@ -232,6 +315,12 @@
   border: 1px solid var(--secondary-color-dark);
   border-radius: 25px;
   padding: 50px;
+
+  @media screen and (max-width: 1028px) {
+    flex-direction: column;
+    padding: 20px;
+    width: 92%;
+  }
 }
 
 .bannerLeft {
@@ -241,6 +330,10 @@
   justify-content: space-around;
   flex-direction: column;
 
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    gap: 20px;
+  }
 
   h2 {
     display: flex;
@@ -248,6 +341,10 @@
     font-size: 5rem;
     text-transform: uppercase;
     color: var(--secondary-color);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--36px);
+    }
 
     span {
       color: var(--white);
@@ -257,6 +354,10 @@
   p {
     font-size: var(--24px);
     color: var(--white);
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--20px);
+    }
   }
 
   h5 {
@@ -268,18 +369,32 @@
     span {
       color: var(--gold);
     }
+
+    @media screen and (max-width: 768px) {
+      font-size: var(--20px);
+      flex-direction: column;
+    }
   }
 }
 
 .bannerButtons {
   display: flex;
   gap: 10px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .howl {
   display: flex;
   width: 45%;
   height: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .howItWorksPoints {
@@ -290,6 +405,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 90px;
   width: 100%;
+
+  @media screen and (max-width: 1028px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
 }
 
 .howItWorksPoint {

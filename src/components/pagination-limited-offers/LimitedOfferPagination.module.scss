@@ -9,14 +9,19 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   max-width: 1368px;
-  margin: 0 auto;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  padding: 0 10px;
 
   .pageButton {
     margin: 0 5px;

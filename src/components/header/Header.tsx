@@ -13,7 +13,8 @@ import Link from "next/link";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isSticky, setIsSticky] = useState(true); // Ensure always sticky behavior
+    const [isSticky, setIsSticky] = useState(true);
+    const [isFixed, setIsFixed] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);
@@ -21,8 +22,16 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const bottomPosition = document.documentElement.scrollHeight - 100;
+
             if (!menuOpen) {
-                setIsSticky(window.scrollY > 0);
+                if (scrollPosition >= bottomPosition) {
+                    setIsFixed(true);
+                } else {
+                    setIsFixed(false);
+                    setIsSticky(window.scrollY > 0);
+                }
             }
         };
 
@@ -30,11 +39,19 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [menuOpen]);
 
+    useEffect(() => {
+        if (menuOpen) {
+            document.querySelector("footer")!.style.display = "none";
+        } else {
+            document.querySelector("footer")!.style.display = "block";
+        }
+    }, [menuOpen]);
+
     return (
         <>
             <header
                 className={`${styles.header} ${
-                    menuOpen ? styles.fixed : isSticky ? styles.sticky : ""
+                    menuOpen ? styles.fixed : isFixed ? styles.fixed : isSticky ? styles.sticky : ""
                 }`}
             >
                 <Link href={"/"}>

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from "./LimitedOfferPagination.module.scss";
 import LimitedOffer from "@/components/limited-offer/LimitedOffer";
 import { FaArrowRight } from "react-icons/fa";
@@ -17,31 +17,22 @@ const LimitedOfferPagination = () => {
 
     const renderPagination = () => {
         const pages = [];
-        const maxPagesToShow = 5;
+        const maxPagesToShow = 3;
 
-        for (let i = 1; i <= Math.min(maxPagesToShow, totalPages); i++) {
-            pages.push(
-                <button
-                    key={i}
-                    onClick={() => handleClick(i)}
-                    className={`${styles.pageButton} ${currentPage === i ? styles.active : ''}`}
-                >
-                    {i}
-                </button>
-            );
-        }
-
-        if (totalPages > maxPagesToShow) {
-            pages.push(<span key="dots" className={styles.dots}>..</span>);
-            pages.push(
-                <button
-                    key={totalPages}
-                    onClick={() => handleClick(totalPages)}
-                    className={`${styles.pageButton} ${currentPage === totalPages ? styles.active : ''}`}
-                >
-                    {totalPages}
-                </button>
-            );
+        for (let i = 1; i <= totalPages; i++) {
+            if (i <= maxPagesToShow || i === totalPages) {
+                pages.push(
+                    <button
+                        key={i}
+                        onClick={() => handleClick(i)}
+                        className={`${styles.pageButton} ${currentPage === i ? styles.active : ''}`}
+                    >
+                        {i}
+                    </button>
+                );
+            } else if (i === maxPagesToShow + 1) {
+                pages.push(<span key="dots" className={styles.dots}>...</span>);
+            }
         }
 
         pages.push(

@@ -11,7 +11,9 @@ const Footer = () => {
             <div className={styles.footerInner}>
                 <div className={styles.footerUpper}>
                     <div className={styles.footerLogo}>
-                        <Image src={FooterLogo.src} alt="Footer logo" width="307" height="64"/>
+                        <Link href={"/"}>
+                            <Image src={FooterLogo.src} alt="Footer logo" width="307" height="64"/>
+                        </Link>
                         <p>Copyright@2024 ElderBreaks</p>
                     </div>
                     <div className={styles.footerNav}>

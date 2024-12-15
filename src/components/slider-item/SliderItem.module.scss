@@ -1,15 +1,14 @@
 .sliderContainer {
   position: relative;
+  display: none;
   width: 100%;
   overflow: hidden;
   touch-action: pan-x;
   z-index: 999;
-  display: none;
 }
 
 .slider {
   display: flex;
-  gap: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -18,8 +17,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 9px;
 }
+
+
 
 .pagination {
   display: flex;
@@ -46,7 +46,7 @@
 }
 
 @media screen and (max-width: 1028px) {
-  .sliderContainer{
+  .sliderContainer {
     display: block;
   }
 }

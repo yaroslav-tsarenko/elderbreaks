@@ -30,6 +30,18 @@
   p {
     font-weight: bold;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 25px 10px;
+  }
+}
+
+.image{
+
+  @media screen and (max-width: 768px) {
+    width: 113px;
+    height: auto;
+  }
 }
 
 
@@ -41,6 +53,10 @@
   text-align: center;
   flex-direction: column;
   height: 50%;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+  }
 
   span {
     font-size: var(--14px);
@@ -74,6 +90,15 @@
     font-size: var(--14px);
     font-weight: bold;
     color: var(--secondary-color);
+  }
+
+  @media screen and (max-width: 768px) {
+    p{
+      padding: 0 !important;
+      font-size: var(--11px);
+      font-weight: bold;
+    }
+
   }
 }
 

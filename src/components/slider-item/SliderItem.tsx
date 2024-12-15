@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useState, useEffect } from 'react';
+
+import React, { useRef, useState, useEffect } from 'react';
 import styles from './SliderItem.module.scss';
 import { SliderItemProps } from '@/types/slider';
 
@@ -8,6 +8,7 @@ const SliderItem: React.FC<SliderItemProps> = ({ slidesToShow, children }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [slideWidth, setSlideWidth] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
     useEffect(() => {
         const updateSlideWidth = () => {
@@ -23,50 +24,59 @@ const SliderItem: React.FC<SliderItemProps> = ({ slidesToShow, children }) => {
         };
     }, [slidesToShow]);
 
-    const handleDotClick = (index: number) => {
-        if (isTransitioning) return;
-        setIsTransitioning(true);
-        setCurrentIndex(index);
-        setTimeout(() => setIsTransitioning(false), 300);
-    };
-
     const handleSwipe = (deltaX: number) => {
         if (isTransitioning) return;
-        setIsTransitioning(true);
 
+        setIsTransitioning(true);
         const totalSlides = React.Children.count(children);
-        const newIndex = (currentIndex - Math.sign(deltaX) + totalSlides) % totalSlides;
+
+        // Move in the opposite direction of swipe
+        const newIndex = (currentIndex + Math.sign(deltaX) + totalSlides) % totalSlides;
         setCurrentIndex(newIndex);
 
         setTimeout(() => setIsTransitioning(false), 300);
+    };
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchStartX(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        if (touchStartX === null) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchStartX - touchEndX;
+
+        if (Math.abs(deltaX) > 50) {
+            handleSwipe(deltaX);
+        }
+
+        setTouchStartX(null);
     };
 
     return (
         <div
             className={styles.sliderContainer}
             ref={sliderRef}
-            onTouchStart={(e) => {
-                const touchStartX = e.touches[0].clientX;
-                e.currentTarget.ontouchmove = (moveEvent) => {
-                    const deltaX = touchStartX - moveEvent.touches[0].clientX;
-                    handleSwipe(deltaX);
-                    e.currentTarget.ontouchmove = null;
-                };
-            }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
         >
             <div
-                className={styles.slider}
+                className={`${styles.slider} ${slidesToShow === 4 ? styles.gridLayout : ''}`}
                 style={{
                     transform: `translateX(-${currentIndex * slideWidth}px)`,
                     width: `${React.Children.count(children) * slideWidth}px`,
-                    transition: 'transform 0.3s ease-in-out',
+                    transition: isTransitioning ? 'transform 0.3s ease-in-out' : 'none',
                 }}
             >
                 {React.Children.map(children, (child, index) => (
                     <div
                         key={index}
                         className={styles.slide}
-                        style={{ width: `${slideWidth}px` }}
+                        style={{
+                            width: `${slideWidth}px`,
+                            padding: '10px', // Slide padding
+                        }}
                     >
                         {child}
                     </div>
@@ -77,8 +87,7 @@ const SliderItem: React.FC<SliderItemProps> = ({ slidesToShow, children }) => {
                     <div
                         key={index}
                         className={`${styles.dot} ${currentIndex === index ? styles.activeDot : ''}`}
-                        onClick={() => handleDotClick(index)}
-                        style={currentIndex === index ? { animation: 'merge 0.3s ease-in-out' } : {}}
+                        onClick={() => setCurrentIndex(index)}
                     />
                 ))}
             </div>

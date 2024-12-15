@@ -10,4 +10,12 @@
   margin: 0 auto;
   gap: 30px;
   grid-template-columns: repeat(4, 1fr);
+  
+  @media screen and (max-width: 1125px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media screen and (max-width: 1028px) {
+    display: none;
+  }
 }
