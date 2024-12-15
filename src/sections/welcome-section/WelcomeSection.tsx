@@ -12,7 +12,7 @@ const WelcomeSection = () => {
                 <Image src={GunImage} className={styles.gunImage} alt="Gun Image" width={402} height={351}/>
                 <h3>welcome</h3>
                 <h1>to elder breaks</h1>
-                <h2>club</h2>
+                <h2>rewards</h2>
                 <p>Wager under code EB - the most rewarding code out there!</p>
                 <Button variant="orange">Use code eb</Button>
             </div>

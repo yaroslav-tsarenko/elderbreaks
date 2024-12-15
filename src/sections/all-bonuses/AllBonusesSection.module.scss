@@ -5,7 +5,11 @@
   background-size: cover;
   width: 100%;
   gap: 70px;
-  padding: 70px 0 0 0;
+  padding: 120px 0 0 0;
+
+  @media screen and (max-width: 1028px) {
+    padding: 50px 0 0 0;
+  }
 }
 
 .sectionHeader {
@@ -193,6 +197,18 @@
   gap: 20px;
 }
 
+.amazingRewardsWrapper {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1368px;
+
+  @media screen and (max-width: 1028px) {
+    display: flex;
+  }
+}
+
 .amazingRewardsContent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -202,5 +218,17 @@
 
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.amazingRewardsContentDesktop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1368px;
+
+  @media screen and (max-width: 1028px) {
+    display: none;
   }
 }

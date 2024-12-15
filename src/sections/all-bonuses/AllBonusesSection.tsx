@@ -1,10 +1,10 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from "./AllBonusesSection.module.scss";
 import Button from "@/components/button/Button";
-import { FaGift, FaCopy } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import {FaGift, FaCopy} from "react-icons/fa";
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
 import Title from "@/components/title/Title";
 import BonusCard from "@/components/bonus-card/BonusCard";
 
@@ -53,7 +53,7 @@ const AllBonusesSection = () => {
                     <div className={styles.promoSection}>
                         <div className={styles.promoCode}>
                             <span>Code: WJRF</span>
-                            <FaCopy className={styles.copyIcon} />
+                            <FaCopy className={styles.copyIcon}/>
                         </div>
                         <Button variant="orange-non-centered" icon={FaGift}>
                             claim bonus
@@ -62,27 +62,34 @@ const AllBonusesSection = () => {
                 </div>
                 <div className={styles.amazingRewards}>
                     <Title h2="Amazing" span="Rewards"/>
-                    <div className={styles.amazingRewardsContent}>
-                        {Array.from({length: totalItems})
-                            .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
-                            .map((_, index) => (
-                                <BonusCard key={index}/>
-                            ))}
+                    <div className={styles.amazingRewardsWrapper}>
+                        <div className={styles.amazingRewardsContent}>
+                            {Array.from({length: totalItems})
+                                .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
+                                .map((_, index) => (
+                                    <BonusCard key={index}/>
+                                ))}
+                        </div>
+                        <div className={styles.pagination}>
+                            <button
+                                onClick={() => handlePageChange(Math.max(currentPage - 1, 0))}
+                                className={styles.arrowButton}
+                            >
+                                <IoIosArrowBack/>
+                            </button>
+                            {renderPagination()}
+                            <button
+                                onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages - 1))}
+                                className={styles.arrowButton}
+                            >
+                                <IoIosArrowForward/>
+                            </button>
+                        </div>
                     </div>
-                    <div className={styles.pagination}>
-                        <button
-                            onClick={() => handlePageChange(Math.max(currentPage - 1, 0))}
-                            className={styles.arrowButton}
-                        >
-                           <IoIosArrowBack/>
-                        </button>
-                        {renderPagination()}
-                        <button
-                            onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages - 1))}
-                            className={styles.arrowButton}
-                        >
-                            <IoIosArrowForward/>
-                        </button>
+                    <div className={styles.amazingRewardsContentDesktop}>
+                        {Array.from({length: 8}).map((_, index) => (
+                            <BonusCard key={index}/>
+                        ))}
                     </div>
                 </div>
             </div>
