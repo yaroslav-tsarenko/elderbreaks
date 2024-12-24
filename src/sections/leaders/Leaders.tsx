@@ -6,7 +6,7 @@ import Title from "@/components/title/Title";
 import Button from "@/components/button/Button";
 import {FaEye} from 'react-icons/fa';
 import LeaderItem from "@/components/leader-item/LeaderItem";
-import {leaders} from "@/utils/leaders";
+import {leaders} from "@/mockup-data/leaders";
 
 const Leaders = () => {
     return (

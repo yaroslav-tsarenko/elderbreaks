@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./Stats.module.scss";
-import { stats } from "@/utils/stats";
+import { stats } from "@/mockup-data/stats";
 import StatItem from "@/components/statistics-item/StatItem";
 
 const Stats = () => {

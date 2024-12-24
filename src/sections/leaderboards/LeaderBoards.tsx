@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from "./LeaderBoards.module.scss";
-import { players } from "@/utils/players";
+import { players } from "@/mockup-data/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
 import Button from "@/components/button/Button";
 import { FaCrown } from "react-icons/fa";

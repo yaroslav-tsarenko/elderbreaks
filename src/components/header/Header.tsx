@@ -8,7 +8,7 @@ import burger from "../../../public/burger-menu-png.png";
 import times from "../../../public/times-icon.png";
 import { FaSignInAlt } from "react-icons/fa";
 import Button from "@/components/button/Button";
-import { links } from "@/utils/links";
+import { links } from "@/mockup-data/links";
 import Link from "next/link";
 
 const Header = () => {

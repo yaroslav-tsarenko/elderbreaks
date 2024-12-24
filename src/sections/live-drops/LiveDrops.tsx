@@ -3,7 +3,7 @@
 import React from 'react';
 import Title from "@/components/title/Title";
 import styles from "./LiveDrops.module.scss";
-import { drops } from "@/utils/drops";
+import { drops } from "@/mockup-data/drops";
 import DropItem from "@/components/dropItem/DropItem";
 import SliderItem from "@/components/slider-item/SliderItem";
 
