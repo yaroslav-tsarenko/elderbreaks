@@ -7,18 +7,17 @@ import Footer from "@/components/footer/Footer";
 import React from "react";
 import Header from "@/components/header/Header";
 import LoginButton from "@/components/login-button/LoginButton";
-import { authWrapper } from "@/utils/AuthWrapper";
 
 export const metadata: Metadata = {
     title: "ElderBreaks",
     description: "ElderBreaks",
 };
 
-function RootLayout({
-                        children,
-                    }: Readonly<{
+type RootLayoutProps = {
     children: React.ReactNode;
-}>) {
+};
+
+function RootLayout({ children }: RootLayoutProps): React.ReactElement {
     return (
         <html lang="en">
         <body>
@@ -36,4 +35,4 @@ function RootLayout({
     );
 }
 
-export default authWrapper(RootLayout);
+export default RootLayout;
