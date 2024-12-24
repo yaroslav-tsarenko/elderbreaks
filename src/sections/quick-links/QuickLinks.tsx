@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './QuickLinks.module.scss';
-import { quickLinks } from "@/utils/quickLinks";
+import { quickLinks } from "@/mockup-data/quickLinks";
 import QuickLinkItem from "@/components/quick-link-item/QuickLinkItem";
 import Title from "@/components/title/Title";
 

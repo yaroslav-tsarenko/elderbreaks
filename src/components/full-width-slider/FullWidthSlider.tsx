@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './FullWidthSlider.module.scss';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
-import { sliderImages } from '@/utils/sliderImages';
+import { sliderImages } from '@/mockup-data/sliderImages';
 import Image from 'next/image';
 
 const FullWidthSlider = () => {

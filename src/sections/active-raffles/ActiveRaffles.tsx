@@ -3,7 +3,7 @@
 import React, {FC} from 'react';
 import styles from "./ActiveRaffles.module.scss";
 import Title from "@/components/title/Title";
-import { raffles } from "@/utils/raffles";
+import { raffles } from "@/mockup-data/raffles";
 import RaffleItem from "@/components/raffle-item/RaffleItem";
 import {ActiveRafflesProps} from "@/types/activeRaffles";
 import SliderItem from "@/components/slider-item/SliderItem";

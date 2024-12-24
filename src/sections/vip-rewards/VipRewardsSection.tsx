@@ -5,7 +5,7 @@ import Button from "@/components/button/Button";
 import {FaEye} from "react-icons/fa";
 import roobet from "../../../public/roobet-png.png";
 import Image from "next/image";
-import {wagers} from "@/utils/wagers";
+import {wagers} from "@/mockup-data/wagers";
 import ProgressBar from "@/components/progress-bar/ProgressBar";
 import WagerTier from "@/components/wager-tier/WagerTier";
 

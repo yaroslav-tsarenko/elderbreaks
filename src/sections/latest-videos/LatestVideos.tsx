@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import styles from "./LatestVideos.module.scss";
 import Button from "@/components/button/Button";
 import { FaYoutube } from "react-icons/fa";
-import { highlightedVideos } from "@/utils/latestVideos";
+import { highlightedVideos } from "@/mockup-data/latestVideos";
 import HighlightedVideo from "@/components/latest-video/HighlightedVideo";
 import { LatestVideoProps } from "@/types/latestVideo";
 

@@ -2,7 +2,7 @@
 
 import React, { FC, useState } from "react";
 import styles from "./FAQ.module.scss";
-import { faqs } from "@/utils/faq";
+import { faqs } from "@/mockup-data/faq";
 import FAQItem from "@/components/faq-item/FAQItem";
 import Title from "@/components/title/Title";
 

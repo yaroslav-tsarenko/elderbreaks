@@ -5,4 +5,5 @@ export interface ButtonProps {
     icon?: IconType;
     children: ReactNode;
     variant?: string;
+    onClick?: () => void;
 }

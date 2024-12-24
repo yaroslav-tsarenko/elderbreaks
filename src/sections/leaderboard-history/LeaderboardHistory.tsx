@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./LeaderboardHistory.module.scss";
 import Title from "@/components/title/Title";
-import { leaderboardHistoryItems } from "@/utils/leaderboardHistoryItems";
+import { leaderboardHistoryItems } from "@/mockup-data/leaderboardHistoryItems";
 import LeaderboardHistoryItem from "@/components/leaderboard-history-item/LeaderboardHistoryItem";
 import SliderItem from "@/components/slider-item/SliderItem";
 
