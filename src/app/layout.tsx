@@ -7,6 +7,7 @@ import Footer from "@/components/footer/Footer";
 import React from "react";
 import Header from "@/components/header/Header";
 import LoginButton from "@/components/login-button/LoginButton";
+import { UserProvider } from "@/utils/UserContext";
 
 export const metadata: Metadata = {
     title: "ElderBreaks",
@@ -21,15 +22,17 @@ function RootLayout({ children }: RootLayoutProps): React.ReactElement {
     return (
         <html lang="en">
         <body>
-        <PageWrapper>
-            <AsideNav />
-            <PageContent>
-                <LoginButton />
-                <Header />
-                {children}
-            </PageContent>
-        </PageWrapper>
-        <Footer />
+        <UserProvider initialUser={undefined}>
+            <PageWrapper>
+                <AsideNav />
+                <PageContent>
+                    <LoginButton />
+                    <Header />
+                    {children}
+                </PageContent>
+            </PageWrapper>
+            <Footer />
+        </UserProvider>
         </body>
         </html>
     );
