@@ -1,4 +1,3 @@
-// FullWidthSlider.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './FullWidthSlider.module.scss';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
@@ -32,6 +31,10 @@ const FullWidthSlider = () => {
         );
     };
 
+    const handleImageClick = (alt: string) => {
+        alert(`You choose ${alt}`);
+    };
+
     return (
         <div className={styles.slider}>
             <button onClick={handlePrev} className={styles.arrowButton}><FaArrowLeft /></button>
@@ -42,8 +45,7 @@ const FullWidthSlider = () => {
                         transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
                         width: `${(sliderImages.length / slidesToShow) * 100}%`,
                         transition: 'transform 0.5s ease-in-out',
-                    }}
-                >
+                    }}>
                     {sliderImages.map((image) => (
                         <div
                             key={image.id}
@@ -56,6 +58,7 @@ const FullWidthSlider = () => {
                                 className={styles.sliderImage}
                                 width={120}
                                 height={40}
+                                onClick={() => handleImageClick(image.alt)}
                             />
                         </div>
                     ))}

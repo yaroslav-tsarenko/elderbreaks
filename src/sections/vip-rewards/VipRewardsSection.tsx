@@ -19,8 +19,7 @@ const VipRewardsSection = () => {
                 </div>
                 <div className={styles.roobet}>
                     <Image src={roobet.src} alt="roobet" width={179} height={46}/>
-                    <p>Connect Roobet You must verify your Roobet account to get started. You can configure this in
-                        account settings.</p>
+                    <p>Connect Roobet. You must verify your Roobet account to get started. This can be configured in your account settings.</p>
                     <Button variant="orange-non-centered" icon={FaEye}>Verify</Button>
                 </div>
             </div>

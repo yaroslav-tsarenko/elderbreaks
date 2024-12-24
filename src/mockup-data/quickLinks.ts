@@ -14,26 +14,26 @@ export const quickLinks = [
     {
         title: 'All Bonuses',
         image: AllBonuses,
-        link: '/last-video',
+        link: '/all-bonuses',
     },
     {
         title: 'Games',
         image: Games,
-        link: '/cases',
+        link: '/advent-calendar',
     },
     {
         title: 'Raffles',
         image: Raffles,
-        link: '/calendar',
+        link: '/raffles',
     },
     {
         title: 'Points Store',
         image: PointsStore,
-        link: '/all-bonuses',
+        link: '/points-store',
     },
     {
         title: 'Calendar',
         image: Calendar,
-        link: '/all-bonuses',
+        link: '/advent-calendar',
     },
 ];

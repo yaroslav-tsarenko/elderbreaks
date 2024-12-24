@@ -7,30 +7,33 @@ import Footer from "@/components/footer/Footer";
 import React from "react";
 import Header from "@/components/header/Header";
 import LoginButton from "@/components/login-button/LoginButton";
+import { authWrapper } from "@/utils/AuthWrapper";
 
 export const metadata: Metadata = {
-  title: "ElderBreaks",
-  description: "ElderBreaks",
+    title: "ElderBreaks",
+    description: "ElderBreaks",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+function RootLayout({
+                        children,
+                    }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>
-      <PageWrapper>
-          <AsideNav/>
-          <PageContent>
-              <LoginButton/>
-              <Header/>
-              {children}
-          </PageContent>
-      </PageWrapper>
-      <Footer/>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+        <body>
+        <PageWrapper>
+            <AsideNav />
+            <PageContent>
+                <LoginButton />
+                <Header />
+                {children}
+            </PageContent>
+        </PageWrapper>
+        <Footer />
+        </body>
+        </html>
+    );
 }
+
+export default authWrapper(RootLayout);

@@ -54,6 +54,8 @@
   align-content: center;
   margin: 0 auto;
   width: 130px;
+
+
 }
 
 .sliderImage {
@@ -63,7 +65,9 @@
   border: 1px solid transparent;
   transition: transform 0.2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
 }

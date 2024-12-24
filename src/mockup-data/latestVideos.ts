@@ -8,33 +8,33 @@ export const highlightedVideos: HighlightedVideoProps[] = [
 
     {
         nickname: "@EBgamles",
-        description: "I TRIED NEW DONNY DOUGH SLOT AND IT PAID INSANE! [NEW HACKSAW SLOT]",
-        videoUrl: "https://example.com/video3",
-        hashTags: ["#onlineslots #onlinecasino, #livestream"],
+        description: "Exploring the New Donny Dough Slot - Huge Wins! [Hacksaw Gaming]",
+        videoUrl: "https://www.youtube.com/watch?v=zX9EUPx_atc",
+        hashTags: ["#slots #casino #livestream"],
         coverImage: coverImage1,
         avatar: avatar
     },
     {
         nickname: "@EBgamles",
-        description: "I TRIED NEW DONNY DOUGH SLOT AND IT PAID INSANE! [NEW HACKSAW SLOT]",
-        videoUrl: "https://example.com/video3",
-        hashTags: ["#onlineslots #onlinecasino, #livestream"],
+        description: "Big Wins on Donny Dough Slot! [Hacksaw Gaming Review]",
+        videoUrl: "https://www.youtube.com/watch?v=zX9EUPx_atc",
+        hashTags: ["#slots #casino #gaming"],
         coverImage: coverImage2,
         avatar: avatar
     },
     {
         nickname: "@EBgamles",
-        description: "I TRIED NEW DONNY DOUGH SLOT AND IT PAID INSANE! [NEW HACKSAW SLOT]",
-        videoUrl: "https://example.com/video3",
-        hashTags: ["#onlineslots #onlinecasino, #livestream"],
+        description: "Insane Payouts on Donny Dough Slot! [Hacksaw Gaming]",
+        videoUrl: "https://www.youtube.com/watch?v=zX9EUPx_atc",
+        hashTags: ["#slots #casino #bigwins"],
         coverImage: coverImage3,
         avatar: avatar
     },
     {
         nickname: "@EBgamles",
-        description: "I TRIED NEW DONNY DOUGH SLOT AND IT PAID INSANE! [NEW HACKSAW SLOT]",
-        videoUrl: "https://example.com/video3",
-        hashTags: ["#onlineslots #onlinecasino, #livestream"],
+        description: "Winning Big on Donny Dough Slot! [Hacksaw Gaming]",
+        videoUrl: "https://www.youtube.com/watch?v=zX9EUPx_atc",
+        hashTags: ["#slots #casino #jackpot"],
         coverImage: coverImage4,
         avatar: avatar
     },

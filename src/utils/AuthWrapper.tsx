@@ -1,55 +1,43 @@
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import { UserProvider } from '@/utils/UserContext';
-import {BACKEND_URL} from "@/constants/url";
+import { BACKEND_URL } from '@/constants/url';
+import axios from 'axios';
 
-type User = {
-    _id: string;
-    discordId: string;
-    discordAuth: string;
-    email: string;
-    name: string;
-    wallet: string;
-    role: string;
-    joined: string;
-    ethAddress: string;
-    btcAddress: string;
-    username: string;
-    stakeUsername: string;
-};
-
-type WrappedComponentProps = {
-    user: User;
-};
-
-export function authWrapper(Component: React.ComponentType<WrappedComponentProps>) {
-    return async function WrappedComponent(props: Omit<WrappedComponentProps, 'user'>) {
+export function authWrapper(Component: React.ComponentType<Record<string, unknown>>) {
+    return async function WrappedComponent(props: Record<string, unknown>) {
         const cookieStore = await cookies();
-        const token = cookieStore.get('app_session')?.value;
+        const token = cookieStore.get('token')?.value;
 
         if (!token) {
-            redirect('/auth/login');
-            return null;
+            return (
+                <UserProvider initialUser={undefined}>
+                    <Component {...props} />
+                </UserProvider>
+            );
         }
 
-        const response = await fetch(`${BACKEND_URL}/user/getUser`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-            cache: 'no-store',
-        });
+        try {
+            const response = await axios.get(`${BACKEND_URL}/user/getUser`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                withCredentials: true,
+            });
 
-        if (!response.ok) {
-            redirect('/auth/login');
-            return null;
+            const user = response.data.user;
+
+            return (
+                <UserProvider initialUser={user}>
+                    <Component {...props} />
+                </UserProvider>
+            );
+        } catch (error) {
+            console.error('Fetch error:', error);
+            return (
+                <UserProvider initialUser={undefined}>
+                    <Component {...props} />
+                </UserProvider>
+            );
         }
-
-        const user: User = await response.json();
-
-        return (
-            <UserProvider user={user}>
-                <Component {...props} user={user} />
-            </UserProvider>
-        );
     };
 }

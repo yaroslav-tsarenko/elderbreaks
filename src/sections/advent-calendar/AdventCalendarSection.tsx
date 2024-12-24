@@ -15,7 +15,7 @@ const AdventCalendarSection = () => {
             </div>
             <div className={styles.calendarMetrics}>
                 <div className={styles.calendarSectionBlock}>
-                    <p>The Calendar Updates in</p>
+                    <p>The Calendar updates in</p>
                     <CountdownTimer preference="calendar" />
                 </div>
                 <div className={styles.calendarSectionBlock}>

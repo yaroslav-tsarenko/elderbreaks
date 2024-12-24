@@ -9,8 +9,13 @@ import {PiCurrencyDollarSimpleFill} from "react-icons/pi";
 
 
 const LimitedOffer = () => {
+
+    const handleAlert = (string: string) => {
+        alert(string)
+    }
+
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={() => handleAlert("Oops! It's just mockup data, Firstly must be added from admin dashboard :(")}>
             <div className={styles.header}>
                 <span>
                 <Image src={fireIcon} alt="fire-icon" height={16} width={16}/>

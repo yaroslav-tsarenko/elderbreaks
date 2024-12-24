@@ -108,6 +108,13 @@
   margin: 20px auto;
 }
 
+.wagersContent {
+  display: flex;
+  max-width: 1130px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
 .ticketsProgress {
   display: flex;
   gap: 10px;
@@ -187,7 +194,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 400px;
+  gap: 228px;
   padding: 0 380px 0 134px;
 
   h3 {
@@ -239,7 +246,7 @@
   align-content: center;
   justify-items: center;
 
-  h3{
+  h3 {
     font-size: var(--24px);
     font-weight: 800;
     background: linear-gradient(to right, var(--secondary-color), var(--gold));
@@ -247,7 +254,7 @@
     -webkit-text-fill-color: transparent;
   }
 
-  span{
+  span {
     display: flex;
     gap: 5px;
     align-content: center;

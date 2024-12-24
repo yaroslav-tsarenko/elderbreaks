@@ -21,8 +21,17 @@ import "swiper/swiper-bundle.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Title from "@/components/title/Title";
 import SliderItem from "@/components/slider-item/SliderItem";
+import {useRouter} from "next/navigation";
+
+
 
 const LatestVideos: FC<LatestVideoProps> = ({ type }) => {
+    const router = useRouter();
+
+    const handleLastVideo = () => {
+        router.push("https://www.youtube.com/@ElderBreaks_");
+    }
+
     return (
         <div className={styles.latestVideos}>
             <Title h2={type ? "highlights" : "latest"} span="videos" />
@@ -79,7 +88,7 @@ const LatestVideos: FC<LatestVideoProps> = ({ type }) => {
                 </>
             )}
             {type ? null : (
-                <Button icon={FaYoutube} variant="orange">
+                <Button icon={FaYoutube} variant="orange" onClick={handleLastVideo}>
                     CHECK OUT MY YOUTUBE CHANNEL
                 </Button>
             )}

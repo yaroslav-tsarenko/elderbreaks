@@ -2,11 +2,16 @@
 
 import React, { useState } from 'react';
 import styles from './CalendarItem.module.scss';
-import gamdom from "../../../public/gamdom-png.png";
 import Image from "next/image";
-import {CalendarItemProps} from "@/types/calendarItemProps";
 
-const CalendarItem: React.FC<CalendarItemProps> = ({ number }) => {
+interface CalendarItemProps {
+    number: number;
+    image: string;
+    title: string;
+    status: string;
+}
+
+const CalendarItem: React.FC<CalendarItemProps> = ({ number, image, title, status }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -31,9 +36,9 @@ const CalendarItem: React.FC<CalendarItemProps> = ({ number }) => {
                 </>
             ) : (
                 <div className={styles.openContent}>
-                    <Image src={gamdom} alt="Gamdom" width={64} height={64}/>
-                    <h2>GAMDOM BDAY!!!</h2>
-                    <p>Not Claimed</p>
+                    <Image src={image} alt={title} width={64} height={64}/>
+                    <h2>{title}</h2>
+                    <p>{status}</p>
                 </div>
             )}
         </div>

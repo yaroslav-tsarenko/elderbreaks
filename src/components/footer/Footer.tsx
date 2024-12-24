@@ -19,31 +19,31 @@ const Footer = () => {
                     <div className={styles.footerNav}>
                         <h3>Explore</h3>
                         <div className={styles.footerLinks}>
-                            <Link className={styles.link} href="/">Leaderboard</Link>
-                            <Link className={styles.link} href="/">Points Shop</Link>
-                            <Link className={styles.link} href="/">Pachinko</Link>
-                            <Link className={styles.link} href="/">Raffles</Link>
+                            <Link className={styles.link} href="/leaderboards">Leaderboard</Link>
+                            <Link className={styles.link} href="/points-shop">Points Shop</Link>
+                            <Link className={styles.link} href="/raffles">Pachinko</Link>
+                            <Link className={styles.link} href="/raffles">Raffles</Link>
                         </div>
                     </div>
                     <div className={styles.footerNav}>
                         <h3>About</h3>
                         <div className={styles.footerLinks}>
                             <Link className={styles.link} href="/">Contact</Link>
-                            <Link className={styles.link} href="/">FAQ</Link>
-                            <Link className={styles.link} href="/">Terms of service</Link>
-                            <Link className={styles.link} href="/">Privacy Policy</Link>
+                            <Link className={styles.link} href="/#faq-section">FAQ</Link>
+                            <Link className={styles.link} href="/terms-of-service">Terms of service</Link>
+                            <Link className={styles.link} href="/privacy-policy">Privacy Policy</Link>
                         </div>
                     </div>
                     <div className={styles.footerNav}>
                         <h3>Stay up to date</h3>
                         <div className={styles.footerSocials}>
-                            <Link className={styles.social} href="https://facebook.com">
+                            <Link className={styles.social} href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                                 <FaFacebookF/>
                             </Link>
-                            <Link className={styles.social} href="https://viber.com">
+                            <Link className={styles.social} href="https://viber.com" target="_blank" rel="noopener noreferrer">
                                 <FaViber/>
                             </Link>
-                            <Link className={styles.social} href="https://instagram.com">
+                            <Link className={styles.social} href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                                 <FaInstagram/>
                             </Link>
                         </div>

@@ -16,8 +16,19 @@ import howl from "../../../public/howl.png"
 import LimitedOffer from "@/components/limited-offer/LimitedOffer";
 import LimitedOfferPagination from "@/components/pagination-limited-offers/LimitedOfferPagination";
 import Title from "@/components/title/Title";
+import {useRouter} from "next/navigation";
 
 const PointsShopLayout = () => {
+    const router = useRouter()
+
+    const handleAlert = (string: string) => {
+        alert(string)
+    }
+
+    const handleNav = (string: string) => {
+        router.push(string)
+    }
+
     return (
         <>
             <div className={styles.section}>
@@ -35,7 +46,7 @@ const PointsShopLayout = () => {
                 <div className={styles.sectionDescription}>
                     <h1>POINTS SHOP</h1>
                     <p>Spend your points to buy amazing goods!</p>
-                    <Button variant="orange">how to get points?</Button>
+                    <Button variant="orange" onClick={() => handleNav("#how-to-get-points")}>how to get points?</Button>
                 </div>
             </div>
             <div className={styles.metricPointsContent}>
@@ -101,23 +112,23 @@ const PointsShopLayout = () => {
                         </span>
                     </h5>
                     <div className={styles.bannerButtons}>
-                        <Button variant="orange-full-width">How to get Points</Button>
-                        <Button variant="orange-outlined" icon={LuCircleDollarSign}>Buy item for 312,000</Button>
+                        <Button variant="orange-full-width" onClick={() => handleNav("#how-to-get-points")}>How to get Points</Button>
+                        <Button variant="orange-outlined" icon={LuCircleDollarSign} onClick={() => handleAlert("There isn't functionality for buying item :(")}>Buy item for 312,000</Button>
                     </div>
                 </div>
                 <Image src={howl} className={styles.howl} alt="howl" width={420} height={320}/>
             </div>
             <LimitedOfferPagination/>
-            <div className={styles.howItWorks}>
-                <Title h2="how to earn" span="points" />
+            <div className={styles.howItWorks} id="how-to-get-points">
+                <Title h2="how to earn" span="points"/>
                 <div className={styles.howItWorksPoints}>
                     <div className={styles.howItWorksPoint}>
                         <p>1</p>
-                        <h3>Follow my Twitch channel</h3>
+                        <h3>Follow my Twitch channel</h3>
                     </div>
                     <div className={styles.howItWorksPoint}>
                         <p>2</p>
-                        <h3>Stay active on my Streams</h3>
+                        <h3>Stay active on my Streams</h3>
                     </div>
                     <div className={styles.howItWorksPoint}>
                         <p>3</p>
