@@ -8,26 +8,26 @@ export const sliderImages = [
     {
         id: 1,
         src: clash,
-        alt: "Slider Image 1"
+        alt: "Clash"
     },
     {
         id: 2,
         src: packDraw,
-        alt: "Slider Image 2"
+        alt: "Pack Draw"
     },
     {
         id: 3,
         src: gamDom,
-        alt: "Slider Image 3"
+        alt: "GamDom"
     },
     {
         id: 4,
         src: gpoints,
-        alt: "Slider Image 4"
+        alt: "GPoints"
     },
     {
         id: 5,
         src: rain,
-        alt: "Slider Image 5"
+        alt: "Rain"
     }
 ]

@@ -9,7 +9,7 @@ export const links = [
     {
         title: 'Last Video',
         icon: FaVideo,
-        link: '/last-video',
+        link: 'https://www.youtube.com/watch?v=zX9EUPx_atc',
     },
     {
         title: 'Cases',

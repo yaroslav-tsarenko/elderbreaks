@@ -58,7 +58,13 @@
   font-size: 16px;
   flex-direction: column;
   text-align: left;
+
+  ol {
+    list-style-type: decimal; /* Use numbers for list items */
+    padding-left: 20px; /* Indent the list items */
+  }
 }
+
 
 .faqAnswer.open {
   max-height: 500px; /* Adjust as needed */

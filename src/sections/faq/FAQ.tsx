@@ -14,14 +14,15 @@ const FAQ: FC = () => {
     };
 
     return (
-        <div className={styles.faq}>
-         <Title h2="frequently asked" span="questions" column={true}/>
+        <div id="faq-section" className={styles.faq}>
+            <Title h2="frequently asked" span="questions" column={true} />
             <div className={styles.faqContainer}>
                 {faqs.map((faq, index) => (
                     <FAQItem
                         key={index}
                         question={faq.question}
                         answer={faq.answer}
+                        listItems={faq.listItems}
                         isOpen={activeIndex === index}
                         onClick={() => toggleFAQ(index)}
                     />

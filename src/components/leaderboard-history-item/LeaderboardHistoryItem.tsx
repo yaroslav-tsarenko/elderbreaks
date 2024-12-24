@@ -13,6 +13,10 @@ const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
                                                                      nickname,
                                                                      avatar
                                                                  }) => {
+
+    const handleClick = () => {
+        alert("Data is not available");
+    }
     return (
         <div className={styles.card}>
             <h4>{place}ST Place</h4>
@@ -33,7 +37,7 @@ const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
                 <h3>Total Pool</h3>
                 <h2>{totalPool}</h2>
             </div>
-            <Button variant="orange" icon={FaEye}>show more</Button>
+            <Button variant="orange" icon={FaEye} onClick={handleClick}>show more</Button>
         </div>
     );
 };

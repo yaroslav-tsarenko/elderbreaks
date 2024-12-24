@@ -14,7 +14,7 @@ const ClashCasino = () => {
                 </h1>
                 <h4>total prize pool</h4>
                 <h2>$4,000</h2>
-                <p>All games are allowed. Wager based on XP system. For more information visit discord.</p>
+                <p>All games are allowed. Wager based on XP system. For more information visit Discord.</p>
                 <div className={styles.code}>
                     Code: EB
                 </div>

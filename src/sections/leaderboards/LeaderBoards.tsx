@@ -8,9 +8,11 @@ import Button from "@/components/button/Button";
 import { FaCrown } from "react-icons/fa";
 import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import SliderItem from "@/components/slider-item/SliderItem";
+import {useRouter} from "next/navigation";
 
 const LeaderBoards = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const router = useRouter();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -19,6 +21,10 @@ const LeaderBoards = () => {
 
         return () => clearInterval(interval);
     }, []);
+
+    const handleLeaderboard = () => {
+        router.push('/leaderboards');
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -68,7 +74,7 @@ const LeaderBoards = () => {
                 </div>
                 <CountdownTimer />
                 <p className={styles.leaderBoardUpdates}>Leaderboard updates every 30-60 minutes</p>
-                <Button variant="orange" icon={FaCrown}>
+                <Button variant="orange" icon={FaCrown} onClick={handleLeaderboard}>
                     leaderboard
                 </Button>
                 <div className={styles.outlinedContainer}></div>

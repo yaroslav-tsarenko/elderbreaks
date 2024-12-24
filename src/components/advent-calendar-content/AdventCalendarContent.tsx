@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './AdventCalendarContent.module.scss';
 import CalendarItem from "@/components/calendar-item/CalendarItem";
+import { calendarRewards } from "@/mockup-data/calendarRewards";
 
 const AdventCalendarContent = () => {
-    const calendarItems = Array.from({ length: 30 }, (_, index) => (
-        <CalendarItem key={index} number={index + 1} />
-    ));
-
     return (
         <div className={styles.grid}>
-            {calendarItems}
+            {calendarRewards.map((reward, index) => (
+                <CalendarItem
+                    key={index}
+                    number={index + 1}
+                    image={reward.image.src}
+                    title={reward.title}
+                    status={reward.status}
+                />
+            ))}
         </div>
     );
 };

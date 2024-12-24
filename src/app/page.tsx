@@ -8,7 +8,7 @@ import LatestVideos from "@/sections/latest-videos/LatestVideos";
 import Stats from "@/sections/stats/Stats";
 import FAQ from "@/sections/faq/FAQ";
 
-const Home = () => {
+const Home: React.FC = () => {
     return (
         <>
             <WelcomeSection/>
@@ -19,7 +19,6 @@ const Home = () => {
             <LatestVideos type="Hightlights"/>
             <FAQ/>
         </>
-
     );
 };
 

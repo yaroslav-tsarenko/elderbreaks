@@ -7,20 +7,14 @@ import avatar from "../../../public/avatar.png";
 import Button from "@/components/button/Button";
 import wager from "../../../public/wager-icon-png.png";
 import { FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink } from "react-icons/fa";
-import { useUser } from "@/utils/UserContext";
+import { useUserContext } from "@/utils/UserContext";
 
 const AccountComponent = () => {
+    const { user } = useUserContext();
 
-    const userData = useUser();
-
-    if (!userData) {
-        return <div>Loading...</div>;
+    if (!user) {
+        return <div className={styles.loading}>Loading...</div>;
     }
-
-    const user = {
-        name: userData.username,
-        avatar: wager,
-    };
 
     return (
         <div className={styles.wrapper}>
@@ -51,19 +45,19 @@ const AccountComponent = () => {
                     <div className={styles.inputs}>
                         <div className={styles.input}>
                             <FaEthereum className={styles.icon} />
-                            <input type="text" placeholder="ETH Address" readOnly />
+                            <input type="text" placeholder="ETH Address" readOnly value={user.ethAddress} />
                         </div>
                         <div className={styles.input}>
                             <FaBitcoin className={styles.icon} />
-                            <input type="text" placeholder="BTC Address" readOnly />
+                            <input type="text" placeholder="BTC Address" readOnly value={user.btcAddress} />
                         </div>
                         <div className={styles.input}>
                             <FaUser className={styles.icon} />
-                            <input type="text" placeholder="Username" readOnly />
+                            <input type="text" placeholder="Username" readOnly value={user.username} />
                         </div>
                         <div className={styles.input}>
                             <FaCube className={styles.icon} />
-                            <input type="text" placeholder="Stake Username" readOnly />
+                            <input type="text" placeholder="Stake Username" readOnly value={user.stakeUsername} />
                         </div>
                     </div>
                     <div className={styles.optionButtons}>

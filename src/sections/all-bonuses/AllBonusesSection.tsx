@@ -14,6 +14,10 @@ const AllBonusesSection = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const totalPages = Math.ceil(totalItems / itemsPerPage);
 
+    const handleAlert = (str: string) => {
+        alert(str);
+    }
+
     const handlePageChange = (pageIndex: number) => {
         setCurrentPage(pageIndex);
     };
@@ -53,9 +57,9 @@ const AllBonusesSection = () => {
                     <div className={styles.promoSection}>
                         <div className={styles.promoCode}>
                             <span>Code: WJRF</span>
-                            <FaCopy className={styles.copyIcon}/>
+                            <FaCopy className={styles.copyIcon} onClick={() => {handleAlert("Copied!")}}/>
                         </div>
-                        <Button variant="orange-non-centered" icon={FaGift}>
+                        <Button variant="orange-non-centered" icon={FaGift} onClick={() => {handleAlert("Claimed!")}}>
                             claim bonus
                         </Button>
                     </div>
