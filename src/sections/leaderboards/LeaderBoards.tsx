@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from "./LeaderBoards.module.scss";
 import { players } from "@/mockup-data/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
@@ -10,6 +10,8 @@ import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import SliderItem from "@/components/slider-item/SliderItem";
 import { useRouter } from "next/navigation";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
+
+import { Player } from "@/types/playerFrame";
 
 const LeaderBoards = () => {
     const { leaderboard } = useLeaderboard();
@@ -25,7 +27,7 @@ const LeaderBoards = () => {
         router.push('/leaderboards');
     }
 
-    const displayPlayers = leaderboard?.data.length ? leaderboard.data : players;
+    const displayPlayers: Player[] = leaderboard && (leaderboard.data as Player[])?.length ? (leaderboard.data as Player[]) : players;
 
     return (
         <div className={styles.wrapper}>
@@ -42,7 +44,7 @@ const LeaderBoards = () => {
             <hr/>
             <div className={styles.leaderBoardsPlayers}>
                 <div className={styles.players}>
-                    {displayPlayers.map((player: { nickname: string; xp: string; money: string; avatar: string; place: number }, index: number) => (
+                    {displayPlayers.map((player, index) => (
                         <PlayerFrame
                             key={index}
                             nickname={player.nickname}
@@ -54,7 +56,7 @@ const LeaderBoards = () => {
                     ))}
                 </div>
                 <SliderItem slidesToShow={1}>
-                    {displayPlayers.map((player: { nickname: string; xp: string; money: string; avatar: string; place: number }, index: number) => (
+                    {displayPlayers.map((player, index) => (
                         <PlayerFrame
                             key={index}
                             nickname={player.nickname}

@@ -15,7 +15,6 @@ export function authWrapper(Component: React.ComponentType<any>) {
             cache: 'no-store',
         });
 
-
         const user = await response.json();
 
         return (

@@ -100,7 +100,7 @@ const ItemRaffle = () => {
                 <Button variant="orange-non-centered">Pay now $120</Button>
             </div>
             <ActiveRaffles h2="you may" span="also like"/>
-            <HowItWorks style="2"/>
+            <HowItWorks type="2"/>
         </div>
     );
 };
