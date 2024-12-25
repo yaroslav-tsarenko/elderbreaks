@@ -1,24 +1,33 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import logo from "../../../public/elderbreaks-logo-mobile.png";
 import burger from "../../../public/burger-menu-png.png";
 import times from "../../../public/times-icon.png";
-import { FaSignInAlt } from "react-icons/fa";
+import avatar from "../../../public/avatar.png";
+import {FaSignInAlt} from "react-icons/fa";
 import Button from "@/components/button/Button";
-import { links } from "@/mockup-data/links";
+import {links} from "@/mockup-data/links";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
+import {useUser} from "@/utils/UserContext";
+import wager from "../../../public/wager-icon-png.png";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(true);
     const [isFixed, setIsFixed] = useState(false);
-
+    const router = useRouter();
+    const user = useUser();
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);
     };
+
+    const handleLogin = () => {
+        router.push('https://discord.com/oauth2/authorize?client_id=1312902353510203432&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8800%2Fauth%2Fdiscord&scope=email+identify+openid');
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,16 +72,31 @@ const Header = () => {
                         className={styles.headerLogo}
                     />
                 </Link>
-                <hr />
+                <hr/>
                 <div className={styles.headerButtons}>
-                    <Button variant="outlined" icon={FaSignInAlt}>
-                        Login
-                    </Button>
+                    {user ? (
+                        <Link href="/account" className={styles.accountItem}>
+                            <Image src={avatar} alt="Avatar" width={54} height={54}/>
+                            <div className={styles.accountItemCredentials}>
+                                <p>{user.username}</p>
+                                <div className={styles.accountWallet}>
+                                    <Image src={wager} alt="wager" width={24} height={24}/>
+                                    {user.points}
+                                </div>
+                            </div>
+                        </Link>
+                    ) : (
+                        <div className={styles.loginButton}>
+                            <Button variant="outlined" icon={FaSignInAlt} onClick={handleLogin}>
+                                Login
+                            </Button>
+                        </div>
+                    )}
                     <button className={styles.buttonBurger} onClick={toggleMenu}>
                         {menuOpen ? (
-                            <Image src={times} alt="times" width={20} height={16} />
+                            <Image src={times} alt="times" width={20} height={16}/>
                         ) : (
-                            <Image src={burger} alt="burger" width={20} height={16} />
+                            <Image src={burger} alt="burger" width={20} height={16}/>
                         )}
                     </button>
                 </div>
@@ -81,7 +105,7 @@ const Header = () => {
                 >
                     {links.map((link, index) => (
                         <a key={index} href={link.link} className={styles.menuLink}>
-                            <link.icon className={styles.linkIcon} />
+                            <link.icon className={styles.linkIcon}/>
                             {link.title}
                         </a>
                     ))}

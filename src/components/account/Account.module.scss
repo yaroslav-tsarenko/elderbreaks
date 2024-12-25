@@ -5,6 +5,10 @@
   background: url("../../../public/account-bg.png") no-repeat center;
   background-size: cover;
   gap: 70px;
+
+  @media screen and (max-width: 1028px) {
+    padding: 30px 15px;
+  }
 }
 
 .accountItem {
@@ -45,6 +49,10 @@
   border-radius: 25px;
   margin: 0 auto;
   max-width: 914px;
+
+  @media screen and (max-width: 1028px) {
+    padding: 30px 15px;
+  }
 }
 
 .user {
@@ -92,6 +100,10 @@
   justify-items: center;
   align-items: center;
   width: 100%;
+
+  @media screen and (max-width: 1028px) {
+    flex-direction: column;
+  }
 }
 
 .inputs {
@@ -99,6 +111,10 @@
   flex-direction: column;
   width: 60%;
   gap: 20px;
+
+  @media screen and (max-width: 1028px) {
+    width: 100%;
+  }
 }
 
 .icon {
@@ -149,6 +165,10 @@
   flex-direction: column;
   border-radius: 25px;
   gap: 30px;
+
+  @media screen and (max-width: 1028px) {
+    width: 100%;
+  }
 }
 
 .loading {
