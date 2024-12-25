@@ -7,10 +7,11 @@ import avatar from "../../../public/avatar.png";
 import Button from "@/components/button/Button";
 import wager from "../../../public/wager-icon-png.png";
 import { FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink } from "react-icons/fa";
-import { useUserContext } from "@/utils/UserContext";
+import { useUser } from '@/utils/UserContext';
+
 
 const AccountComponent = () => {
-    const { user } = useUserContext();
+    const user = useUser();
 
     if (!user) {
         return <div className={styles.loading}>Loading...</div>;
