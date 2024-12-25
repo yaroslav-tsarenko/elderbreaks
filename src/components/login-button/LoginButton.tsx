@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/utils/UserContext";
 import Image from "next/image";
 import wager from "../../../public/wager-icon-png.png";
+import avatar from "../../../public/avatar.png";
+import Link from "next/link";
 
 const LoginButton = () => {
     const router = useRouter();
@@ -19,13 +21,16 @@ const LoginButton = () => {
 
     if (user) {
         return (
-            <div className={styles.accountItemCredentials}>
-                <p>{user.name}</p>
-                <div className={styles.accountWallet}>
-                    <Image src={wager} alt="wager" width={24} height={24} />
-                    1254
+            <Link href="/account" className={styles.accountItem}>
+                <Image src={avatar} alt="Avatar" width={54} height={54}/>
+                <div className={styles.accountItemCredentials}>
+                    <p>{user.username}</p>
+                    <div className={styles.accountWallet}>
+                        <Image src={wager} alt="wager" width={24} height={24}/>
+                        {user.points}
+                    </div>
                 </div>
-            </div>
+            </Link>
         );
     }
 

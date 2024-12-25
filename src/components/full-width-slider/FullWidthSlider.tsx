@@ -1,13 +1,17 @@
+// src/components/full-width-slider/FullWidthSlider.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './FullWidthSlider.module.scss';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
 import { sliderImages } from '@/mockup-data/sliderImages';
 import Image from 'next/image';
+import { newRequest } from '@/utils/newRequest';
+import { useLeaderboard } from '@/utils/LeaderboardContext';
 
 const FullWidthSlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [slidesToShow, setSlidesToShow] = useState(3);
     const sliderRef = useRef<HTMLDivElement>(null);
+    const { setLeaderboard } = useLeaderboard();
 
     useEffect(() => {
         const updateSlidesToShow = () => {
@@ -21,6 +25,20 @@ const FullWidthSlider = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const fetchRandomLeaderboard = async () => {
+            const randomImage = sliderImages[Math.floor(Math.random() * sliderImages.length)];
+            try {
+                const response = await newRequest.get(`/user/leaderboard/${randomImage.alt}`);
+                setLeaderboard({ model: randomImage.alt, data: response.data });
+            } catch (error) {
+                console.error('Error fetching leaderboard:', error);
+            }
+        };
+
+        fetchRandomLeaderboard();
+    }, [setLeaderboard]);
+
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
     };
@@ -31,8 +49,13 @@ const FullWidthSlider = () => {
         );
     };
 
-    const handleImageClick = (alt: string) => {
-        alert(`You choose ${alt}`);
+    const handleImageClick = async (alt: string) => {
+        try {
+            const response = await newRequest.get(`/user/leaderboard/${alt}`);
+            setLeaderboard({ model: alt, data: response.data });
+        } catch (error) {
+            console.error('Error fetching leaderboard:', error);
+        }
     };
 
     return (

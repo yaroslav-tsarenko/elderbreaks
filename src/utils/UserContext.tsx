@@ -1,5 +1,5 @@
-
 'use client';
+
 import React, { createContext, useContext } from 'react';
 export type User = {
     _id: string;
@@ -7,6 +7,7 @@ export type User = {
     discordId: string;
     discordAuth: boolean;
     email: string;
+    points: number;
     role: 'admin' | 'user';
     dateAdded: string;
     __v: number;

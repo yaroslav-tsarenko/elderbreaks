@@ -7,7 +7,6 @@ import Footer from "@/components/footer/Footer";
 import React from "react";
 import Header from "@/components/header/Header";
 import LoginButton from "@/components/login-button/LoginButton";
-import { UserProvider } from "@/utils/UserContext";
 import { authWrapper } from "@/utils/AuthWrapper";
 
 export const metadata: Metadata = {

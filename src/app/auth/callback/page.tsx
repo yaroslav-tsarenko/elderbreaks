@@ -1,8 +1,8 @@
 'use client';
-import axios  from "axios"
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { BACKEND_URL } from "@/constants/url";
+import axios from "axios"
+import {useEffect} from 'react';
+import {useRouter} from 'next/navigation';
+import {BACKEND_URL} from "@/constants/url";
 
 export default function Callback() {
     const router = useRouter();
@@ -26,9 +26,7 @@ export default function Callback() {
                     },
                     withCredentials: true,
                 });
-
-
-                    router.push('/app/');
+                router.push('/account');
 
             } catch (error) {
                 console.error('Authorization error:', error);
