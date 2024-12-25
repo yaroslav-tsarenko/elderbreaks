@@ -12,6 +12,9 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
         case 2:
             className = styles.secondPlace;
             break;
+        case 3:
+            className = styles.defaultPlace;
+            break;
         default:
             className = styles.defaultPlace;
             break;

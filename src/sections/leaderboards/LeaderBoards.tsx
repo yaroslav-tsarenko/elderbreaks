@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "./LeaderBoards.module.scss";
 import { players } from "@/mockup-data/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
@@ -10,24 +10,36 @@ import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import SliderItem from "@/components/slider-item/SliderItem";
 import { useRouter } from "next/navigation";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
-
 import { Player } from "@/types/playerFrame";
 
 const LeaderBoards = () => {
     const { leaderboard } = useLeaderboard();
     const router = useRouter();
+    const [displayPlayers, setDisplayPlayers] = useState<Player[]>([]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
+        const shuffleArray = (array: Player[]) => {
+            return array.sort(() => Math.random() - 0.5);
+        };
+
+        const getRandomPlayers = () => {
+            const firstPlacePlayers = shuffleArray(players.filter(player => player.place === 1));
+            const secondPlacePlayers = shuffleArray(players.filter(player => player.place === 2));
+            const thirdPlacePlayers = shuffleArray(players.filter(player => player.place === 3));
+
+            return [
+                secondPlacePlayers[0],
+                firstPlacePlayers[0],
+                thirdPlacePlayers[0]
+            ];
+        };
+
+        setDisplayPlayers(getRandomPlayers());
+    }, [leaderboard]);
 
     const handleLeaderboard = () => {
         router.push('/leaderboards');
-    }
-
-    const displayPlayers: Player[] = leaderboard && (leaderboard.data as Player[])?.length ? (leaderboard.data as Player[]) : players;
+    };
 
     return (
         <div className={styles.wrapper}>
