@@ -7,8 +7,11 @@ import QuickLinks from "@/sections/quick-links/QuickLinks";
 import LatestVideos from "@/sections/latest-videos/LatestVideos";
 import Stats from "@/sections/stats/Stats";
 import FAQ from "@/sections/faq/FAQ";
+import { useUser } from '@/utils/UserContext';
 
 const Home: React.FC = () => {
+    const user = useUser();
+    console.log(user); 
     return (
         <>
             <WelcomeSection/>

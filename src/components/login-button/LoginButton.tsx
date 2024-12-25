@@ -5,13 +5,13 @@ import styles from './LoginButton.module.scss';
 import Button from "@/components/button/Button";
 import { FaSignInAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { useUserContext } from "@/utils/UserContext";
+import { useUser } from "@/utils/UserContext";
 import Image from "next/image";
 import wager from "../../../public/wager-icon-png.png";
 
 const LoginButton = () => {
     const router = useRouter();
-    const { user } = useUserContext();
+    const  user  = useUser();
 
     const handleLogin = () => {
         router.push('https://discord.com/oauth2/authorize?client_id=1312902353510203432&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8800%2Fauth%2Fdiscord&scope=email+identify+openid');

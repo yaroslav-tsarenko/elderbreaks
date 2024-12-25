@@ -1,44 +1,43 @@
 'use client';
-
-import axios from 'axios';
-import {useEffect} from 'react';
-import {useRouter} from 'next/navigation';
-import {BACKEND_URL} from '@/constants/url';
-import {useUserContext} from '@/utils/UserContext';
+import axios  from "axios"
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { BACKEND_URL } from "@/constants/url";
 
 export default function Callback() {
-
     const router = useRouter();
-    const {setUser} = useUserContext();
 
     useEffect(() => {
         const handleAuthCallback = async () => {
+
             const searchParams = new URLSearchParams(window.location.search);
             const token = searchParams.get('token');
+            console.log(searchParams);
             if (!token) {
-                router.push('/');
+                router.push('/auth/login');
                 return;
             }
 
             try {
-                const response = await axios.get(`${BACKEND_URL}/user/getUser`, {
+
+                await axios.get(`${BACKEND_URL}/user/getUser`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                     withCredentials: true,
                 });
-                console.log(token);
-                console.log("data user:", response.data);
-                setUser(response.data.user);
-                router.push('/account');
+
+
+                    router.push('/app/');
+
             } catch (error) {
                 console.error('Authorization error:', error);
-                router.push('/');
+                router.push('/auth/login');
             }
         };
 
         handleAuthCallback();
-    }, [router, setUser]);
+    }, [router]);
 
     return <div>Processing...</div>;
 }
