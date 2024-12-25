@@ -1,48 +1,23 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-type User = {
+import React, { createContext, useContext } from 'react';
+export type User = {
     _id: string;
-    discordId: string;
-    discordAuth: string;
-    email: string;
-    name: string;
-    wallet: string;
-    role: string;
-    joined: string;
-    ethAddress: string;
-    btcAddress: string;
     username: string;
-    stakeUsername: string;
+    discordId: string;
+    discordAuth: boolean;
+    email: string;
+    points: number;
+    role: 'admin' | 'user';
+    dateAdded: string;
+    __v: number;
 };
+export const UserContext = createContext<User | undefined>(undefined);
 
-type UserContextType = {
-    user: User | undefined;
-    setUser: (user: User) => void;
-};
-
-const UserContext = createContext<UserContextType | undefined>(undefined);
-
-export function useUserContext() {
-    const context = useContext(UserContext);
-    if (!context) {
-        throw new Error('useUserContext must be used within a UserProvider');
-    }
-    return context;
+export function useUser() {
+    return useContext(UserContext);
 }
 
-export function UserProvider({ children, initialUser }: { children: React.ReactNode; initialUser?: User }) {
-    const [user, setUser] = useState<User | undefined>(initialUser);
-
-    useEffect(() => {
-        if (!user && typeof window !== 'undefined') {
-        }
-    }, [user]);
-
-    return (
-        <UserContext.Provider value={{ user, setUser }}>
-            {children}
-        </UserContext.Provider>
-    );
+export function UserProvider({ user, children }: { user: User; children: React.ReactNode }) {
+    return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 }

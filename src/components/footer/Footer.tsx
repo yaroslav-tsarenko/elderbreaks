@@ -3,7 +3,7 @@ import styles from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import FooterLogo from "../../../public/elder-logo.png";
-import { FaFacebookF, FaViber, FaInstagram } from "react-icons/fa";
+import { FaKickstarterK, FaDiscord, FaYoutube, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -37,14 +37,17 @@ const Footer = () => {
                     <div className={styles.footerNav}>
                         <h3>Stay up to date</h3>
                         <div className={styles.footerSocials}>
-                            <Link className={styles.social} href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                <FaFacebookF/>
+                            <Link className={styles.social} href="https://kick.com/elderbreaks" target="_blank" rel="noopener noreferrer">
+                                <FaKickstarterK/>
                             </Link>
-                            <Link className={styles.social} href="https://viber.com" target="_blank" rel="noopener noreferrer">
-                                <FaViber/>
+                            <Link className={styles.social} href="https://discord.gg/VV3jJm45ux" target="_blank" rel="noopener noreferrer">
+                                <FaDiscord/>
                             </Link>
-                            <Link className={styles.social} href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                                <FaInstagram/>
+                            <Link className={styles.social} href="https://youtube.com/@elderbreaks_" target="_blank" rel="noopener noreferrer">
+                                <FaYoutube/>
+                            </Link>
+                            <Link className={styles.social} href="https://twitter.com/ElderBreaks" target="_blank" rel="noopener noreferrer">
+                                <FaTwitter/>
                             </Link>
                         </div>
                     </div>

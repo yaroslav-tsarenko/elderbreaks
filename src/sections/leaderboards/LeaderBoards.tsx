@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import styles from "./LeaderBoards.module.scss";
 import { players } from "@/mockup-data/players";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
@@ -8,23 +8,24 @@ import Button from "@/components/button/Button";
 import { FaCrown } from "react-icons/fa";
 import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import SliderItem from "@/components/slider-item/SliderItem";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useLeaderboard } from "@/utils/LeaderboardContext";
 
 const LeaderBoards = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const { leaderboard } = useLeaderboard();
     const router = useRouter();
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % players.length);
         }, 3000);
-
         return () => clearInterval(interval);
     }, []);
 
     const handleLeaderboard = () => {
         router.push('/leaderboards');
     }
+
+    const displayPlayers = leaderboard?.data.length ? leaderboard.data : players;
 
     return (
         <div className={styles.wrapper}>
@@ -38,10 +39,10 @@ const LeaderBoards = () => {
                     <h5>Over <span>$18 000</span> in the prize pool!</h5>
                 </div>
             </div>
-            <hr />
+            <hr/>
             <div className={styles.leaderBoardsPlayers}>
                 <div className={styles.players}>
-                    {players.map((player, index) => (
+                    {displayPlayers.map((player: { nickname: string; xp: string; money: string; avatar: string; place: number }, index: number) => (
                         <PlayerFrame
                             key={index}
                             nickname={player.nickname}
@@ -53,7 +54,7 @@ const LeaderBoards = () => {
                     ))}
                 </div>
                 <SliderItem slidesToShow={1}>
-                    {players.map((player, index) => (
+                    {displayPlayers.map((player: { nickname: string; xp: string; money: string; avatar: string; place: number }, index: number) => (
                         <PlayerFrame
                             key={index}
                             nickname={player.nickname}
@@ -64,15 +65,7 @@ const LeaderBoards = () => {
                         />
                     ))}
                 </SliderItem>
-                <div className={styles.pagination}>
-                    {players.map((_, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.dot} ${index === currentIndex ? styles.active : ''}`}
-                        />
-                    ))}
-                </div>
-                <CountdownTimer />
+                <CountdownTimer/>
                 <p className={styles.leaderBoardUpdates}>Leaderboard updates every 30-60 minutes</p>
                 <Button variant="orange" icon={FaCrown} onClick={handleLeaderboard}>
                     leaderboard

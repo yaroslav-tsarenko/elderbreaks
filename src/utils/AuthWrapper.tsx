@@ -1,43 +1,27 @@
-import { cookies } from 'next/headers';
-import { UserProvider } from '@/utils/UserContext';
 import { BACKEND_URL } from '@/constants/url';
-import axios from 'axios';
+import { UserProvider } from './UserContext';
+import { cookies } from 'next/headers';
 
-export function authWrapper(Component: React.ComponentType<Record<string, unknown>>) {
-    return async function WrappedComponent(props: Record<string, unknown>) {
+export function authWrapper(Component: React.ComponentType<any>) {
+    //Врапером треба обгорнути компонент, на якому ми хочемо мати доступ до контексту
+    return async function WrappedComponent(props: any) {
         const cookieStore = await cookies();
         const token = cookieStore.get('token')?.value;
 
-        if (!token) {
-            return (
-                <UserProvider initialUser={undefined}>
-                    <Component {...props} />
-                </UserProvider>
-            );
-        }
+        const response = await fetch(`${BACKEND_URL}/user/getUser`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            cache: 'no-store',
+        });
 
-        try {
-            const response = await axios.get(`${BACKEND_URL}/user/getUser`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-                withCredentials: true,
-            });
 
-            const user = response.data.user;
+        const user = await response.json();
 
-            return (
-                <UserProvider initialUser={user}>
-                    <Component {...props} />
-                </UserProvider>
-            );
-        } catch (error) {
-            console.error('Fetch error:', error);
-            return (
-                <UserProvider initialUser={undefined}>
-                    <Component {...props} />
-                </UserProvider>
-            );
-        }
+        return (
+            <UserProvider user={user.user}>
+                <Component {...props} />
+            </UserProvider>
+        );
     };
 }
