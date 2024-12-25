@@ -1,11 +1,11 @@
-// src/components/full-width-slider/FullWidthSlider.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './FullWidthSlider.module.scss';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
 import { sliderImages } from '@/mockup-data/sliderImages';
 import Image from 'next/image';
-import { newRequest } from '@/utils/newRequest';
 import { useLeaderboard } from '@/utils/LeaderboardContext';
+import { players } from '@/mockup-data/players';
+import { Player } from '@/types/playerFrame';
 
 const FullWidthSlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,21 +25,6 @@ const FullWidthSlider = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const fetchRandomLeaderboard = async () => {
-            const randomImage = sliderImages[Math.floor(Math.random() * sliderImages.length)];
-            try {
-                const response = await newRequest.get(`/user/leaderboard/${randomImage.alt}`);
-                setLeaderboard(response.data);
-                console.log('Leaderboard:', response.data);
-            } catch (error) {
-                console.error('Error fetching leaderboard:', error);
-            }
-        };
-
-        fetchRandomLeaderboard();
-    }, [setLeaderboard]);
-
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
     };
@@ -50,13 +35,25 @@ const FullWidthSlider = () => {
         );
     };
 
-    const handleImageClick = async (alt: string) => {
-        try {
-            const response = await newRequest.get(`/user/leaderboard/${alt}`);
-            setLeaderboard({ model: alt, data: response.data });
-        } catch (error) {
-            console.error('Error fetching leaderboard:', error);
-        }
+    const handleImageClick = (alt: string) => {
+        alert(`You choose ${alt}`);
+        const shuffleArray = (array: Player[]) => {
+            return array.sort(() => Math.random() - 0.5);
+        };
+
+        const getRandomPlayers = () => {
+            const firstPlacePlayers = shuffleArray(players.filter(player => player.place === 1));
+            const secondPlacePlayers = shuffleArray(players.filter(player => player.place === 2));
+            const thirdPlacePlayers = shuffleArray(players.filter(player => player.place === 3));
+
+            return [
+                secondPlacePlayers[0],
+                firstPlacePlayers[0],
+                thirdPlacePlayers[0]
+            ];
+        };
+
+        setLeaderboard({ model: 'leaderboard', data: getRandomPlayers() });
     };
 
     return (
