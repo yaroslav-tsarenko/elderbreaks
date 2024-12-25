@@ -30,7 +30,8 @@ const FullWidthSlider = () => {
             const randomImage = sliderImages[Math.floor(Math.random() * sliderImages.length)];
             try {
                 const response = await newRequest.get(`/user/leaderboard/${randomImage.alt}`);
-                setLeaderboard({ model: randomImage.alt, data: response.data });
+                setLeaderboard(response.data);
+                console.log('Leaderboard:', response.data);
             } catch (error) {
                 console.error('Error fetching leaderboard:', error);
             }

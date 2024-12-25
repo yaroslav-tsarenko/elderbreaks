@@ -37,12 +37,49 @@
   justify-content: space-between;
 }
 
+.accountItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  justify-items: center;
+  text-decoration: none;
+  z-index: 9999;
+  align-content: center;
+  cursor: pointer;
+  border-radius: 55px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: var(--senary-color);
+  }
+}
+
+.accountItemCredentials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accountWallet {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-weight: bold;
+}
+
 .buttonBurger {
   display: flex;
   background: none;
   border-radius: 5px;
   border: 1px solid var(--secondary-color);
-  width: 34px;
+  width: 44px;
+  height: 44px;
   align-content: center;
   justify-content: center;
   justify-items: center;
