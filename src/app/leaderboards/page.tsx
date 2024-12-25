@@ -5,13 +5,13 @@ import HowItWorks from "@/sections/how-it-works/HowItWorks";
 import Leaders from "@/sections/leaders/Leaders";
 import LeaderboardHistory from "@/sections/leaderboard-history/LeaderboardHistory";
 import LiveDrops from "@/sections/live-drops/LiveDrops";
-import { LeaderboardProvider } from '@/utils/LeaderboardContext';
+import {LeaderboardProvider} from '@/utils/LeaderboardContext';
 
 const LeaderboardsPage = () => {
     return (
         <LeaderboardProvider>
             <ClashCasino/>
-            <HowItWorks style="1"/>
+            <HowItWorks type="1"/>
             <LeaderBoards/>
             <Leaders/>
             <LeaderboardHistory/>

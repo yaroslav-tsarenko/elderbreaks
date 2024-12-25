@@ -8,6 +8,7 @@ import React from "react";
 import Header from "@/components/header/Header";
 import LoginButton from "@/components/login-button/LoginButton";
 import { authWrapper } from "@/utils/AuthWrapper";
+import {LeaderboardProvider} from "@/utils/LeaderboardContext";
 
 export const metadata: Metadata = {
     title: "ElderBreaks",
@@ -22,7 +23,7 @@ function RootLayout({ children }: RootLayoutProps): React.ReactElement {
     return (
         <html lang="en">
         <body>
-        
+        <LeaderboardProvider>
             <PageWrapper>
                 <AsideNav />
                 <PageContent>
@@ -32,7 +33,7 @@ function RootLayout({ children }: RootLayoutProps): React.ReactElement {
                 </PageContent>
             </PageWrapper>
             <Footer />
-       
+        </LeaderboardProvider>
         </body>
         </html>
     );

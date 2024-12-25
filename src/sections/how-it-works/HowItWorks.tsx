@@ -9,10 +9,10 @@ import Button from "@/components/button/Button";
 import {FaEye} from "react-icons/fa";
 import Image from "next/image";
 
-const HowItWorks: FC<HowItWorksProps> = ({style}) => {
+const HowItWorks: FC<HowItWorksProps> = ({type}) => {
     return (
         <div>
-            {style === "1" ? (
+            {type === "1" ? (
                 <div className={styles.howItWorks}>
                     <Title h2="how it" span="works"/>
                     <div className={styles.howItWorksPoints}>

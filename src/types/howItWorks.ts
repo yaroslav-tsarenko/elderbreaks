@@ -1,3 +1,3 @@
 export interface HowItWorksProps{
-   style?: string,
+   type?: string,
 }
