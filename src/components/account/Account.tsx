@@ -41,6 +41,7 @@ const AccountComponent = () => {
                 setIsKickLinked(response.data);
             } catch (error) {
                 console.error('Error checking link status:', error);
+                alert('Failed to check link status. Please try again later.');
             }
         };
 
@@ -52,7 +53,7 @@ const AccountComponent = () => {
     }
 
     const handleAlert = (string: string) => {
-        alert(string)
+        alert(string);
     }
 
     const handleNav = (path: string) => {
@@ -68,6 +69,7 @@ const AccountComponent = () => {
             setCode(response.data.code);
         } catch (error) {
             console.error('Error fetching link:', error);
+            alert('Failed to generate link. Please try again later.');
         }
         setIsPopupOpen(!isPopupOpen);
     };
