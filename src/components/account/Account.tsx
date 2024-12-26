@@ -7,11 +7,9 @@ import avatar from "../../../public/avatar.png";
 import Button from "@/components/button/Button";
 import { FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink } from "react-icons/fa";
 import { useUser } from '@/utils/UserContext';
-import { useRouter } from "next/navigation";
 import { newRequest } from "@/utils/newRequest";
 
 const AccountComponent = () => {
-    const router = useRouter();
     const user = useUser();
     const [code, setCode] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
