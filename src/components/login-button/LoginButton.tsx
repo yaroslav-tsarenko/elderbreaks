@@ -10,13 +10,14 @@ import Image from "next/image";
 import wager from "../../../public/wager-icon-png.png";
 import avatar from "../../../public/avatar.png";
 import Link from "next/link";
+import {DISCORD_AUTH} from "@/constants/url";
 
 const LoginButton = () => {
     const router = useRouter();
     const  user  = useUser();
 
     const handleLogin = () => {
-        router.push('https://discord.com/oauth2/authorize?client_id=1312902353510203432&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8800%2Fauth%2Fdiscord&scope=email+identify+openid');
+        router.push(DISCORD_AUTH);
     }
 
     if (user) {

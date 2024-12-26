@@ -1,4 +1,5 @@
 import { FaTrophy, FaVideo, FaBriefcase, FaCalendarAlt, FaGift, FaTicketAlt, FaStore } from 'react-icons/fa';
+import {LAST_VIDEO} from "@/constants/url";
 
 export const links = [
     {
@@ -9,7 +10,8 @@ export const links = [
     {
         title: 'Last Video',
         icon: FaVideo,
-        link: 'https://www.youtube.com/watch?v=zX9EUPx_atc',
+        link: LAST_VIDEO,
+        target: '_blank',
     },
     {
         title: 'Cases',

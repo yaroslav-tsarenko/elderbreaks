@@ -28,8 +28,7 @@ const AsideNav = () => {
             <div
                 className={`${styles.asideSticky} ${
                     isSticky ? styles.isSticky : ""
-                }`}
-            >
+                }`}>
                 <Link href={"/"}>
                     <Image
                         src={Logo.src}

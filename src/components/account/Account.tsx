@@ -8,15 +8,21 @@ import Button from "@/components/button/Button";
 import { FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink } from "react-icons/fa";
 import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
+import {useRouter} from "next/navigation";
+import {ADMIN_PANEL_URL, KICK_URL} from "@/constants/url";
 
 const AccountComponent = () => {
     const user = useUser();
     const [code, setCode] = useState('');
+    const router = useRouter();
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
     const [isCopyButtonDisabled, setIsCopyButtonDisabled] = useState(false);
     const [isKickLinked, setIsKickLinked] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
+    const adminUrl = ADMIN_PANEL_URL;
+
+    console.log('Admin URL:', adminUrl);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(`!link ${code}`).then(() => {
@@ -28,6 +34,10 @@ const AccountComponent = () => {
         });
     };
 
+    const handleNav = (str: string) => {
+        router.push(str)
+    }
+
     useEffect(() => {
         if (!user) {
             const timer = setTimeout(() => {
@@ -35,6 +45,7 @@ const AccountComponent = () => {
             }, 1000);
             return () => clearTimeout(timer);
         }
+
 
         const checkLinkStatus = async () => {
             try {
@@ -85,10 +96,10 @@ const AccountComponent = () => {
         <div className={styles.wrapper}>
             <div className={styles.account}>
                 <div className={styles.user}>
-                    <Image src={avatar} alt="avatar" height={96} width={96} />
+                    <Image src={user.avatarUrl || avatar} alt="avatar" height={96} width={96} />
                     <div className={styles.userCredentials}>
                         <h2>{user.username}
-                            <span>Admin</span>
+                            <span>{user.role}</span>
                         </h2>
                         <p>Joined at: {currentDate}</p>
                     </div>
@@ -126,7 +137,9 @@ const AccountComponent = () => {
                     </div>
                 </div>
                 <hr />
-                <Button variant="orange" icon={FaCog}>Admin Panel</Button>
+                {user.role === "admin" && (
+                    <Button variant="orange" icon={FaCog} onClick={() => handleNav(adminUrl || '')}>Admin Panel</Button>
+                )}
             </div>
             {isPopupOpen && (
                 <div className={styles.overlay}>
@@ -143,7 +156,7 @@ const AccountComponent = () => {
                                 <button className={styles.copyButton} onClick={handleCopy}
                                         disabled={isCopyButtonDisabled}>{copyButtonText}</button>
                             </div>
-                            <Button variant="outlined" onClick={() => window.open("https://kick.com/elderbreaks", "_blank")}>
+                            <Button variant="outlined" onClick={() => window.open(KICK_URL, "_blank")}>
                                 Go to Elder&apos;s Chat
                             </Button>
                         </div>
