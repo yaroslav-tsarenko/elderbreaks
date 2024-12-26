@@ -1,14 +1,14 @@
 "use client";
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "./Account.module.scss";
 import Image from "next/image";
 import avatar from "../../../public/avatar.png";
 import Button from "@/components/button/Button";
-import {FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink} from "react-icons/fa";
-import {useUser} from '@/utils/UserContext';
-import {useRouter} from "next/navigation";
-import {newRequest} from "@/utils/newRequest";
+import { FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink } from "react-icons/fa";
+import { useUser } from '@/utils/UserContext';
+import { useRouter } from "next/navigation";
+import { newRequest } from "@/utils/newRequest";
 
 const AccountComponent = () => {
     const router = useRouter();
@@ -76,7 +76,7 @@ const AccountComponent = () => {
         <div className={styles.wrapper}>
             <div className={styles.account}>
                 <div className={styles.user}>
-                    <Image src={avatar} alt="avatar" height={96} width={96}/>
+                    <Image src={avatar} alt="avatar" height={96} width={96} />
                     <div className={styles.userCredentials}>
                         <h2>{user.username}
                             <span>Admin</span>
@@ -84,24 +84,24 @@ const AccountComponent = () => {
                         <p>Joined at: {currentDate}</p>
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className={styles.options}>
                     <div className={styles.inputs}>
                         <div className={styles.input}>
-                            <FaEthereum className={styles.icon}/>
-                            <input type="text" placeholder="ETH Address"/>
+                            <FaEthereum className={styles.icon} />
+                            <input type="text" placeholder="ETH Address" />
                         </div>
                         <div className={styles.input}>
-                            <FaBitcoin className={styles.icon}/>
-                            <input type="text" placeholder="BTC Address"/>
+                            <FaBitcoin className={styles.icon} />
+                            <input type="text" placeholder="BTC Address" />
                         </div>
                         <div className={styles.input}>
-                            <FaUser className={styles.icon}/>
-                            <input type="text" placeholder="Username" value={user.username}/>
+                            <FaUser className={styles.icon} />
+                            <input type="text" placeholder="Username" value={user.username} />
                         </div>
                         <div className={styles.input}>
-                            <FaCube className={styles.icon}/>
-                            <input type="text" placeholder="Stake Username"/>
+                            <FaCube className={styles.icon} />
+                            <input type="text" placeholder="Stake Username" />
                         </div>
                     </div>
                     <div className={styles.optionButtons}>
@@ -114,7 +114,7 @@ const AccountComponent = () => {
                         )}
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <Button variant="orange" icon={FaCog}>Admin Panel</Button>
             </div>
             {isPopupOpen && (
