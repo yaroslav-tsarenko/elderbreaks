@@ -48,7 +48,7 @@ const LeaderBoards = () => {
         } else {
             const mockupPlayers = players.map(player => ({
                 ...player,
-                category: player.category.src // Convert StaticImageData to string
+                category: player.category.src
             }));
             setDisplayPlayers(mockupPlayers);
         }

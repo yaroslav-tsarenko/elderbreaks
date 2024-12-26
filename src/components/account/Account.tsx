@@ -5,7 +5,7 @@ import styles from "./Account.module.scss";
 import Image from "next/image";
 import avatar from "../../../public/avatar.png";
 import Button from "@/components/button/Button";
-import { FaBitcoin, FaEthereum, FaUser, FaCube, FaCog, FaSave, FaLink } from "react-icons/fa";
+import { FaBitcoin, FaEthereum, FaUser, FaCog, FaSave, FaLink } from "react-icons/fa";
 import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
 import {useRouter} from "next/navigation";
@@ -28,7 +28,9 @@ const AccountComponent = () => {
         navigator.clipboard.writeText(`!link ${code}`).then(() => {
             setCopyButtonText('Copied!');
             setIsCopyButtonDisabled(true);
-            setIsProcessing(true);
+            setTimeout(() => {
+                setIsProcessing(true);
+            }, 1500);
         }).catch(err => {
             console.error('Failed to copy: ', err);
         });
@@ -46,18 +48,16 @@ const AccountComponent = () => {
             return () => clearTimeout(timer);
         }
 
-
         const checkLinkStatus = async () => {
             try {
                 const response = await newRequest.get('/user/check-link-status');
                 if (response.data.isConfirmed) {
+                    console.log("Response link:", response.data);
                     setIsKickLinked(true);
                     setIsProcessing(false);
-                    window.location.reload();
                 }
             } catch (error) {
                 console.error('Error checking link status:', error);
-                alert('Failed to check link status. Please try again later.');
             }
         };
 
@@ -66,6 +66,8 @@ const AccountComponent = () => {
                 checkLinkStatus();
             }
         }, 1000);
+
+        checkLinkStatus();
 
         return () => clearInterval(interval);
     }, [user, isProcessing]);
@@ -87,7 +89,6 @@ const AccountComponent = () => {
             setCode(response.data.code);
         } catch (error) {
             console.error('Error fetching link:', error);
-            alert('Failed to generate link. Please try again later.');
         }
         setIsPopupOpen(!isPopupOpen);
     };
@@ -96,7 +97,7 @@ const AccountComponent = () => {
         <div className={styles.wrapper}>
             <div className={styles.account}>
                 <div className={styles.user}>
-                    <Image src={user.avatarUrl || avatar} alt="avatar" height={96} width={96} />
+                    <Image src={user.avatarUrl || avatar} className={styles.userAvatar} alt="avatar" height={96} width={96} />
                     <div className={styles.userCredentials}>
                         <h2>{user.username}
                             <span>{user.role}</span>
@@ -119,13 +120,9 @@ const AccountComponent = () => {
                             <FaUser className={styles.icon} />
                             <input type="text" placeholder="Username" value={user.username} />
                         </div>
-                        <div className={styles.input}>
-                            <FaCube className={styles.icon} />
-                            <input type="text" placeholder="Stake Username" />
-                        </div>
                     </div>
                     <div className={styles.optionButtons}>
-                        <Button variant="outlined-small" icon={FaSave} onClick={() => handleAlert("Changes save!")}>SAVE
+                        <Button variant="outlined-small" icon={FaSave} onClick={() => handleAlert("Changes saved!")}>SAVE
                             CHANGES</Button>
                         {isProcessing ? (
                             <p>Processing...</p>

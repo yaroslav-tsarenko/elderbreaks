@@ -61,6 +61,11 @@
   margin: 0 auto;
 }
 
+.userAvatar{
+  border-radius: 155px;
+  object-fit: cover;
+}
+
 .userCredentials {
   display: flex;
   flex-direction: column;

@@ -47,11 +47,28 @@ const FullWidthSlider = () => {
     const handleImageClick = async (alt: string) => {
         setIsProcessing(true);
         try {
+            let leaderboardName = alt;
+            if (alt === "CsgobigLeaderboard") {
+                leaderboardName = "CSGOBIG LEADERBOARD";
+            } else if (alt === "RoobetLeaderboard") {
+                leaderboardName = "ROOBET LEADERBOARD";
+            } else if (alt === "EmpireDropLeaderboard") {
+                leaderboardName = "EMPIRE DROP LEADERBOARD";
+            } else if (alt === "RainLeaderboard") {
+                leaderboardName = "RAIN LEADERBOARD";
+            } else if (alt === "DuelGpLeaderboard") {
+                leaderboardName = "DUEL GP LEADERBOARD";
+            } else if (alt === "CsgostakeLeaderboard") {
+                leaderboardName = "CSGOSTAKE LEADERBOARD";
+            } else if (alt === "CsgorollLeaderboard") {
+                leaderboardName = "CSGOROLL LEADERBOARD";
+            }
+
             const response = await newRequest.get(`/user/leaderboard/${alt}`);
             setLeaderboard(response.data);
             localStorage.setItem('leaderboard', JSON.stringify(response.data));
             console.log('Leaderboard data:', response.data);
-            setAlertMessage(`You choose ${alt}!`);
+            setAlertMessage(`${leaderboardName}!`);
         } catch (error) {
             console.error('Error fetching leaderboard data:', error);
             setAlertMessage('Failed to fetch leaderboard data.');
