@@ -13,6 +13,7 @@ const FullWidthSlider = () => {
     const sliderRef = useRef<HTMLDivElement>(null);
     const { setLeaderboard } = useLeaderboard();
 
+
     useEffect(() => {
         const updateSlidesToShow = () => {
             setSlidesToShow(window.innerWidth <= 1028 ? 2 : 3);

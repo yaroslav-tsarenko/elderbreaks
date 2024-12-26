@@ -1,23 +1,25 @@
-import clash from "../../public/clash-32-png.png";
-import packDraw from "../../public/packdraw-32-png.png";
-import gamDom from "../../public/gamdom-32-png.png";
+import csgobig from "../../public/csgobig-deposit.png";
+import roobet from "../../public/roobet.png";
+import empireDrop from "../../public/empiredrop.png";
 import gpoints from "../../public/g-points-png.png";
-import rain from "../../public/rain-png.png";
+import rain from "../../public/rain.png";
+import csgostake from "../../public/csgostake.png";
+import csgoroll from "../../public/csgoroll.png";
 
 export const sliderImages = [
     {
         id: 1,
-        src: clash,
+        src: csgobig,
         alt: "CsgobigLeaderboard"
     },
     {
         id: 2,
-        src: packDraw,
+        src: roobet,
         alt: "RoobetLeaderboard"
     },
     {
         id: 3,
-        src: gamDom,
+        src: empireDrop,
         alt: "EmpireDropLeaderboard"
     },
     {
@@ -32,12 +34,12 @@ export const sliderImages = [
     },
     {
         id: 6,
-        src: rain,
+        src: csgostake,
         alt: "CsgostakeLeaderboard"
     },
     {
         id: 7,
-        src: rain,
+        src: csgoroll,
         alt: "CsgorollLeaderboard"
     }
 ];
