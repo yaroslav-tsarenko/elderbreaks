@@ -18,11 +18,13 @@ const AccountComponent = () => {
     const [copyButtonText, setCopyButtonText] = useState('Copy');
     const [isCopyButtonDisabled, setIsCopyButtonDisabled] = useState(false);
     const [isKickLinked, setIsKickLinked] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(`!link ${code}`).then(() => {
             setCopyButtonText('Copied!');
             setIsCopyButtonDisabled(true);
+            setIsProcessing(true);
         }).catch(err => {
             console.error('Failed to copy: ', err);
         });
@@ -35,18 +37,28 @@ const AccountComponent = () => {
             }, 1000);
             return () => clearTimeout(timer);
         }
+
         const checkLinkStatus = async () => {
             try {
                 const response = await newRequest.get('/user/check-link-status');
-                setIsKickLinked(response.data);
+                if (response.data.isConfirmed) {
+                    setIsKickLinked(true);
+                    setIsProcessing(false);
+                }
             } catch (error) {
                 console.error('Error checking link status:', error);
                 alert('Failed to check link status. Please try again later.');
             }
         };
 
-        checkLinkStatus();
-    }, [user]);
+        const interval = setInterval(() => {
+            if (isProcessing) {
+                checkLinkStatus();
+            }
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [user, isProcessing]);
 
     if (!user) {
         return <div className={styles.loading}>Loading...</div>;
@@ -54,10 +66,6 @@ const AccountComponent = () => {
 
     const handleAlert = (string: string) => {
         alert(string);
-    }
-
-    const handleNav = (path: string) => {
-        router.push(path);
     }
 
     const currentDate = new Date().toLocaleDateString();
@@ -109,7 +117,9 @@ const AccountComponent = () => {
                     <div className={styles.optionButtons}>
                         <Button variant="outlined-small" icon={FaSave} onClick={() => handleAlert("Changes save!")}>SAVE
                             CHANGES</Button>
-                        {isKickLinked ? (
+                        {isProcessing ? (
+                            <p>Processing...</p>
+                        ) : isKickLinked ? (
                             <p>Kick linked to your account</p>
                         ) : (
                             <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
@@ -134,7 +144,7 @@ const AccountComponent = () => {
                                 <button className={styles.copyButton} onClick={handleCopy}
                                         disabled={isCopyButtonDisabled}>{copyButtonText}</button>
                             </div>
-                            <Button variant="outlined" onClick={() => handleNav("https://kick.com/elderbreaks")}>
+                            <Button variant="outlined" onClick={() => window.open("https://kick.com/elderbreaks", "_blank")}>
                                 Go to Elder&apos;s Chat
                             </Button>
                         </div>
