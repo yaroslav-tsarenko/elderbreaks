@@ -1,7 +1,7 @@
 import csgobig from "../../public/csgobig-deposit.png";
 import roobet from "../../public/roobet.png";
 import empireDrop from "../../public/empiredrop.png";
-import gpoints from "../../public/g-points-png.png";
+import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
 import csgostake from "../../public/csgostake.png";
 import csgoroll from "../../public/csgoroll.png";
@@ -24,12 +24,12 @@ export const sliderImages = [
     },
     {
         id: 4,
-        src: gpoints,
+        src: rain,
         alt: "RainLeaderboard"
     },
     {
         id: 5,
-        src: rain,
+        src: gpoints,
         alt: "DuelGpLeaderboard"
     },
     {

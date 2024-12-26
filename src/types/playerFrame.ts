@@ -1,11 +1,16 @@
-import { StaticImageData } from 'next/image';
-
-export type Player = {
+export interface Player {
+    _id: string;
+    userId: string;
+    username: string;
+    wagered: number;
+    prize: number;
+    category: string;
+    startDate: string;
+    endDate: string;
+    __v: number;
     nickname: string;
-    xp: string;
+    xp: number;
     money: string;
-    avatar: StaticImageData;
     place: number;
-};
-
-export type PlayerFrameProps = Player;
+    avatar: string | null;
+}

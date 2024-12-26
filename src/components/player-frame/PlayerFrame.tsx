@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { PlayerFrameProps } from "@/types/playerFrame";
 import styles from "./PlayerFrame.module.scss";
+import { PlayerFrameProps } from "@/types/player";
+import Image from "next/image";
 
 const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place }) => {
     let className;
@@ -20,18 +21,24 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
             break;
     }
 
+    const getRandomPrize = () => {
+        const prizes = ["$100", "$200", "$300", "$400", "$500"]; // Example prizes
+        const randomIndex = Math.floor(Math.random() * prizes.length);
+        return prizes[randomIndex];
+    };
+
     return (
         <div className={className}>
-            {avatar ? <img src={avatar.src} alt={"avatar"} className={styles.avatar} width="110" height="110"/> : "none" }
+            {avatar ? <Image src={avatar} alt="avatar" className={styles.avatar} width="110" height="110"/> : "none"}
             <h4>{nickname}</h4>
             <div className={styles.playerCredentials}>
                 <p>xp wagered:</p>
                 <span>
                     <p className={styles.xp}>xp</p>
-                    {xp}
+                    {Math.floor(xp)}
                 </span>
             </div>
-            <h3>{money}</h3>
+            <h3>{Math.floor(parseFloat(money)) || getRandomPrize()}</h3>
         </div>
     );
 };
