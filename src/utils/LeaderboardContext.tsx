@@ -2,9 +2,25 @@
 
 import React, { createContext, useContext, useState } from 'react';
 
+type LeaderboardItem = {
+    _id: string;
+    userId: string;
+    username: string;
+    wagered: number;
+    rank: number;
+    prize: string | null;
+    category: string;
+    startDate: string;
+    endDate: string;
+    createdAt: string;
+    updatedAt: string;
+};
+
 type LeaderboardData = {
-    model: string;
-    data: unknown;
+    success: boolean;
+    data: {
+        items: LeaderboardItem[];
+    };
 };
 
 const LeaderboardContext = createContext<{

@@ -10,6 +10,7 @@ export type User = {
     points: number;
     role: 'admin' | 'user';
     dateAdded: string;
+    avatarUrl: string;
     __v: number;
 };
 export const UserContext = createContext<User | undefined>(undefined);
