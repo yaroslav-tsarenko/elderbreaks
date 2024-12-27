@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { newRequest } from '@/utils/newRequest';
 
 type LeaderboardItem = {
     _id: string;
@@ -32,6 +33,20 @@ const LeaderboardContext = createContext<{
 
 export const LeaderboardProvider = ({ children }: { children: React.ReactNode }) => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
+
+    useEffect(() => {
+        const fetchDefaultLeaderboard = async () => {
+            try {
+                const response = await newRequest.get('/user/leaderboard/CsgorollLeaderboard');
+                setLeaderboard(response.data);
+            } catch (error) {
+                console.error('Error fetching default leaderboard:', error);
+            }
+        };
+
+        fetchDefaultLeaderboard();
+    }, []);
+
     return (
         <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard }}>
             {children}

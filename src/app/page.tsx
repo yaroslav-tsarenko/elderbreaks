@@ -8,12 +8,13 @@ import LatestVideos from "@/sections/latest-videos/LatestVideos";
 import Stats from "@/sections/stats/Stats";
 import FAQ from "@/sections/faq/FAQ";
 import { useUser } from '@/utils/UserContext';
+import { LeaderboardProvider } from '@/utils/LeaderboardContext';
 
 const Home: React.FC = () => {
     const user = useUser();
-    console.log(user); 
+    console.log(user);
     return (
-        <>
+        <LeaderboardProvider>
             <WelcomeSection/>
             <LeaderBoards/>
             <QuickLinks/>
@@ -21,7 +22,7 @@ const Home: React.FC = () => {
             <Stats/>
             <LatestVideos type="Hightlights"/>
             <FAQ/>
-        </>
+        </LeaderboardProvider>
     );
 };
 

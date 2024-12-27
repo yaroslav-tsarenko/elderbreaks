@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import styles from "./ClashCasino.module.scss";
 import FullWidthSlider from "@/components/full-width-slider/FullWidthSlider";
 import { sliderImages } from '@/mockup-data/sliderImages';
-import {useLeaderboard} from "@/utils/LeaderboardContext";
+import { useLeaderboard } from "@/utils/LeaderboardContext";
 
 const ClashCasino = () => {
     const { leaderboard } = useLeaderboard();
