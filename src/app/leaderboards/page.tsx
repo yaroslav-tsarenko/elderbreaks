@@ -7,31 +7,18 @@ import HowItWorks from "@/sections/how-it-works/HowItWorks";
 import Leaders from "@/sections/leaders/Leaders";
 import LeaderboardHistory from "@/sections/leaderboard-history/LeaderboardHistory";
 import LiveDrops from "@/sections/live-drops/LiveDrops";
-import { LeaderboardProvider, useLeaderboard } from '@/utils/LeaderboardContext';
+import { LeaderboardProvider } from '@/utils/LeaderboardContext';
 
-const LeaderboardsContent = () => {
-    const { leaderboard } = useLeaderboard();
-
-    if (!leaderboard || !leaderboard.data || !Array.isArray(leaderboard.data.items) || leaderboard.data.items.length === 0) {
-        return <div className="loading-screen">Leaderboard is not available right now</div>;
-    }
+const LeaderboardsPage = () => {
 
     return (
-        <>
+        <LeaderboardProvider>
             <ClashCasino/>
             <LeaderBoards/>
             <HowItWorks type="1"/>
             <Leaders/>
             <LeaderboardHistory/>
             <LiveDrops/>
-        </>
-    );
-};
-
-const LeaderboardsPage = () => {
-    return (
-        <LeaderboardProvider>
-            <LeaderboardsContent />
         </LeaderboardProvider>
     );
 };
