@@ -62,9 +62,9 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) 
             console.log('Leaderboard data:', response.data);
             setAlertMessage(`${leaderboardName}!`);
             onLeaderboardSelect(leaderboardName);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error fetching leaderboard data:', error);
-            setAlertMessage('Failed to fetch leaderboard data.');
+            setAlertMessage("Leaderboard is temporarily disabled.");
         } finally {
             setIsProcessing(false);
         }

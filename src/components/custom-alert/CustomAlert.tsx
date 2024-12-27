@@ -19,7 +19,7 @@ const CustomAlert: React.FC<CustomAlertProps> = ({message, onClose}) => {
             <div className={styles.alertContent}>
                     <Image src={alert} alt="alert" width={75} height={75}/>
                     <span>
-                        <h3>Info!</h3>
+                        <h3>Alert!</h3>
                         <p>{message}</p>
                     </span>
             </div>

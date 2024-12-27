@@ -20,7 +20,7 @@ export const sliderImages = [
     {
         id: 3,
         src: csgobigWager,
-        alt: "CsgobigLeaderboard"
+        alt: "CsgobigWagerLeaderboard"
     },
     {
         id: 4,

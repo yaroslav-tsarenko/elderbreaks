@@ -22,6 +22,7 @@ type LeaderboardData = {
     data: {
         items: LeaderboardItem[];
     };
+    totalPrize: number;
 };
 
 const LeaderboardContext = createContext<{

@@ -10,8 +10,8 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, money, prize, count }) => {
                 <p>{name}</p>
             </div>
             <div className={styles.leaderItemXP}>
-                <p><span>XP</span>{xp.toLocaleString('de-DE')}</p>
-                <p><span>$</span>{money.toLocaleString('de-DE')}</p>
+                <p><span></span>{xp.toLocaleString('de-DE')}</p>
+                <p><span></span>{money.toLocaleString('de-DE')}</p>
             </div>
             <h3>$ {prize.toLocaleString('de-DE')}</h3>
         </div>

@@ -4,8 +4,10 @@ import React, { useState} from 'react';
 import styles from "./ClashCasino.module.scss";
 import FullWidthSlider from "@/components/full-width-slider/FullWidthSlider";
 import { sliderImages } from '@/mockup-data/sliderImages';
+import {useLeaderboard} from "@/utils/LeaderboardContext";
 
 const ClashCasino = () => {
+    const { leaderboard } = useLeaderboard();
     const getRandomLeaderboardName = () => {
         const randomIndex = Math.floor(Math.random() * sliderImages.length);
         const alt = sliderImages[randomIndex].alt;
@@ -30,7 +32,7 @@ const ClashCasino = () => {
     };
 
     const [leaderboardName, setLeaderboardName] = useState(getRandomLeaderboardName);
-
+    const totalPrize = leaderboard?.totalPrize;
     const handleLeaderboardSelect = (name: string) => {
         setLeaderboardName(name);
     };
@@ -43,8 +45,8 @@ const ClashCasino = () => {
                     <span>{leaderboardName.split(' ').slice(1).join(' ')}</span>
                 </h1>
                 <h4>total prize pool</h4>
-                <h2>$4,000</h2>
-                <p>All games are allowed. Wager based on XP system. For more information visit Discord.</p>
+                <h2>${totalPrize}</h2>
+                <p>All games are allowed. Wager based on system. For more information visit Discord.</p>
                 <div className={styles.code}>
                     Code: ELDER
                 </div>
