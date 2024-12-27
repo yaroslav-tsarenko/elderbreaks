@@ -1,11 +1,17 @@
-import {StaticImageData} from "next/image";
+import { StaticImageData } from "next/image";
 
-export interface LeaderboardHistoryItemProps{
+export interface LeaderboardHistoryItemProps {
     nickname: string;
     leaderboard: string;
     started: string;
-    finished: string;
-    totalPool: number;
+    totalPool: number | string;
+    category: string;
     place: number;
-    avatar: StaticImageData;
+    endDate: number | string;
+    prize: string;
+    finished: string;
+    avatar: StaticImageData | string;
+    username: string;
+    rank: number;
+    startDate: string;
 }

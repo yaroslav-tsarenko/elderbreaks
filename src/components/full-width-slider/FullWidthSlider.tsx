@@ -1,25 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from './FullWidthSlider.module.scss';
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
-import { sliderImages } from '@/mockup-data/sliderImages';
+import {sliderImages} from '@/mockup-data/sliderImages';
 import Image from 'next/image';
-import { useLeaderboard } from '@/utils/LeaderboardContext';
-import { newRequest } from '@/utils/newRequest';
+import {useLeaderboard} from '@/utils/LeaderboardContext';
+import {newRequest} from '@/utils/newRequest';
 import CustomAlert from '@/components/custom-alert/CustomAlert';
 
-const FullWidthSlider = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+interface FullWidthSliderProps {
+    onLeaderboardSelect: (name: string) => void;
+}
+
+const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) => {
     const [slidesToShow, setSlidesToShow] = useState(3);
     const [isProcessing, setIsProcessing] = useState(false);
     const [alertMessage, setAlertMessage] = useState<string | null>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
-    const { setLeaderboard } = useLeaderboard();
+    const {setLeaderboard} = useLeaderboard();
 
     useEffect(() => {
         const updateSlidesToShow = () => {
             setSlidesToShow(window.innerWidth <= 1028 ? 1 : 3);
         };
-
+        console.log('slidesToShow:', slidesToShow);
         updateSlidesToShow();
         window.addEventListener('resize', updateSlidesToShow);
         return () => {
@@ -33,16 +35,6 @@ const FullWidthSlider = () => {
             setLeaderboard(JSON.parse(savedLeaderboard));
         }
     }, [setLeaderboard]);
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
-    };
-
-    const handlePrev = () => {
-        setCurrentIndex(
-            (prevIndex) => (prevIndex - 1 + sliderImages.length) % sliderImages.length
-        );
-    };
 
     const handleImageClick = async (alt: string) => {
         setIsProcessing(true);
@@ -69,6 +61,7 @@ const FullWidthSlider = () => {
             localStorage.setItem('leaderboard', JSON.stringify(response.data));
             console.log('Leaderboard data:', response.data);
             setAlertMessage(`${leaderboardName}!`);
+            onLeaderboardSelect(leaderboardName);
         } catch (error) {
             console.error('Error fetching leaderboard data:', error);
             setAlertMessage('Failed to fetch leaderboard data.');
@@ -88,37 +81,28 @@ const FullWidthSlider = () => {
                 </div>
             )}
             {alertMessage && (
-                <CustomAlert message={alertMessage} onClose={() => setAlertMessage(null)} />
+                <CustomAlert message={alertMessage} onClose={() => setAlertMessage(null)}/>
             )}
             <div className={styles.slider}>
-                <button onClick={handlePrev} className={styles.arrowButton}><FaArrowLeft /></button>
+                {/*  <button onClick={handlePrev} className={styles.arrowButton}><FaArrowLeft /></button>*/}
                 <div className={styles.sliderContent} ref={sliderRef}>
-                    <div
-                        className={styles.sliderTrack}
-                        style={{
-                            transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
-                            width: `${(sliderImages.length / slidesToShow) * 55}%`,
-                            transition: 'transform 0.5s ease-in-out',
-                        }}>
-                        {sliderImages.map((image) => (
-                            <div
-                                key={image.id}
-                                className={styles.sliderItem}
-                                style={{ width: `${100 / slidesToShow}%` }}
-                            >
-                                <Image
-                                    src={image.src}
-                                    alt={image.alt}
-                                    className={styles.sliderImage}
-                                    width={170}
-                                    height={90}
-                                    onClick={() => handleImageClick(image.alt)}
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    {sliderImages.map((image) => (
+                        <div
+                            key={image.id}
+                            className={styles.imageItem}
+                        >
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                className={styles.sliderImage}
+                                width={170}
+                                height={90}
+                                onClick={() => handleImageClick(image.alt)}
+                            />
+                        </div>
+                    ))}
                 </div>
-                <button onClick={handleNext} className={styles.arrowButton}><FaArrowRight /></button>
+                {/* <button onClick={handleNext} className={styles.arrowButton}><FaArrowRight/></button>*/}
             </div>
         </>
     );

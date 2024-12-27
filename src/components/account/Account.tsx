@@ -9,6 +9,7 @@ import { FaBitcoin, FaEthereum, FaUser, FaCog, FaSave, FaLink } from "react-icon
 import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
 import {useRouter} from "next/navigation";
+import { SiLitecoin } from "react-icons/si";
 import {ADMIN_PANEL_URL, KICK_URL} from "@/constants/url";
 
 const AccountComponent = () => {
@@ -109,16 +110,20 @@ const AccountComponent = () => {
                 <div className={styles.options}>
                     <div className={styles.inputs}>
                         <div className={styles.input}>
-                            <FaEthereum className={styles.icon} />
-                            <input type="text" placeholder="ETH Address" />
+                            <SiLitecoin className={styles.icon}/>
+                            <input type="text" placeholder="LTC Address"/>
                         </div>
                         <div className={styles.input}>
-                            <FaBitcoin className={styles.icon} />
-                            <input type="text" placeholder="BTC Address" />
+                            <FaEthereum className={styles.icon}/>
+                            <input type="text" placeholder="ETH Address"/>
                         </div>
                         <div className={styles.input}>
-                            <FaUser className={styles.icon} />
-                            <input type="text" placeholder="Username" value={user.username} />
+                            <FaBitcoin className={styles.icon}/>
+                            <input type="text" placeholder="BTC Address"/>
+                        </div>
+                        <div className={styles.input}>
+                            <FaUser className={styles.icon}/>
+                            <input type="text" placeholder="Username" value={user.username}/>
                         </div>
                     </div>
                     <div className={styles.optionButtons}>
@@ -127,7 +132,7 @@ const AccountComponent = () => {
                         {isProcessing ? (
                             <p>Processing...</p>
                         ) : isKickLinked ? (
-                            <p>Kick linked to your account</p>
+                            <Button variant="blue-small" icon={FaLink}>{user.username}</Button>
                         ) : (
                             <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
                         )}

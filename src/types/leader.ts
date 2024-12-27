@@ -1,7 +1,7 @@
-export interface LeaderProps{
+export interface LeaderProps {
     name: string;
     xp: number;
-    money: number;
-    prize: number;
+    money: number | string;
+    prize: number | string;
     count?: number;
 }

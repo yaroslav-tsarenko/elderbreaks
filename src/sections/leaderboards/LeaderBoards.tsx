@@ -23,6 +23,7 @@ type LeaderboardItem = {
     endDate: string;
     createdAt: string;
     updatedAt: string;
+    totalPrize: number;
 };
 
 const getRandomAvatar = () => {
@@ -34,6 +35,10 @@ const getRandomPrize = () => {
     const prizes = ["$100", "$200", "$300", "$400", "$500"]; // Example prizes
     const randomIndex = Math.floor(Math.random() * prizes.length);
     return prizes[randomIndex];
+};
+
+const getRandomTotalPrize = () => {
+    return Math.floor(Math.random() * (25000 - 5000 + 1)) + 5000;
 };
 
 const LeaderBoards = () => {
@@ -48,7 +53,8 @@ const LeaderBoards = () => {
         } else {
             const mockupPlayers = players.map(player => ({
                 ...player,
-                category: player.category.src
+                category: player.category.src,
+                totalPrize: getRandomTotalPrize()
             }));
             setDisplayPlayers(mockupPlayers);
         }
@@ -57,6 +63,10 @@ const LeaderBoards = () => {
     const handleLeaderboard = () => {
         router.push('/leaderboards');
     };
+
+    const startDate = leaderboard?.data?.items[0]?.startDate ? new Date(leaderboard.data.items[0].startDate) : undefined;
+    const endDate = leaderboard?.data?.items[0]?.endDate ? new Date(leaderboard.data.items[0].endDate) : undefined;
+    const totalPrize = leaderboard?.data?.items[0]?.totalPrize || getRandomTotalPrize();
 
     return (
         <div className={styles.wrapper}>
@@ -67,7 +77,7 @@ const LeaderBoards = () => {
                 </h2>
                 <div className={styles.leaderBoardsContentDescription}>
                     <p>Weekly wager races - be first and grab insane prizes!</p>
-                    <h5>Over <span>$18 000</span> in the prize pool!</h5>
+                    <h5>Over <span>${totalPrize}</span> in the prize pool!</h5>
                 </div>
             </div>
             <hr/>
@@ -120,7 +130,10 @@ const LeaderBoards = () => {
                         />
                     ))}
                 </SliderItem>
-                <CountdownTimer/>
+                <CountdownTimer
+                    startDate={startDate}
+                    endDate={endDate}
+                />
                 <p className={styles.leaderBoardUpdates}>Leaderboard updates every 30-60 minutes</p>
                 <Button variant="orange" icon={FaCrown} onClick={handleLeaderboard}>
                     leaderboard

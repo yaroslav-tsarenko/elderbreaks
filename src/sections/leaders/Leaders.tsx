@@ -1,15 +1,39 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./Leaders.module.scss";
 import Title from "@/components/title/Title";
 import Button from "@/components/button/Button";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import LeaderItem from "@/components/leader-item/LeaderItem";
-import { leaders } from "@/mockup-data/leaders";
+import { leaders as mockupLeaders } from "@/mockup-data/leaders";
+import { useLeaderboard } from "@/utils/LeaderboardContext";
+
+interface LeaderProps {
+    name: string;
+    xp: number;
+    money: string | number;
+    prize: string | number;
+}
 
 const Leaders = () => {
     const [showAll, setShowAll] = useState(false);
+    const { leaderboard } = useLeaderboard();
+    const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
+
+    useEffect(() => {
+        if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
+            const serverLeaders = leaderboard.data.items.map((item: any) => ({
+                name: item.username,
+                xp: item.wagered,
+                money: item.prize ? item.prize.toString() : '',
+                prize: item.prize ? item.prize.toString() : ''
+            }));
+            setLeaders(serverLeaders);
+        } else {
+            setLeaders(mockupLeaders);
+        }
+    }, [leaderboard]);
 
     const handleToggle = () => {
         setShowAll(!showAll);
@@ -25,7 +49,7 @@ const Leaders = () => {
                             <p>#</p>
                             <p>Name</p>
                         </span>
-                        <span>XP Wagered</span>
+                        <span>Wagered</span>
                         <span>Prize</span>
                     </div>
                     <div className={styles.leadersContent}>

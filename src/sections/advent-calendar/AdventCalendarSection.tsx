@@ -16,7 +16,7 @@ const AdventCalendarSection = () => {
             <div className={styles.calendarMetrics}>
                 <div className={styles.calendarSectionBlock}>
                     <p>The Calendar updates in</p>
-                    <CountdownTimer preference="calendar" />
+                    <CountdownTimer />
                 </div>
                 <div className={styles.calendarSectionBlock}>
                     <p>Current Day</p>

@@ -1,4 +1,5 @@
 import csgobig from "../../public/csgobig-deposit.png";
+import csgobigWager from "../../public/csgo-big-wager.png";
 import roobet from "../../public/roobet.png";
 import empireDrop from "../../public/empiredrop.png";
 import gpoints from "../../public/duelgp.png";
@@ -9,18 +10,22 @@ import csgoroll from "../../public/csgoroll.png";
 export const sliderImages = [
     {
         id: 1,
-        src: csgobig,
-        alt: "CsgobigLeaderboard"
-    },
-    {
-        id: 2,
         src: roobet,
         alt: "RoobetLeaderboard"
+    }, {
+        id: 2,
+        src: empireDrop,
+        alt: "EmpireDropLeaderboard"
     },
     {
         id: 3,
-        src: empireDrop,
-        alt: "EmpireDropLeaderboard"
+        src: csgobigWager,
+        alt: "CsgobigLeaderboard"
+    },
+    {
+        id: 4,
+        src: csgobig,
+        alt: "CsgobigLeaderboard"
     },
     {
         id: 4,

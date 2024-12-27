@@ -14,6 +14,7 @@ type LeaderboardItem = {
     endDate: string;
     createdAt: string;
     updatedAt: string;
+    totalPrize: number;
 };
 
 type LeaderboardData = {

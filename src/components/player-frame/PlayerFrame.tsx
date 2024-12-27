@@ -22,7 +22,7 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
     }
 
     const getRandomPrize = () => {
-        const prizes = ["$100", "$200", "$300", "$400", "$500"]; // Example prizes
+        const prizes = ["100", "200", "300", "400", "500"];
         const randomIndex = Math.floor(Math.random() * prizes.length);
         return prizes[randomIndex];
     };
@@ -32,13 +32,12 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
             {avatar ? <Image src={avatar} alt="avatar" className={styles.avatar} width="110" height="110"/> : "none"}
             <h4>{nickname}</h4>
             <div className={styles.playerCredentials}>
-                <p>xp wagered:</p>
+                <p>wagered:</p>
                 <span>
-                    <p className={styles.xp}>xp</p>
                     {Math.floor(xp)}
                 </span>
             </div>
-            <h3>{Math.floor(parseFloat(money)) || getRandomPrize()}</h3>
+            <h3>${Math.floor(parseFloat(money)) || getRandomPrize()}</h3>
         </div>
     );
 };

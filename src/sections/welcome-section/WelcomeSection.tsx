@@ -28,7 +28,7 @@ const WelcomeSection = () => {
                 <h3>welcome</h3>
                 <h1>to elderbreaks</h1>
                 <h2>rewards</h2>
-                <p>Wager under code EB - the most rewarding code out there!</p>
+                <p>Wager under code ELDER - the most rewarding code out there!</p>
                 <Button variant="orange" onClick={handleCopyCode}>Use code ELDER</Button>
             </div>
             <Image className={styles.giftImage} src={GiftImage} alt="Gift Image" width={224} height={226}/>
