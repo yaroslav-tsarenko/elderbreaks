@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './CountdownTimer.module.scss';
 
 interface TimeLeft {
@@ -15,18 +15,23 @@ interface CountdownTimerProps {
     endDate?: Date | null;
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({startDate, endDate}) => {
-    const [end] = useState<Date>(() => {
-        if (endDate) return endDate;
-        const randomDays = Math.random() < 0.5 ? 7 : 30;
-        return new Date((startDate || new Date()).getTime() + randomDays * 24 * 60 * 60 * 1000);
-    });
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ startDate, endDate }) => {
+    const [end, setEnd] = useState<Date | null>(endDate || null);
+
+    useEffect(() => {
+        if (endDate) {
+            setEnd(endDate);
+        } else if (startDate) {
+            const randomDays = Math.random() < 0.5 ? 7 : 30;
+            setEnd(new Date(startDate.getTime() + randomDays * 24 * 60 * 60 * 1000));
+        }
+    }, [startDate, endDate]);
 
     const calculateTimeLeft = (): TimeLeft => {
         const now = new Date();
-        const difference = end.getTime() - now.getTime();
+        const difference = (end ? end.getTime() : 0) - now.getTime();
         if (difference <= 0) {
-            return {days: 0, hours: 0, minutes: 0, seconds: 0};
+            return { days: 0, hours: 0, minutes: 0, seconds: 0 };
         }
 
         return {
