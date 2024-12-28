@@ -48,7 +48,7 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
             </div>
             <p className={styles.leaderItemXP}>
                 {getIcon('xp')}
-                {xp.toLocaleString('de-DE')}
+                {xp.toFixed(2).toLocaleString()}
             </p>
             <h3>
                 {getIcon('prize')}

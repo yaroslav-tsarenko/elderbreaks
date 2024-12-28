@@ -10,11 +10,15 @@
   justify-items: center;
   align-items: center;
 
-  h3{
+  h3 {
     background: linear-gradient(to right, var(--secondary-color), var(--gold));
     -webkit-background-clip: text;
     color: transparent;
     font-weight: bold;
+    width: 80px;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
     font-size: var(--24px);
   }
 }
@@ -22,17 +26,17 @@
 .leaderItemCredentials {
   display: flex;
   gap: 30px;
-  width: 130px;
+  width: 165px;
 }
 
 .leaderItemXP {
-    color: var(--white);
-    font-size: var(--20px);
-    display: flex;
-    gap: 3px;
-    font-weight: bold;
+  color: var(--white);
+  font-size: var(--20px);
+  display: flex;
+  gap: 3px;
+  font-weight: bold;
 
-    span{
-      color: var(--secondary-color);
-    }
+  span {
+    color: var(--secondary-color);
   }
+}
