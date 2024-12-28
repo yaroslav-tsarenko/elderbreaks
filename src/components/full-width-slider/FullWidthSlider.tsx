@@ -1,27 +1,27 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './FullWidthSlider.module.scss';
-import {sliderImages} from '@/mockup-data/sliderImages';
+import { sliderImages } from '@/mockup-data/sliderImages';
 import Image from 'next/image';
-import {useLeaderboard} from '@/utils/LeaderboardContext';
-import {newRequest} from '@/utils/newRequest';
+import { useLeaderboard } from '@/utils/LeaderboardContext';
+import { newRequest } from '@/utils/newRequest';
 import CustomAlert from '@/components/custom-alert/CustomAlert';
 
 interface FullWidthSliderProps {
     onLeaderboardSelect: (name: string) => void;
 }
 
-const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) => {
+const FullWidthSlider: React.FC<FullWidthSliderProps> = ({ onLeaderboardSelect }) => {
     const [slidesToShow, setSlidesToShow] = useState(3);
     const [isProcessing, setIsProcessing] = useState(false);
     const [alertMessage, setAlertMessage] = useState<string | null>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
-    const {setLeaderboard} = useLeaderboard();
+    const { setLeaderboard, setSelectedAlt } = useLeaderboard();
 
     useEffect(() => {
         const updateSlidesToShow = () => {
             setSlidesToShow(window.innerWidth <= 1028 ? 1 : 3);
         };
-        console.log('slidesToShow:', slidesToShow);
+        console.log(slidesToShow)
         updateSlidesToShow();
         window.addEventListener('resize', updateSlidesToShow);
         return () => {
@@ -39,29 +39,12 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) 
     const handleImageClick = async (alt: string) => {
         setIsProcessing(true);
         try {
-            let leaderboardName = alt;
-            if (alt === "CsgobigLeaderboard") {
-                leaderboardName = "CSGOBIG LEADERBOARD";
-            } else if (alt === "RoobetLeaderboard") {
-                leaderboardName = "ROOBET LEADERBOARD";
-            } else if (alt === "EmpireDropLeaderboard") {
-                leaderboardName = "EMPIRE DROP LEADERBOARD";
-            } else if (alt === "RainLeaderboard") {
-                leaderboardName = "RAIN LEADERBOARD";
-            } else if (alt === "DuelGpLeaderboard") {
-                leaderboardName = "DUEL GP LEADERBOARD";
-            } else if (alt === "CsgostakeLeaderboard") {
-                leaderboardName = "CSGOSTAKE LEADERBOARD";
-            } else if (alt === "CsgorollLeaderboard") {
-                leaderboardName = "CSGOROLL LEADERBOARD";
-            }
-
             const response = await newRequest.get(`/user/leaderboard/${alt}`);
             setLeaderboard(response.data);
+            setSelectedAlt(alt);
             localStorage.setItem('leaderboard', JSON.stringify(response.data));
-            console.log('Leaderboard data:', response.data);
-            setAlertMessage(`${leaderboardName}!`);
-            onLeaderboardSelect(leaderboardName);
+            setAlertMessage(`${alt.toUpperCase()} LEADERBOARD!`);
+            onLeaderboardSelect(alt);
         } catch (error: any) {
             console.error('Error fetching leaderboard data:', error);
             setAlertMessage("Leaderboard is temporarily disabled.");
@@ -81,10 +64,9 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) 
                 </div>
             )}
             {alertMessage && (
-                <CustomAlert message={alertMessage} onClose={() => setAlertMessage(null)}/>
+                <CustomAlert message={alertMessage} onClose={() => setAlertMessage(null)} />
             )}
             <div className={styles.slider}>
-                {/*  <button onClick={handlePrev} className={styles.arrowButton}><FaArrowLeft /></button>*/}
                 <div className={styles.sliderContent} ref={sliderRef}>
                     {sliderImages.map((image) => (
                         <div
@@ -102,7 +84,6 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) 
                         </div>
                     ))}
                 </div>
-                {/* <button onClick={handleNext} className={styles.arrowButton}><FaArrowRight/></button>*/}
             </div>
         </>
     );

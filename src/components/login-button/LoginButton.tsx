@@ -23,7 +23,7 @@ const LoginButton = () => {
     if (user) {
         return (
             <Link href="/account" className={styles.accountItem}>
-                <Image src={avatar} alt="Avatar" width={54} height={54}/>
+                <Image src={user.avatarUrl || avatar} alt="Avatar" width={54} height={54} className={styles.avatar}/>
                 <div className={styles.accountItemCredentials}>
                     <p>{user.username}</p>
                     <div className={styles.accountWallet}>

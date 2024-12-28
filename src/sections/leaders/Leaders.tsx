@@ -55,11 +55,11 @@ const Leaders = () => {
                     <div className={styles.leadersContent}>
                         {leaders
                             .sort((a, b) => b.xp - a.xp)
-                            .slice(0, showAll ? 20 : 10)
+                            .slice(3, showAll ? 20 : 10)
                             .map((leader, index) => (
                                 <LeaderItem
-                                    key={index}
-                                    count={index + 1}
+                                    key={index + 4}
+                                    count={index + 4}
                                     name={leader.name}
                                     xp={leader.xp}
                                     money={leader.money}

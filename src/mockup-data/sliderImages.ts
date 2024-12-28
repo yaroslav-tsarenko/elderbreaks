@@ -5,7 +5,7 @@ import empireDrop from "../../public/empiredrop.png";
 import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
 import csgostake from "../../public/csgostake.png";
-import csgoroll from "../../public/csgoroll.png";
+import csgoroll from "../../public/csgoroll-logo.png";
 
 export const sliderImages = [
     {

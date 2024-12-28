@@ -22,23 +22,27 @@ type LeaderboardData = {
     success: boolean;
     data: {
         items: LeaderboardItem[];
+        totalPrize: number;
     };
-    totalPrize: number;
 };
 
 const LeaderboardContext = createContext<{
     leaderboard: LeaderboardData | null;
     setLeaderboard: React.Dispatch<React.SetStateAction<LeaderboardData | null>>;
+    selectedAlt: string | null;
+    setSelectedAlt: React.Dispatch<React.SetStateAction<string | null>>;
 } | undefined>(undefined);
 
 export const LeaderboardProvider = ({ children }: { children: React.ReactNode }) => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
+    const [selectedAlt, setSelectedAlt] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchDefaultLeaderboard = async () => {
             try {
-                const response = await newRequest.get('/user/leaderboard/CsgorollLeaderboard');
+                const response = await newRequest.get('/user/leaderboard/CsgostakeLeaderboard');
                 setLeaderboard(response.data);
+                setSelectedAlt('CsgostakeLeaderboard');
             } catch (error) {
                 console.error('Error fetching default leaderboard:', error);
             }
@@ -48,7 +52,7 @@ export const LeaderboardProvider = ({ children }: { children: React.ReactNode })
     }, []);
 
     return (
-        <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard }}>
+        <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard, selectedAlt, setSelectedAlt }}>
             {children}
         </LeaderboardContext.Provider>
     );

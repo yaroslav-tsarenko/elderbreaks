@@ -25,10 +25,6 @@
 }
 
 .leaderItemXP {
-  display: flex;
-  gap: 30px;
-
-  p{
     color: var(--white);
     font-size: var(--20px);
     display: flex;
@@ -39,4 +35,3 @@
       color: var(--secondary-color);
     }
   }
-}

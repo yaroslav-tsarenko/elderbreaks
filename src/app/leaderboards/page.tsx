@@ -15,8 +15,8 @@ const LeaderboardsPage = () => {
         <LeaderboardProvider>
             <ClashCasino/>
             <LeaderBoards/>
-            <HowItWorks type="1"/>
             <Leaders/>
+            <HowItWorks type="1"/>
             <LeaderboardHistory/>
             <LiveDrops/>
         </LeaderboardProvider>

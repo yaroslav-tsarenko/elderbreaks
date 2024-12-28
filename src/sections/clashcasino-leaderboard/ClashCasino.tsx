@@ -32,7 +32,7 @@ const ClashCasino = () => {
     };
 
     const [leaderboardName, setLeaderboardName] = useState(getRandomLeaderboardName);
-    const totalPrize = leaderboard?.totalPrize;
+    const totalPrize = leaderboard?.data?.totalPrize || 0;
     const handleLeaderboardSelect = (name: string) => {
         setLeaderboardName(name);
     };
