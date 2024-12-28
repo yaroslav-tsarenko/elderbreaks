@@ -11,6 +11,7 @@ export type User = {
     role: 'admin' | 'user';
     dateAdded: string;
     avatarUrl: string;
+    registerDate: string;
     __v: number;
 };
 export const UserContext = createContext<User | undefined>(undefined);

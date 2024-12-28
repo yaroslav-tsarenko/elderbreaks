@@ -82,8 +82,6 @@ const AccountComponent = () => {
         alert(string);
     }
 
-    const currentDate = new Date().toLocaleDateString();
-
     const togglePopup = async () => {
         try {
             const response = await newRequest.post('/user/generateLink');
@@ -104,7 +102,7 @@ const AccountComponent = () => {
                         <h2>{user.username}
                             <span>{user.role}</span>
                         </h2>
-                        <p>Joined at: {currentDate}</p>
+                        <p>Joined at: {user.registerDate}</p>
                     </div>
                 </div>
                 <hr />
