@@ -56,6 +56,7 @@ const AccountComponent = () => {
                     console.log("Response link:", response.data);
                     setIsKickLinked(true);
                     setIsProcessing(false);
+                    window.location.reload();
                 }
             } catch (error) {
                 console.error('Error checking link status:', error);
