@@ -52,7 +52,7 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
             </p>
             <h3>
                 {getIcon('prize')}
-                {(prize || 0).toLocaleString('de-DE')}
+                {(prize ?? 0).toLocaleString('de-DE')}
             </h3>
         </div>
     );
