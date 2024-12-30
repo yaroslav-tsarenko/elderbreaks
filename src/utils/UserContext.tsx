@@ -12,6 +12,7 @@ export type User = {
     dateAdded: string;
     avatarUrl: string;
     registerDate: string;
+    statusLink: boolean;
     __v: number;
 };
 export const UserContext = createContext<User | undefined>(undefined);

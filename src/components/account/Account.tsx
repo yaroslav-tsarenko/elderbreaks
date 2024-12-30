@@ -19,7 +19,7 @@ const AccountComponent = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
     const [isCopyButtonDisabled, setIsCopyButtonDisabled] = useState(false);
-    const [isKickLinked, setIsKickLinked] = useState(false);
+    const [isKickLinked, setIsKickLinked] = useState(user?.statusLink);
     const [isProcessing, setIsProcessing] = useState(false);
     const adminUrl = ADMIN_PANEL_URL;
 
@@ -52,9 +52,9 @@ const AccountComponent = () => {
         const checkLinkStatus = async () => {
             try {
                 const response = await newRequest.get('/user/statusLink');
-                if (response.data.isConfirmed && !isKickLinked) {
+                if (response.data.isConfirmed) {
                     console.log("Response link:", response.data);
-                    setIsKickLinked(true);
+                    setIsKickLinked(user.statusLink);
                     setIsProcessing(false);
                     window.location.reload();
                 }
