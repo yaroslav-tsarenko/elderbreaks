@@ -3,7 +3,6 @@ import { UserProvider } from './UserContext';
 import { cookies } from 'next/headers';
 
 export function authWrapper(Component: React.ComponentType<any>) {
-    //Врапером треба обгорнути компонент, на якому ми хочемо мати доступ до контексту
     return async function WrappedComponent(props: any) {
         const cookieStore = await cookies();
         const token = cookieStore.get('token')?.value;

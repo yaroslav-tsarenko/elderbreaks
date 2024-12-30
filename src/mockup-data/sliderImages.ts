@@ -20,12 +20,12 @@ export const sliderImages = [
     {
         id: 3,
         src: csgobigWager,
-        alt: "CsgobigWagerLeaderboard"
+        alt: "CsgobigLeaderboard"
     },
     {
         id: 4,
         src: csgobig,
-        alt: "CsgobigLeaderboard"
+        alt: "CsgobigDepositLeaderboard"
     },
     {
         id: 4,

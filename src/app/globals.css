@@ -10,6 +10,7 @@
     --tertiary-color: #120402;
     --tertiary-color-light: #0d0101;
     --bordo: #2d0808;
+    --gradient: linear-gradient(to bottom, var(--senary-color), var(--secondary-color-dark-2));
     --bordo-dark: #130a09;
     --linear-gradient: linear-gradient(45deg, var(--secondary-color-dark-2), var(--tertiary-color));
     --gold: #f09b00;

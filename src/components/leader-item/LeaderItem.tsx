@@ -1,40 +1,40 @@
 import React, { FC } from 'react';
 import { LeaderProps } from "@/types/leader";
 import styles from "./LeaderItem.module.scss";
-import { FaDollarSign } from 'react-icons/fa';
-import { useLeaderboard } from '@/utils/LeaderboardContext';
 import rainCoin from "../../../public/rain-coin.png"
 import bigCoin from "../../../public/big-coin.png"
 import csgoroll from "../../../public/csgoroll.png"
 import duelGP from "../../../public/duelgp-coinnew.png"
 import csgotakecoin from "../../../public/csgostakecoin.png"
 import Image from "next/image";
+import {useLeaderboard} from "@/utils/LeaderboardContext";
 
 const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
 
-    const { selectedAlt } = useLeaderboard();
+    const {selectedAlt} = useLeaderboard();
 
     const getIcon = (type: 'xp' | 'prize') => {
         switch (selectedAlt) {
             case "CsgostakeLeaderboard":
-                return type === 'xp' ? <Image src={csgotakecoin} alt="coin" width={20} height={19}/> : "$";
+                return type === 'xp' ?  "$" : <Image src={csgotakecoin} alt="coin" width={20} height={19}/>;
             case "RoobetLeaderboard":
-                return type === 'xp' ? <FaDollarSign/> : <FaDollarSign/>;
+                return type === 'xp' ? "$" : "$";
             case "EmpireDropLeaderboard":
                 return type === 'xp' ? "€" : "€";
-            case "RainLeaderboard":
-                return type === 'xp' ? <Image src={rainCoin} alt="coin" width={20} height={19}/> : "";
-            case "CsgobigWagerLeaderboard":
-                return type === 'xp' ? <Image src={bigCoin} alt="coin" width={20} height={19}/> :
-                    <Image src={bigCoin} alt="coin" width={25} height={25}/>;
             case "CsgobigLeaderboard":
-                return type === 'xp' ? <Image src={bigCoin} alt="coin" width={20} height={19}/> :
+                return type === 'xp' ? "" :
                     <Image src={bigCoin} alt="coin" width={25} height={25}/>;
+            case "CsgobigDepositLeaderboard":
+                return type === 'xp' ?  "" :
+                    <Image src={bigCoin} alt="coin" width={20} height={19}/>;
+            case "RainLeaderboard":
+                return type === 'xp' ?  "" :
+                    <Image src={rainCoin} alt="coin" width={20} height={19}/>;
             case "DuelGpLeaderboard":
                 return type === 'xp' ? <Image src={duelGP} alt="coin" width={20} height={19}/> :
                     <Image src={duelGP} alt="coin" width={20} height={19}/>;
             case "CsgorollLeaderboard":
-                return type === 'xp' ? <Image src={csgoroll} alt="coin" width={20} height={19}/> : "";
+                return type === 'xp' ?  "" : <Image src={csgoroll} alt="coin" width={20} height={19}/>;
             default:
                 return type === 'xp' ? "$" : "$";
         }
