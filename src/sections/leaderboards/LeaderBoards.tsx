@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./LeaderBoards.module.scss";
 import PlayerFrame from "@/components/player-frame/PlayerFrame";
 import Button from "@/components/button/Button";
-import { FaCrown } from "react-icons/fa";
+import {FaCrown} from "react-icons/fa";
 import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import SliderItem from "@/components/slider-item/SliderItem";
-import { useRouter } from "next/navigation";
-import { useLeaderboard } from "@/utils/LeaderboardContext";
-import { players } from "@/mockup-data/players";
+import {useRouter} from "next/navigation";
+import {useLeaderboard} from "@/utils/LeaderboardContext";
+import {players} from "@/mockup-data/players";
+import {sliderImages} from '@/mockup-data/sliderImages';
 
 type LeaderboardItem = {
     _id: string;
@@ -26,11 +27,6 @@ type LeaderboardItem = {
     totalPrize: number;
 };
 
-const getRandomAvatar = () => {
-    const randomIndex = Math.floor(Math.random() * players.length);
-    return players[randomIndex].category;
-};
-
 const getRandomPrize = () => {
     const prizes = ["$100", "$200", "$300", "$400", "$500"]; // Example prizes
     const randomIndex = Math.floor(Math.random() * prizes.length);
@@ -41,8 +37,14 @@ const getRandomTotalPrize = () => {
     return Math.floor(Math.random() * (25000 - 5000 + 1)) + 5000;
 };
 
+const getSliderImage = (alt: string): string => {
+    const image = sliderImages.find(img => img.alt === alt);
+    return image?.src || '/default-avatar.png'; // Provide a default value if image.src is undefined
+};
+
 const LeaderBoards = () => {
-    const { leaderboard } = useLeaderboard();
+    const {leaderboard} = useLeaderboard();
+    const {selectedAlt}  = useLeaderboard();
     const router = useRouter();
     const [displayPlayers, setDisplayPlayers] = useState<LeaderboardItem[]>([]);
     const sortedPlayers = displayPlayers.slice(0, 3).sort((a, b) => b.wagered - a.wagered);
@@ -89,7 +91,7 @@ const LeaderBoards = () => {
                             nickname={sortedPlayers[1].username}
                             xp={sortedPlayers[1].wagered}
                             money={sortedPlayers[1].prize || getRandomPrize()}
-                            avatar={getRandomAvatar()}
+                            avatar={sortedPlayers[1].category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
                             place={2}
                             category={sortedPlayers[1].category}
                         />
@@ -100,7 +102,7 @@ const LeaderBoards = () => {
                             nickname={sortedPlayers[0].username}
                             xp={sortedPlayers[0].wagered}
                             money={sortedPlayers[0].prize || getRandomPrize()}
-                            avatar={getRandomAvatar()}
+                            avatar={sortedPlayers[0].category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
                             place={1}
                             category={sortedPlayers[0].category}
                         />
@@ -111,7 +113,7 @@ const LeaderBoards = () => {
                             nickname={sortedPlayers[2].username}
                             xp={sortedPlayers[2].wagered}
                             money={sortedPlayers[2].prize || getRandomPrize()}
-                            avatar={getRandomAvatar()}
+                            avatar={sortedPlayers[2].category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
                             place={3}
                             category={sortedPlayers[2].category}
                         />
@@ -124,7 +126,7 @@ const LeaderBoards = () => {
                             nickname={player.username}
                             xp={player.wagered}
                             money={player.prize || getRandomPrize()}
-                            avatar={getRandomAvatar()}
+                            avatar={player.category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
                             place={index + 1}
                             category={player.category}
                         />

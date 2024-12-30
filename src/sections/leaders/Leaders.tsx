@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from "./Leaders.module.scss";
 import Title from "@/components/title/Title";
 import Button from "@/components/button/Button";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import LeaderItem from "@/components/leader-item/LeaderItem";
-import { leaders as mockupLeaders } from "@/mockup-data/leaders";
-import { useLeaderboard } from "@/utils/LeaderboardContext";
+import {leaders as mockupLeaders} from "@/mockup-data/leaders";
+import {useLeaderboard} from "@/utils/LeaderboardContext";
 
 interface LeaderProps {
     name: string;
@@ -18,9 +18,9 @@ interface LeaderProps {
 
 const Leaders = () => {
     const [showAll, setShowAll] = useState(false);
-    const { leaderboard } = useLeaderboard();
+    const {leaderboard} = useLeaderboard();
     const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
-
+    const {selectedAlt} = useLeaderboard();
     useEffect(() => {
         if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
             const serverLeaders = leaderboard.data.items.map((item: any) => ({
@@ -49,7 +49,9 @@ const Leaders = () => {
                             <p>#</p>
                             <p>Name</p>
                         </span>
-                        <span>Wagered</span>
+                        <span>
+    {selectedAlt === "CsgobigDepositLeaderboard" ? "Deposited" : selectedAlt === "CsgorollLeaderboard" ? "Deposited" : "Wagered"}
+</span>
                         <span>Prize</span>
                     </div>
                     <div className={styles.leadersContent}>

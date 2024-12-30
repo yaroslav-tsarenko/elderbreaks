@@ -35,7 +35,7 @@ const LeaderboardContext = createContext<{
 
 export const LeaderboardProvider = ({ children }: { children: React.ReactNode }) => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
-    const [selectedAlt, setSelectedAlt] = useState<string | null>(null);
+    const [selectedAlt, setSelectedAlt] = useState<string | null>("RoobetLeaderboard");
 
     useEffect(() => {
         const fetchDefaultLeaderboard = async () => {

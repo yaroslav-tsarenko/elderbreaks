@@ -12,22 +12,22 @@ const ClashCasino = () => {
         const randomIndex = Math.floor(Math.random() * sliderImages.length);
         const alt = sliderImages[randomIndex].alt;
         switch (alt) {
-            case "CsgobigLeaderboard":
-                return "CSGOBIG LEADERBOARD";
             case "RoobetLeaderboard":
                 return "ROOBET LEADERBOARD";
+            case "CsgobigLeaderboard":
+                return "CSGOBIG LEADERBOARD";
             case "EmpireDropLeaderboard":
                 return "EMPIRE DROP LEADERBOARD";
             case "RainLeaderboard":
                 return "RAIN LEADERBOARD";
             case "DuelGpLeaderboard":
-                return "DUEL GP LEADERBOARD";
+                return "DUELGP LEADERBOARD";
             case "CsgostakeLeaderboard":
                 return "CSGOSTAKE LEADERBOARD";
             case "CsgorollLeaderboard":
                 return "CSGOROLL LEADERBOARD";
             default:
-                return "clashcasino";
+                return "ROOBET LEADERBOARD";
         }
     };
 
