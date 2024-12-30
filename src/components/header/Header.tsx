@@ -13,7 +13,7 @@ import {links} from "@/mockup-data/links";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {useUser} from "@/utils/UserContext";
-import wager from "../../../public/wager-icon-png.png";
+import wager from "../../../public/eldercoin.png";
 import {DISCORD_AUTH} from "@/constants/url";
 
 const Header = () => {

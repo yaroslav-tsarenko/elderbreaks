@@ -7,7 +7,7 @@ import { FaSignInAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/utils/UserContext";
 import Image from "next/image";
-import wager from "../../../public/wager-icon-png.png";
+import wager from "../../../public/eldercoin.png";
 import avatar from "../../../public/avatar.png";
 import Link from "next/link";
 import {DISCORD_AUTH} from "@/constants/url";
