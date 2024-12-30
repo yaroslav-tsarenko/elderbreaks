@@ -51,8 +51,8 @@ const AccountComponent = () => {
 
         const checkLinkStatus = async () => {
             try {
-                const response = await newRequest.get('/user/check-link-status');
-                if (response.data.isConfirmed) {
+                const response = await newRequest.get('/user/statusLink');
+                if (response.data.isConfirmed && !isKickLinked) {
                     console.log("Response link:", response.data);
                     setIsKickLinked(true);
                     setIsProcessing(false);
