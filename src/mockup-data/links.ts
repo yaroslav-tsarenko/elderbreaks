@@ -1,6 +1,6 @@
-import { FaTrophy, FaVideo, FaBriefcase, FaCalendarAlt, FaGift, FaTicketAlt, FaStore } from 'react-icons/fa';
+import { FaTrophy, FaVideo, FaCalendarAlt, FaGift, FaTicketAlt, FaStore } from 'react-icons/fa';
 import {LAST_VIDEO} from "@/constants/url";
-
+import { IoDiamond } from "react-icons/io5";
 export const links = [
     {
         title: 'Leaderboards',
@@ -15,7 +15,7 @@ export const links = [
     },
     {
         title: 'Vip Rewards',
-        icon: FaBriefcase,
+        icon: IoDiamond,
         link: '/vip-rewards',
     },
     {

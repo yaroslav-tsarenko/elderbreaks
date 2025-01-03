@@ -65,7 +65,7 @@ const PlayerFrame: FC<PlayerFrameProps> = ({nickname, xp, money, avatar, place})
             {avatar ? <Image src={avatar} alt="avatar" className={styles.avatar} width="110" height="110"/> : "none"}
             <h4>{nickname}</h4>
             <div className={styles.playerCredentials}>
-                <p>wagered:</p>
+                <p>deposited:</p>
                 <span>
                     {getIcon('xp')}
                     {Math.floor(xp)}

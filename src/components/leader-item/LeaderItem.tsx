@@ -15,21 +15,21 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
     const getIcon = (type: 'xp' | 'prize') => {
         switch (selectedAlt) {
             case "CsgostakeLeaderboard":
-                return type === 'xp' ? "$" : <Image src={csgotakecoin} alt="coin" width={20} height={19} />;
+                return type === 'xp' ? <Image src={csgotakecoin} alt="coin" width={20} height={19} /> : <Image src={csgotakecoin} alt="coin" width={20} height={19} />;
             case "RoobetLeaderboard":
                 return type === 'xp' ? "$" : "$";
             case "EmpireDropLeaderboard":
                 return type === 'xp' ? "€" : "€";
             case "CsgobigLeaderboard":
-                return type === 'xp' ? "" : <Image src={bigCoin} alt="coin" width={25} height={25} />;
+                return type === 'xp' ? <Image src={bigCoin} alt="coin" width={25} height={25} /> : <Image src={bigCoin} alt="coin" width={25} height={25} />;
             case "CsgobigDepositLeaderboard":
-                return type === 'xp' ? "" : <Image src={bigCoin} alt="coin" width={20} height={19} />;
+                return type === 'xp' ? <Image src={bigCoin} alt="coin" width={20} height={19} /> : <Image src={bigCoin} alt="coin" width={20} height={19} />;
             case "RainLeaderboard":
-                return type === 'xp' ? "" : <Image src={rainCoin} alt="coin" width={20} height={19} />;
+                return type === 'xp' ? <Image src={rainCoin} alt="coin" width={20} height={19} /> : <Image src={rainCoin} alt="coin" width={20} height={19} />;
             case "DuelGpLeaderboard":
                 return type === 'xp' ? <Image src={duelGP} alt="coin" width={20} height={19} /> : <Image src={duelGP} alt="coin" width={20} height={19} />;
             case "CsgorollLeaderboard":
-                return type === 'xp' ? "" : <Image src={csgoroll} alt="coin" width={20} height={19} />;
+                return type === 'xp' ? <Image src={csgoroll} alt="coin" width={20} height={19} /> : <Image src={csgoroll} alt="coin" width={20} height={19} />;
             default:
                 return type === 'xp' ? "$" : "$";
         }

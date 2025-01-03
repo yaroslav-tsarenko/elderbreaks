@@ -56,7 +56,7 @@ const Leaders = () => {
                     </div>
                     <div className={styles.leadersContent}>
                         {leaders
-                            .sort((a, b) => b.xp - a.xp)
+                            .sort((a, b) => parseFloat(b.prize.toString()) - parseFloat(a.prize.toString()))
                             .slice(3, showAll ? 20 : 10)
                             .map((leader, index) => (
                                 <LeaderItem
