@@ -14,7 +14,7 @@ export const links = [
         target: '_blank',
     },
     {
-        title: 'Cases',
+        title: 'Vip Rewards',
         icon: FaBriefcase,
         link: '/vip-rewards',
     },

@@ -40,9 +40,9 @@ export const LeaderboardProvider = ({ children }: { children: React.ReactNode })
     useEffect(() => {
         const fetchDefaultLeaderboard = async () => {
             try {
-                const response = await newRequest.get('/user/leaderboard/CsgostakeLeaderboard');
+                const response = await newRequest.get('/user/leaderboard/RoobetLeaderboard');
                 setLeaderboard(response.data);
-                setSelectedAlt('CsgostakeLeaderboard');
+                setSelectedAlt('RoobetLeaderboard');
             } catch (error) {
                 console.error('Error fetching default leaderboard:', error);
             }

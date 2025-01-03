@@ -3,14 +3,21 @@
 import React, { useState } from 'react';
 import styles from "./ClashCasino.module.scss";
 import FullWidthSlider from "@/components/full-width-slider/FullWidthSlider";
-import { sliderImages } from '@/mockup-data/sliderImages';
 import { useLeaderboard } from "@/utils/LeaderboardContext";
+
+type LeaderboardAlt =
+    | "RoobetLeaderboard"
+    | "CsgobigLeaderboard"
+    | "EmpireDropLeaderboard"
+    | "RainLeaderboard"
+    | "DuelGpLeaderboard"
+    | "CsgostakeLeaderboard"
+    | "CsgorollLeaderboard";
 
 const ClashCasino = () => {
     const { leaderboard } = useLeaderboard();
-    const getRandomLeaderboardName = () => {
-        const randomIndex = Math.floor(Math.random() * sliderImages.length);
-        const alt = sliderImages[randomIndex].alt;
+
+    const getRandomLeaderboardName = (alt: LeaderboardAlt): string => {
         switch (alt) {
             case "RoobetLeaderboard":
                 return "ROOBET LEADERBOARD";
@@ -31,7 +38,7 @@ const ClashCasino = () => {
         }
     };
 
-    const [leaderboardName, setLeaderboardName] = useState(getRandomLeaderboardName);
+    const [leaderboardName, setLeaderboardName] = useState(() => getRandomLeaderboardName("RoobetLeaderboard"));
     const totalPrize = leaderboard?.data?.totalPrize || 0;
     const handleLeaderboardSelect = (name: string) => {
         setLeaderboardName(name);
