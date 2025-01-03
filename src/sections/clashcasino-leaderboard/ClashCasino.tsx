@@ -18,24 +18,17 @@ const ClashCasino = () => {
     const { leaderboard } = useLeaderboard();
 
     const getRandomLeaderboardName = (alt: LeaderboardAlt): string => {
-        switch (alt) {
-            case "RoobetLeaderboard":
-                return "ROOBET LEADERBOARD";
-            case "CsgobigLeaderboard":
-                return "CSGOBIG LEADERBOARD";
-            case "EmpireDropLeaderboard":
-                return "EMPIRE DROP LEADERBOARD";
-            case "RainLeaderboard":
-                return "RAIN LEADERBOARD";
-            case "DuelGpLeaderboard":
-                return "DUELGP LEADERBOARD";
-            case "CsgostakeLeaderboard":
-                return "CSGOSTAKE LEADERBOARD";
-            case "CsgorollLeaderboard":
-                return "CSGOROLL LEADERBOARD";
-            default:
-                return "ROOBET LEADERBOARD";
-        }
+        const leaderboardNameMap: { [key in LeaderboardAlt]: string } = {
+            RoobetLeaderboard: "ROOBET",
+            CsgobigLeaderboard: "CSGOBIG",
+            EmpireDropLeaderboard: "EMPIRE DROP",
+            RainLeaderboard: "RAIN",
+            DuelGpLeaderboard: "DUELGP",
+            CsgostakeLeaderboard: "CSGOSTAKE",
+            CsgorollLeaderboard: "CSGOROLL"
+        };
+
+        return `${leaderboardNameMap[alt]} LEADERBOARD`;
     };
 
     const [leaderboardName, setLeaderboardName] = useState(() => getRandomLeaderboardName("RoobetLeaderboard"));
