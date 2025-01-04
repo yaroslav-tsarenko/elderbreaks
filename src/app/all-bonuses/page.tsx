@@ -1,14 +1,14 @@
 "use server";
 
 import React from 'react';
-import Banners from "@/sections/banner/Banners";
-import AllBonusesSection from "@/sections/all-bonuses/AllBonusesSection";
+import ComingSoon from "@/components/coming-soon-label/ComingSoon";
 
 const AllBonuses = () => {
     return (
         <>
-            <AllBonusesSection/>
-            <Banners/>
+            {/*<AllBonusesSection/>
+            <Banners/>*/}
+            <ComingSoon/>
         </>
     );
 };

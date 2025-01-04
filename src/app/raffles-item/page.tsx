@@ -1,10 +1,11 @@
 import React from 'react';
-import ItemRaffle from "@/sections/item-raffle/ItemRaffle";
+import ComingSoon from "@/components/coming-soon-label/ComingSoon";
 
 const RafflesItem = () => {
     return (
         <>
-            <ItemRaffle/>
+            <ComingSoon/>
+           {/* <ItemRaffle/>*/}
         </>
     );
 };

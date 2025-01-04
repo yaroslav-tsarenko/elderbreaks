@@ -1,10 +1,11 @@
 import React from 'react';
-import PointsShopLayout from "@/sections/points-shop-layout/PointsShopLayout";
+import ComingSoon from "@/components/coming-soon-label/ComingSoon";
 
 const PointsShop = () => {
     return (
         <>
-            <PointsShopLayout/>
+           {/* <PointsShopLayout/>*/}
+            <ComingSoon/>
         </>
     );
 };

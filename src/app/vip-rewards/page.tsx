@@ -1,11 +1,12 @@
 "use server";
 import React from 'react';
-import VipRewardsSection from "@/sections/vip-rewards/VipRewardsSection";
+import ComingSoon from "@/components/coming-soon-label/ComingSoon";
 
 const VIPRewards = () => {
     return (
         <>
-          <VipRewardsSection/>
+            <ComingSoon/>
+         {/* <VipRewardsSection/>*/}
         </>
     );
 };
