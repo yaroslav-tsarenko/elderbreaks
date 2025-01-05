@@ -43,8 +43,21 @@
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
   }
 
+  p {
+
+    a {
+      color: var(--gold);
+      transition: 0.3s all ease-in-out;
+
+      &:hover {
+        opacity: 0.75;
+        color: var(--gold);
+      }
+    }
+  }
+
   h3 {
-    font-size: var(--24px);
+    font-size: 20px;
     font-weight: bold;
     color: var(--white);
   }
@@ -55,7 +68,7 @@
   }
 
   @media screen and (max-width: 768px) {
-   max-width: 100%;
+    max-width: 100%;
     padding: 0 10px;
   }
 }
@@ -98,7 +111,7 @@
     font-size: var(--20px);
     color: var(--grey-light);
   }
-  
+
   @media screen and (max-width: 1028px) {
     padding: 20px;
 
@@ -156,7 +169,7 @@
   }
 
   @media screen and (max-width: 768px) {
-   width: 95%;
+    width: 95%;
     justify-content: flex-start;
     justify-items: flex-start;
     align-content: flex-start;

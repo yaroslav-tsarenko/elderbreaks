@@ -2,7 +2,6 @@
 
 import React, {useState, useEffect} from 'react';
 import styles from "./Leaders.module.scss";
-import Title from "@/components/title/Title";
 import Button from "@/components/button/Button";
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import LeaderItem from "@/components/leader-item/LeaderItem";
@@ -41,7 +40,7 @@ const Leaders = () => {
 
     return (
         <>
-            <Title h2="other" span="leaders"/>
+            {/*<Title h2="other" span="leaders"/>*/}
             <div className={styles.leaderWrapper}>
                 <div className={styles.leaders}>
                     <div className={styles.tableLore}>
@@ -50,8 +49,7 @@ const Leaders = () => {
                             <p>Name</p>
                         </span>
                         <span>
-    {selectedAlt === "CsgobigDepositLeaderboard" ? "Deposited" : selectedAlt === "CsgorollLeaderboard" ? "Deposited" : "Wagered"}
-</span>
+    {selectedAlt === "CsgobigDepositLeaderboard" ? "Deposited" : selectedAlt === "CsgorollLeaderboard" ? "Deposited" : "Wagered"}</span>
                         <span>Prize</span>
                     </div>
                     <div className={styles.leadersContent}>

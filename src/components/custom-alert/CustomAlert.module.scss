@@ -2,6 +2,7 @@
   position: fixed;
   top: 1%;
   left: 50%;
+  visibility: hidden;
   transform: translateX(-50%);
   background-color: var(--quaternary-color);
   color: white;

@@ -18,20 +18,18 @@ const HowItWorks: FC<HowItWorksProps> = ({type}) => {
                     <div className={styles.howItWorksPoints}>
                         <div className={styles.howItWorksPoint}>
                             <p>1</p>
-                            <h3>Accumulate Points</h3>
-                            <p>Earn points by participating in WRewards team streams and exchange them for GPoints to
-                                play.</p>
+                            <h3>Get FREE Points</h3>
+                            <p>Earn points by watching Elder`&lsquo;s stream at <a href="kick.com/elderbreaks">kick.com/elderbreaks</a>  and participating in FREE raffles, which will appear at random times in chat.</p>
                         </div>
                         <div className={styles.howItWorksPoint}>
                             <p>2</p>
-                            <h3>Gather Points</h3>
-                            <p>Join WRewards team streams to gather points and convert them into GPoints for gaming.</p>
+                            <h3>Get Points by Wagering</h3>
+                            <p>Earn points by wagering/depositing on any of our Leaderboards above. (COMING SOON).</p>
                         </div>
                         <div className={styles.howItWorksPoint}>
                             <p>3</p>
-                            <h3>Collect Points</h3>
-                            <p>Participate in WRewards team streams to collect points and turn them into GPoints for
-                                gameplay.</p>
+                            <h3>Spend your points</h3>
+                            <p>Spend your accumulated points by going to the Points Shop, Raffles, or Cases sections! (COMING SOON).</p>
                         </div>
                     </div>
                     <div className={styles.info}>
