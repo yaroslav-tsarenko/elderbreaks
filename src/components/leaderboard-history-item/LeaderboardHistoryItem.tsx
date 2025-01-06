@@ -34,14 +34,28 @@ const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
         return Math.floor(Math.random() * (9000 - 1000 + 1)) + 1000;
     };
 
+    const formatPlace = (place: number) => {
+        switch (place) {
+            case 1:
+                return "1ST Place";
+            case 2:
+                return "2ND Place";
+            case 3:
+                return "3RD Place";
+            default:
+                return `${place} Place`;
+        }
+    };
+
     return (
         <div className={styles.card}>
-            <h4>{place}ST Place</h4>
+            <h4>{formatPlace(place)}</h4>
             <div className={styles.leaderboard}>
                 <h3>leaderboard</h3><h3>{leaderboard}</h3>
             </div>
             <div className={styles.nickname}>
-                {avatar ? <Image src={getRandomAvatar()} alt="avatar" className={styles.avatar} width="110" height="110"/> : "none"}
+                {avatar ? <Image src={getRandomAvatar()} alt="avatar" className={styles.avatar} width="110"
+                                 height="110"/> : "none"}
                 <p>{nickname}</p>
             </div>
             <div className={styles.dateInfo}>
