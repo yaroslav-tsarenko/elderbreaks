@@ -28,6 +28,9 @@ const AccountComponent = () => {
 
     const handleSignOut = () => {
         Cookies.remove('token');
+        setTimeout(() => {
+            router.push('/');
+        }, 500);
     };
 
     console.log('Admin URL:', adminUrl);
