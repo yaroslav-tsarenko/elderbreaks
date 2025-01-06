@@ -1,6 +1,12 @@
 import { FaTrophy, FaVideo, FaCalendarAlt, FaGift, FaTicketAlt, FaStore } from 'react-icons/fa';
-import {LAST_VIDEO} from "@/constants/url";
+import {LAST_VIDEO, YOUTUBE_SHORTS} from "@/constants/url";
 import { IoDiamond } from "react-icons/io5";
+
+const getRandomVideoLink = () => {
+    const links = [YOUTUBE_SHORTS, YOUTUBE_SHORTS, YOUTUBE_SHORTS, YOUTUBE_SHORTS, LAST_VIDEO];
+    return links[Math.floor(Math.random() * links.length)];
+};
+
 export const links = [
     {
         title: 'Leaderboards',
@@ -10,7 +16,7 @@ export const links = [
     {
         title: 'Last Video',
         icon: FaVideo,
-        link: LAST_VIDEO,
+        link: getRandomVideoLink(),
         target: '_blank',
     },
     {

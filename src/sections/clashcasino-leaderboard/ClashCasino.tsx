@@ -25,7 +25,7 @@ const ClashCasino = () => {
         RoobetLeaderboard: ["ROOBET", "LEADERBOARD"],
         CsgobigLeaderboard: ["CSGOBIG", "LEADERBOARD"],
         CsgobigDepositLeaderboard: ["CSGOBIG", "LEADERBOARD"],
-        EmpireDropLeaderboard: ["EMPIRE DROP", "LEADERBOARD"],
+        EmpireDropLeaderboard: ["EMPIREDROP", "LEADERBOARD"],
         RainLeaderboard: ["RAIN", "LEADERBOARD"],
         DuelGpLeaderboard: ["DUELGP", "LEADERBOARD"],
         CsgostakeLeaderboard: ["CSGOSTAKE", "LEADERBOARD"],
@@ -47,6 +47,12 @@ const ClashCasino = () => {
                     </div>
                 );
             case "CsgobigDepositLeaderboard":
+                return (
+                    <>
+                        Every DEPOSIT under Code ELDER counts towards your score. The leaderboard updates every 60 minutes.
+                    </>
+                );
+            case "CsgorollLeaderboard":
                 return (
                     <>
                         Every DEPOSIT under Code ELDER counts towards your score. The leaderboard updates every 60 minutes.

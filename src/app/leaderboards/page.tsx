@@ -17,7 +17,6 @@ const LeaderboardsPage = () => {
             <Leaders/>
             <HowItWorks type="1"/>
             <LeaderboardHistory/>
-      {/*      <LiveDrops/>*/}
         </LeaderboardProvider>
     );
 };

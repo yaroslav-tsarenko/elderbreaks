@@ -9,7 +9,10 @@ import { FaBitcoin, FaEthereum, FaUser, FaCog, FaSave, FaLink } from "react-icon
 import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
 import {useRouter} from "next/navigation";
+import Cookies from 'js-cookie'
 import { SiLitecoin } from "react-icons/si";
+
+import { FaSignOutAlt } from "react-icons/fa";
 import {ADMIN_PANEL_URL, KICK_URL} from "@/constants/url";
 
 const AccountComponent = () => {
@@ -22,6 +25,10 @@ const AccountComponent = () => {
     const [isKickLinked, setIsKickLinked] = useState(user?.statusLink);
     const [isProcessing, setIsProcessing] = useState(false);
     const adminUrl = ADMIN_PANEL_URL;
+
+    const handleSignOut = () => {
+        Cookies.remove('token');
+    };
 
     console.log('Admin URL:', adminUrl);
 
@@ -135,6 +142,7 @@ const AccountComponent = () => {
                         ) : (
                             <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
                         )}
+                        <Button variant="outlined-small" icon={FaSignOutAlt} onClick={() => handleSignOut()}>SIGN OUT</Button>
                     </div>
                 </div>
                 <hr />

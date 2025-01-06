@@ -17,9 +17,9 @@ export const quickLinks = [
         link: '/all-bonuses',
     },
     {
-        title: 'Games',
+        title: 'VIP Rewards',
         image: Games,
-        link: '/advent-calendar',
+        link: '/vip-rewards',
     },
     {
         title: 'Raffles',
@@ -27,9 +27,9 @@ export const quickLinks = [
         link: '/raffles',
     },
     {
-        title: 'Points Store',
+        title: 'Points Shop',
         image: PointsStore,
-        link: '/points-store',
+        link: '/points-shop',
     },
     {
         title: 'Calendar',

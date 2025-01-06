@@ -21,14 +21,12 @@ const Footer = () => {
                         <div className={styles.footerLinks}>
                             <Link className={styles.link} href="/leaderboards">Leaderboard</Link>
                             <Link className={styles.link} href="/points-shop">Points Shop</Link>
-                            <Link className={styles.link} href="/raffles">Pachinko</Link>
                             <Link className={styles.link} href="/raffles">Raffles</Link>
                         </div>
                     </div>
                     <div className={styles.footerNav}>
                         <h3>About</h3>
                         <div className={styles.footerLinks}>
-                            <Link className={styles.link} href="/">Contact</Link>
                             <Link className={styles.link} href="/#faq-section">FAQ</Link>
                             <Link className={styles.link} href="/terms-of-service">Terms of service</Link>
                             <Link className={styles.link} href="/privacy-policy">Privacy Policy</Link>
