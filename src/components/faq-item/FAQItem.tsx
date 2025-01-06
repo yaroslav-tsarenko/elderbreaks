@@ -20,10 +20,10 @@ const FAQItem: FC<FAQItemProps> = ({ question, answer, listItems, isOpen, onClic
                 />
             </div>
             <div className={`${styles.faqAnswer} ${isOpen ? styles.open : ""}`}>
-                <p>{answer}</p>
+                <p dangerouslySetInnerHTML={{ __html: answer }}></p>
                 <ol>
                     {listItems.map((item, index) => (
-                        <li key={index}>{item}</li>
+                        <li key={index} dangerouslySetInnerHTML={{ __html: item }}></li>
                     ))}
                 </ol>
             </div>

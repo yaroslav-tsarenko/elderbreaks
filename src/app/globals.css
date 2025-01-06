@@ -44,6 +44,15 @@
     font-family: "Anek Latin", sans-serif;
 }
 
+a{
+    color: var(--gold);
+    transition: 0.3s all ease-in-out;
+
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
 .loading-screen {
     display: flex;
     justify-content: center;
