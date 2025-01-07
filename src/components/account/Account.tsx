@@ -12,7 +12,6 @@ import {useRouter} from "next/navigation";
 import { SiLitecoin } from "react-icons/si";
 import { FaSignOutAlt } from "react-icons/fa";
 import {ADMIN_PANEL_URL, KICK_URL} from "@/constants/url";
-import Cookies from 'js-cookie';
 
 const AccountComponent = () => {
     const user = useUser();
@@ -26,29 +25,14 @@ const AccountComponent = () => {
     const adminUrl = ADMIN_PANEL_URL;
 
     const handleSignOut = async () => {
-        const token = Cookies.get('token');
-
-        if (token) {
-            Cookies.remove('token');
-            if (!Cookies.get('token')) {
-                router.push('/');
-                return;
-            }
-
-            document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            if (!document.cookie.includes('token')) {
-                router.push('/');
-                return;
-            }
-
-            localStorage.removeItem('token');
-            if (!localStorage.getItem('token')) {
-                router.push('/');
-                return;
-            }
-
-            router.push('/');
-        }
+        document.cookie.split(";").forEach((cookie) => {
+            const eqPos = cookie.indexOf("=");
+            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+        });
+        localStorage.clear();
+        sessionStorage.clear();
+        router.push('/');
     };
 
     console.log('Admin URL:', adminUrl);

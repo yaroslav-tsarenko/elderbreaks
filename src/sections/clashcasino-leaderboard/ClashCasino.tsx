@@ -1,6 +1,12 @@
 
 "use client";
 
+import Image from "next/image";
+import csgotakecoin from "../../../public/csgostakecoin.png";
+import bigCoin from "../../../public/big-coin.png";
+import rainCoin from "../../../public/rain-coin.png";
+import duelGP from "../../../public/duelgp-coinnew.png";
+import csgoroll from "../../../public/csgoroll.png";
 import React, { useState } from 'react';
 import styles from "./ClashCasino.module.scss";
 import FullWidthSlider from "@/components/full-width-slider/FullWidthSlider";
@@ -30,6 +36,29 @@ const ClashCasino = () => {
         DuelGpLeaderboard: ["DUELGP", "LEADERBOARD"],
         CsgostakeLeaderboard: ["CSGOSTAKE", "LEADERBOARD"],
         CsgorollLeaderboard: ["CSGOROLL", "LEADERBOARD"],
+    };
+
+    const getCurrencySymbol = () => {
+        switch (selectedAlt) {
+            case "CsgostakeLeaderboard":
+                return <Image src={csgotakecoin} alt="coin" width={45} height={45} />;
+            case "RoobetLeaderboard":
+                return "$";
+            case "EmpireDropLeaderboard":
+                return "€";
+            case "CsgobigLeaderboard":
+                return <Image src={bigCoin} alt="coin" width={45} height={45} />;
+            case "CsgobigDepositLeaderboard":
+                return <Image src={bigCoin} alt="coin" width={45} height={45} />;
+            case "RainLeaderboard":
+                return <Image src={rainCoin} alt="coin" width={45} height={45} />;
+            case "DuelGpLeaderboard":
+                return <Image src={duelGP} alt="coin" width={45} height={45} />;
+            case "CsgorollLeaderboard":
+                return <Image src={csgoroll} alt="coin" width={45} height={45} />;
+            default:
+                return "$";
+        }
     };
 
     const getDescription = () => {
@@ -87,7 +116,7 @@ const ClashCasino = () => {
                     <span> {leaderboardName[1]}</span>
                 </h1>
                 <h4>Total prize pool</h4>
-                <h2>${totalPrize}</h2>
+                <div className={styles.h2}>{getCurrencySymbol()} {totalPrize}</div>
                 <p>{getDescription()}</p>
                 <div className={styles.code}>Code: ELDER</div>
             </div>

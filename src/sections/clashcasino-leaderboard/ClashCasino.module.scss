@@ -75,12 +75,17 @@
     text-transform: uppercase;
   }
 
-  h2 {
+  .h2 {
     font-size: var(--64px);
     font-weight: bold;
     text-transform: uppercase;
     display: flex;
-    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: 7px;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
     background: linear-gradient(45deg, var(--gold), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

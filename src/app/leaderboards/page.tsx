@@ -5,7 +5,6 @@ import LeaderBoards from "@/sections/leaderboards/LeaderBoards";
 import ClashCasino from "@/sections/clashcasino-leaderboard/ClashCasino";
 import HowItWorks from "@/sections/how-it-works/HowItWorks";
 import Leaders from "@/sections/leaders/Leaders";
-import LeaderboardHistory from "@/sections/leaderboard-history/LeaderboardHistory";
 import { LeaderboardProvider } from '@/utils/LeaderboardContext';
 
 const LeaderboardsPage = () => {
@@ -14,9 +13,9 @@ const LeaderboardsPage = () => {
         <LeaderboardProvider>
             <ClashCasino/>
             <LeaderBoards/>
-            <Leaders/>
+            <Leaders fromTheBeginning={true}/>
             <HowItWorks type="1"/>
-            <LeaderboardHistory/>
+            <Leaders fromTheBeginning={false} h2="LEADERBOARD" span="HISTORY"/>
         </LeaderboardProvider>
     );
 };
