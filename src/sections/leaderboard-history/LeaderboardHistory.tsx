@@ -47,7 +47,7 @@ const LeaderboardHistory = () => {
         <div className={styles.leaderboardHistory}>
             <Title h2="leaderboard" span="history" column={true}/>
             <div className={styles.leaderboardHistoryContent}>
-                {data.slice(0, 3).map((item, index) => (
+                {data.slice(-3).map((item, index) => (
                     <LeaderboardHistoryItem
                         key={index}
                         nickname={item.nickname}
@@ -67,7 +67,7 @@ const LeaderboardHistory = () => {
                 ))}
             </div>
             <SliderItem slidesToShow={1}>
-                {data.slice(0, 3).map((item, index) => (
+                {data.slice(-3).map((item, index) => (
                     <LeaderboardHistoryItem
                         key={index}
                         nickname={item.nickname}
@@ -76,7 +76,7 @@ const LeaderboardHistory = () => {
                         finished={item.finished}
                         totalPool={item.totalPool}
                         avatar={item.avatar}
-                        place={item.rank}
+                        place={item.place}
                         category={item.category}
                         endDate={item.endDate}
                         prize={item.prize}
