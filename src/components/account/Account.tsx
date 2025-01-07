@@ -30,9 +30,24 @@ const AccountComponent = () => {
 
         if (token) {
             Cookies.remove('token');
-            setTimeout(() => {
+            if (!Cookies.get('token')) {
                 router.push('/');
-            }, 500);
+                return;
+            }
+
+            document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            if (!document.cookie.includes('token')) {
+                router.push('/');
+                return;
+            }
+
+            localStorage.removeItem('token');
+            if (!localStorage.getItem('token')) {
+                router.push('/');
+                return;
+            }
+
+            router.push('/');
         }
     };
 
