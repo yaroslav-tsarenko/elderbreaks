@@ -10,10 +10,9 @@ import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
 import {useRouter} from "next/navigation";
 import { SiLitecoin } from "react-icons/si";
-
 import { FaSignOutAlt } from "react-icons/fa";
 import {ADMIN_PANEL_URL, KICK_URL} from "@/constants/url";
-import {cookies} from "next/headers";
+import Cookies from 'js-cookie';
 
 const AccountComponent = () => {
     const user = useUser();
@@ -27,11 +26,10 @@ const AccountComponent = () => {
     const adminUrl = ADMIN_PANEL_URL;
 
     const handleSignOut = async () => {
-        const cookieStore = await cookies();
-        const token = cookieStore.get('token')?.value;
+        const token = Cookies.get('token');
 
         if (token) {
-           cookieStore.delete(token);
+            Cookies.remove('token');
             setTimeout(() => {
                 router.push('/');
             }, 500);

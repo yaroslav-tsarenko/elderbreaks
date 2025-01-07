@@ -1,7 +1,7 @@
-import { FaTrophy, FaVideo, FaCalendarAlt, FaGift, FaTicketAlt, FaStore } from 'react-icons/fa';
+import { FaTrophy, FaVideo, FaGift, FaTicketAlt, FaStore } from 'react-icons/fa';
 import {LAST_VIDEO, YOUTUBE_SHORTS} from "@/constants/url";
 import { IoDiamond } from "react-icons/io5";
-
+import { GiDuel } from "react-icons/gi";
 const getRandomVideoLink = () => {
     const links = [YOUTUBE_SHORTS, YOUTUBE_SHORTS, YOUTUBE_SHORTS, YOUTUBE_SHORTS, LAST_VIDEO];
     return links[Math.floor(Math.random() * links.length)];
@@ -25,9 +25,9 @@ export const links = [
         link: '/vip-rewards',
     },
     {
-        title: 'Calendar',
-        icon: FaCalendarAlt,
-        link: '/advent-calendar',
+        title: 'Challenges',
+        icon: GiDuel,
+        link: '/challenges',
     },
     {
         title: 'All Bonuses',
