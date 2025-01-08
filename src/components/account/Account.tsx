@@ -27,13 +27,30 @@ const AccountComponent = () => {
     const handleSignOut = async () => {
         document.cookie.split(";").forEach((cookie) => {
             const eqPos = cookie.indexOf("=");
-            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;secure`;
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname};secure`;
         });
+
+        if (document.domain.includes(".")) {
+            const domainParts = document.domain.split(".");
+            while (domainParts.length > 1) {
+                domainParts.shift();
+                const domain = `.${domainParts.join(".")}`;
+                document.cookie.split(";").forEach((cookie) => {
+                    const eqPos = cookie.indexOf("=");
+                    const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+                    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${domain}`;
+                });
+            }
+        }
         localStorage.clear();
         sessionStorage.clear();
-        router.push('/');
+        router.push("/");
     };
+
 
     console.log('Admin URL:', adminUrl);
 
