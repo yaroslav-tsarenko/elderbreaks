@@ -48,7 +48,7 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
 
     const sortedLeaders = leaders.sort((a, b) => parseFloat(b.prize.toString()) - parseFloat(a.prize.toString()));
     const displayedLeaders = lastWeekLeaders
-        ? sortedLeaders.slice(3, showAll ? 20 : 10)
+        ? sortedLeaders.slice(0, showAll ? 20 : 10)
         : sortedLeaders.slice(3, showAll ? 20 : 10);
 
     return (
@@ -69,8 +69,8 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
                     <div className={styles.leadersContent}>
                         {displayedLeaders.map((leader, index) => (
                             <LeaderItem
-                                key={index + 4}
-                                count={index + 4}
+                                key={index + (lastWeekLeaders ? 1 : 4)}
+                                count={index + (lastWeekLeaders ? 1 : 4)}
                                 name={leader.name}
                                 xp={leader.xp}
                                 money={leader.money}
