@@ -39,7 +39,7 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({ onLeaderboardSelect }
     const handleImageClick = async (alt: string) => {
         setIsProcessing(true);
         try {
-            const response = await newRequest.get(`/user/leaderboard/${alt}`);
+            const response = await newRequest.get(`/content/leaderboard/${alt}`);
             setLeaderboard(response.data);
             setSelectedAlt(alt);
             localStorage.setItem('leaderboard', JSON.stringify(response.data));
