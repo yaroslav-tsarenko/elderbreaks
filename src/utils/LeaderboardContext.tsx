@@ -40,7 +40,7 @@ export const LeaderboardProvider = ({ children }: { children: React.ReactNode })
     useEffect(() => {
         const fetchDefaultLeaderboard = async () => {
             try {
-                const response = await newRequest.get('/user/leaderboard/RoobetLeaderboard');
+                const response = await newRequest.get('/content/leaderboard/RoobetLeaderboard');
                 setLeaderboard(response.data);
                 setSelectedAlt('RoobetLeaderboard');
             } catch (error) {

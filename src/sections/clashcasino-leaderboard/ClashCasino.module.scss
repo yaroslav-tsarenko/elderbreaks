@@ -82,7 +82,6 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    gap: 7px;
     align-items: center;
     justify-items: center;
     margin: 0 auto;
@@ -96,6 +95,11 @@
     max-width: 650px;
     margin: 0 auto;
   }
+}
+
+.coin{
+  display: flex;
+  margin: 0 7px 0 0;
 }
 
 .code {

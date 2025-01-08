@@ -13,9 +13,9 @@ const LeaderboardsPage = () => {
         <LeaderboardProvider>
             <ClashCasino/>
             <LeaderBoards/>
-            <Leaders fromTheBeginning={true}/>
+            <Leaders lastWeekLeaders={false}/>
             <HowItWorks type="1"/>
-            <Leaders fromTheBeginning={false} h2="LEADERBOARD" span="HISTORY"/>
+            <Leaders lastWeekLeaders={true} h2="LEADERBOARD" span="HISTORY"/>
         </LeaderboardProvider>
     );
 };

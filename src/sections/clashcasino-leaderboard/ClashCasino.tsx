@@ -41,21 +41,21 @@ const ClashCasino = () => {
     const getCurrencySymbol = () => {
         switch (selectedAlt) {
             case "CsgostakeLeaderboard":
-                return <Image src={csgotakecoin} alt="coin" width={45} height={45} />;
+                return <Image src={csgotakecoin} className={styles.coin} alt="coin" width={45} height={45} />;
             case "RoobetLeaderboard":
                 return "$";
             case "EmpireDropLeaderboard":
                 return "€";
             case "CsgobigLeaderboard":
-                return <Image src={bigCoin} alt="coin" width={45} height={45} />;
+                return <Image src={bigCoin} className={styles.coin} alt="coin" width={45} height={45} />;
             case "CsgobigDepositLeaderboard":
-                return <Image src={bigCoin} alt="coin" width={45} height={45} />;
+                return <Image src={bigCoin} className={styles.coin} alt="coin" width={45} height={45} />;
             case "RainLeaderboard":
-                return <Image src={rainCoin} alt="coin" width={45} height={45} />;
+                return <Image src={rainCoin} className={styles.coin} alt="coin" width={45} height={45} />;
             case "DuelGpLeaderboard":
-                return <Image src={duelGP} alt="coin" width={45} height={45} />;
+                return <Image src={duelGP} className={styles.coin} alt="coin" width={45} height={45} />;
             case "CsgorollLeaderboard":
-                return <Image src={csgoroll} alt="coin" width={45} height={45} />;
+                return <Image src={csgoroll} className={styles.coin} alt="coin" width={45} height={45} />;
             default:
                 return "$";
         }
@@ -116,7 +116,7 @@ const ClashCasino = () => {
                     <span> {leaderboardName[1]}</span>
                 </h1>
                 <h4>Total prize pool</h4>
-                <div className={styles.h2}>{getCurrencySymbol()} {totalPrize}</div>
+                <div className={styles.h2}>{getCurrencySymbol()}{totalPrize}</div>
                 <p>{getDescription()}</p>
                 <div className={styles.code}>Code: ELDER</div>
             </div>

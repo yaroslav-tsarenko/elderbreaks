@@ -17,12 +17,12 @@ interface LeaderProps {
 }
 
 interface LeadersProps {
-    fromTheBeginning: boolean;
     h2?: string;
     span?: string;
+    lastWeekLeaders?: boolean;
 }
 
-const Leaders: FC<LeadersProps> = ({ fromTheBeginning, h2, span }) => {
+const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
     const [showAll, setShowAll] = useState(false);
     const { leaderboard } = useLeaderboard();
     const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
@@ -47,9 +47,9 @@ const Leaders: FC<LeadersProps> = ({ fromTheBeginning, h2, span }) => {
     };
 
     const sortedLeaders = leaders.sort((a, b) => parseFloat(b.prize.toString()) - parseFloat(a.prize.toString()));
-    const displayedLeaders = fromTheBeginning
-        ? sortedLeaders.slice(0, showAll ? 20 : 10)
-        : sortedLeaders.slice(-10).reverse();
+    const displayedLeaders = lastWeekLeaders
+        ? sortedLeaders.slice(3, showAll ? 20 : 10)
+        : sortedLeaders.slice(3, showAll ? 20 : 10);
 
     return (
         <>
@@ -69,8 +69,8 @@ const Leaders: FC<LeadersProps> = ({ fromTheBeginning, h2, span }) => {
                     <div className={styles.leadersContent}>
                         {displayedLeaders.map((leader, index) => (
                             <LeaderItem
-                                key={index + 1}
-                                count={index + 1}
+                                key={index + 4}
+                                count={index + 4}
                                 name={leader.name}
                                 xp={leader.xp}
                                 money={leader.money}
