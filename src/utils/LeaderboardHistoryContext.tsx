@@ -3,27 +3,22 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { newRequest } from '@/utils/newRequest';
 
-type LeaderboardHistoryItem = {
-    _id: string;
+type LeaderboardHistoryUser = {
     userId: string;
     username: string;
     wagered: number;
     rank: number;
-    prize: string | null;
-    category: string;
-    startDate: string;
-    endDate: string;
-    createdAt: string;
-    updatedAt: string;
-    totalPrize: number;
+    prize: number;
+    eldercoins: string;
+    _id: string;
 };
 
 type LeaderboardHistoryData = {
-    success: boolean;
-    data: {
-        items: LeaderboardHistoryItem[];
-        totalPrize: number;
-    };
+    _id: string;
+    category: string;
+    startDate: string;
+    endDate: string;
+    users: LeaderboardHistoryUser[];
 };
 
 const LeaderboardHistoryContext = createContext<{
