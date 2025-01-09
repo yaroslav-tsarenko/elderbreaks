@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect, FC } from 'react';
 import styles from "./Leaders.module.scss";
-import Button from "@/components/button/Button";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import LeaderItem from "@/components/leader-item/LeaderItem";
 import { leaders as mockupLeaders } from "@/mockup-data/leaders";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
@@ -24,7 +22,6 @@ interface LeadersProps {
 }
 
 const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
-    const [showAll, setShowAll] = useState(false);
     const { leaderboard } = useLeaderboard();
     const { leaderboardHistory } = useLeaderboardHistory();
     const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
@@ -52,14 +49,8 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
         }
     }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
 
-    const handleToggle = () => {
-        setShowAll(!showAll);
-    };
-
     const sortedLeaders = leaders.sort((a, b) => parseFloat(b.prize.toString()) - parseFloat(a.prize.toString()));
-    const displayedLeaders = lastWeekLeaders
-        ? sortedLeaders.slice(0, showAll ? 20 : 10)
-        : sortedLeaders.slice(3, showAll ? 20 : 10);
+    const displayedLeaders = sortedLeaders.slice(0, 10);
 
     return (
         <>
@@ -90,9 +81,6 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
                     </div>
                 </div>
             </div>
-            <Button variant="orange" icon={showAll ? FaEyeSlash : FaEye} onClick={handleToggle}>
-                {showAll ? 'show less' : 'show more'}
-            </Button>
         </>
     );
 };
