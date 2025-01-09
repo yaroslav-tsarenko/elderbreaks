@@ -11,46 +11,56 @@ interface SliderImage {
     id: number;
     src: string;
     alt: string;
+    category?: string;
 }
 
 export const sliderImages: SliderImage[] = [
     {
         id: 1,
         src: roobet.src,
-        alt: "RoobetLeaderboard"
+        alt: "RoobetLeaderboard",
+        category: "Roobet"
     }, {
         id: 2,
         src: empireDrop.src,
-        alt: "EmpireDropLeaderboard"
+        alt: "EmpireDropLeaderboard",
+        category: "EmpireDrop"
     },
     {
         id: 3,
         src: csgobigWager.src,
-        alt: "CsgobigLeaderboard"
+        alt: "CsgobigLeaderboard",
+        category: "CSGOBIG"
     },
     {
         id: 4,
         src: csgobig.src,
-        alt: "CsgobigDepositLeaderboard"
+        alt: "CsgobigDepositLeaderboard",
+        category: "CSGOBIG-DEPOSIT"
+
     },
     {
         id: 4,
         src: rain.src,
-        alt: "RainLeaderboard"
+        alt: "RainLeaderboard",
+        category: "Rain"
     },
     {
         id: 5,
         src: gpoints.src,
-        alt: "DuelGpLeaderboard"
+        alt: "DuelGpLeaderboard",
+        category: "DuelGP"
     },
     {
         id: 6,
         src: csgostake.src,
-        alt: "CsgostakeLeaderboard"
+        alt: "CsgostakeLeaderboard",
+        category: "Csgostake"
     },
     {
         id: 7,
         src: csgoroll.src,
-        alt: "CsgorollLeaderboard"
+        alt: "CsgorollLeaderboard",
+        category: "Csgoroll"
     }
 ];

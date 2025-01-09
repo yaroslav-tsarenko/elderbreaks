@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import LeaderItem from "@/components/leader-item/LeaderItem";
 import { leaders as mockupLeaders } from "@/mockup-data/leaders";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
+import { useLeaderboardHistory } from "@/utils/LeaderboardHistoryContext";
 import Title from "@/components/title/Title";
 
 interface LeaderProps {
@@ -25,11 +26,20 @@ interface LeadersProps {
 const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
     const [showAll, setShowAll] = useState(false);
     const { leaderboard } = useLeaderboard();
+    const { leaderboardHistory } = useLeaderboardHistory();
     const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
     const { selectedAlt } = useLeaderboard();
 
     useEffect(() => {
-        if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
+        if (lastWeekLeaders && leaderboardHistory && leaderboardHistory.data && Array.isArray(leaderboardHistory.data.items) && leaderboardHistory.data.items.length > 0) {
+            const historyLeaders = leaderboardHistory.data.items.map((item: any) => ({
+                name: item.username,
+                xp: item.wagered,
+                money: item.prize ? item.prize.toString() : '',
+                prize: item.prize ? item.prize.toString() : ''
+            }));
+            setLeaders(historyLeaders);
+        } else if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
             const serverLeaders = leaderboard.data.items.map((item: any) => ({
                 name: item.username,
                 xp: item.wagered,
@@ -40,7 +50,7 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
         } else {
             setLeaders(mockupLeaders);
         }
-    }, [leaderboard]);
+    }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
 
     const handleToggle = () => {
         setShowAll(!showAll);
