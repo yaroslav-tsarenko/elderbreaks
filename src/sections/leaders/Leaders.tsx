@@ -21,7 +21,7 @@ interface LeadersProps {
     lastWeekLeaders?: boolean;
 }
 
-const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
+const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders}) => {
     const { leaderboard } = useLeaderboard();
     const { leaderboardHistory } = useLeaderboardHistory();
     const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
@@ -29,6 +29,8 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
 
     useEffect(() => {
         if (lastWeekLeaders) {
+            console.log("lastWeekLeaders is true");
+            console.log("leaderboardHistory:", leaderboardHistory);
             if (leaderboardHistory && Array.isArray(leaderboardHistory.users) && leaderboardHistory.users.length > 0) {
                 const historyLeaders = leaderboardHistory.users.map((user: any) => ({
                     name: user.username,
@@ -36,11 +38,14 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
                     money: user.prize ? user.prize.toString() : '',
                     prize: user.prize ? user.prize.toString() : ''
                 }));
+                console.log("historyLeaders:", historyLeaders);
                 setLeaders(historyLeaders);
             } else {
                 setLeaders([]);
             }
         } else {
+            console.log("lastWeekLeaders is false");
+            console.log("leaderboard:", leaderboard);
             if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
                 const serverLeaders = leaderboard.data.items.map((item: any) => ({
                     name: item.username,
@@ -48,12 +53,15 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
                     money: item.prize ? item.prize.toString() : '',
                     prize: item.prize ? item.prize.toString() : ''
                 }));
+                console.log("serverLeaders:", serverLeaders);
                 setLeaders(serverLeaders);
             } else {
                 setLeaders(mockupLeaders);
             }
         }
     }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
+
+    console.log("leaders:", leaders);
 
     const sortedLeaders = leaders.sort((a, b) => parseFloat(b.prize.toString()) - parseFloat(a.prize.toString()));
     const displayedLeaders = sortedLeaders.slice(0, 10);
