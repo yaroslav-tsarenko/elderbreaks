@@ -28,24 +28,30 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders = false }) => {
     const { selectedAlt } = useLeaderboard();
 
     useEffect(() => {
-        if (lastWeekLeaders && leaderboardHistory && Array.isArray(leaderboardHistory.users) && leaderboardHistory.users.length > 0) {
-            const historyLeaders = leaderboardHistory.users.map((user: any) => ({
-                name: user.username,
-                xp: user.wagered,
-                money: user.prize ? user.prize.toString() : '',
-                prize: user.prize ? user.prize.toString() : ''
-            }));
-            setLeaders(historyLeaders);
-        } else if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
-            const serverLeaders = leaderboard.data.items.map((item: any) => ({
-                name: item.username,
-                xp: item.wagered,
-                money: item.prize ? item.prize.toString() : '',
-                prize: item.prize ? item.prize.toString() : ''
-            }));
-            setLeaders(serverLeaders);
+        if (lastWeekLeaders) {
+            if (leaderboardHistory && Array.isArray(leaderboardHistory.users) && leaderboardHistory.users.length > 0) {
+                const historyLeaders = leaderboardHistory.users.map((user: any) => ({
+                    name: user.username,
+                    xp: user.wagered,
+                    money: user.prize ? user.prize.toString() : '',
+                    prize: user.prize ? user.prize.toString() : ''
+                }));
+                setLeaders(historyLeaders);
+            } else {
+                setLeaders([]);
+            }
         } else {
-            setLeaders(mockupLeaders);
+            if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
+                const serverLeaders = leaderboard.data.items.map((item: any) => ({
+                    name: item.username,
+                    xp: item.wagered,
+                    money: item.prize ? item.prize.toString() : '',
+                    prize: item.prize ? item.prize.toString() : ''
+                }));
+                setLeaders(serverLeaders);
+            } else {
+                setLeaders(mockupLeaders);
+            }
         }
     }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
 
