@@ -21,7 +21,7 @@ interface LeadersProps {
     lastWeekLeaders?: boolean;
 }
 
-const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders}) => {
+const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
     const { leaderboard } = useLeaderboard();
     const { leaderboardHistory } = useLeaderboardHistory();
     const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
