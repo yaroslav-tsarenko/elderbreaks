@@ -55,6 +55,9 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
         }
     }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
 
+    const getStatus = () => {
+        return selectedAlt === "CsgorollLeaderboard" || selectedAlt === "CsgobigDepositLeaderboard" ? "Deposited" : "Wagered";
+    };
 
     const displayedLeaders = lastWeekLeaders ? leaders.slice(0, 10) : leaders.slice(3, 10);
 
@@ -69,7 +72,7 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
                             <p>Name</p>
                         </span>
                         <span>
-                            {selectedAlt === "CsgobigDepositLeaderboard" ? "Deposited" : selectedAlt === "CsgorollLeaderboard" ? "Deposited" : "Wagered"}
+                            {getStatus()}
                         </span>
                         <span>Prize</span>
                     </div>

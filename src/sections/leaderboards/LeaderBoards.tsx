@@ -108,7 +108,7 @@ const LeaderBoards = () => {
                 </h2>
                 <div className={styles.leaderBoardsContentDescription}>
                     <p>Weekly wager races - be first and grab insane prizes!</p>
-                    <h5>Over <span>{getCurrencySymbol()}{totalPrize}</span> in the prize pool!</h5>
+                    <h5><span>{getCurrencySymbol()}{totalPrize}</span> in the prize pool!</h5>
                 </div>
             </div>
             <hr/>
