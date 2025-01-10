@@ -11,6 +11,12 @@ import {useRouter} from "next/navigation";
 import {useLeaderboard} from "@/utils/LeaderboardContext";
 import {players} from "@/mockup-data/players";
 import {sliderImages} from '@/mockup-data/sliderImages';
+import Image from "next/image";
+import csgotakecoin from "../../../public/csgostakecoin.png";
+import bigCoin from "../../../public/big-coin.png";
+import rainCoin from "../../../public/rain-coin.png";
+import duelGP from "../../../public/duelgp-coinnew.png";
+import csgoroll from "../../../public/csgoroll.png";
 
 type LeaderboardItem = {
     _id: string;
@@ -66,6 +72,29 @@ const LeaderBoards = () => {
         router.push('/leaderboards');
     };
 
+    const getCurrencySymbol = () => {
+        switch (selectedAlt) {
+            case "CsgostakeLeaderboard":
+                return <Image src={csgotakecoin} className={styles.coin} alt="coin" width={25} height={25} />;
+            case "RoobetLeaderboard":
+                return "$";
+            case "EmpireDropLeaderboard":
+                return "€";
+            case "CsgobigLeaderboard":
+                return <Image src={bigCoin} className={styles.coin} alt="coin" width={25} height={25} />;
+            case "CsgobigDepositLeaderboard":
+                return <Image src={bigCoin} className={styles.coin} alt="coin" width={25} height={25} />;
+            case "RainLeaderboard":
+                return <Image src={rainCoin} className={styles.coin} alt="coin" width={25} height={25} />;
+            case "DuelGpLeaderboard":
+                return <Image src={duelGP} className={styles.coin} alt="coin" width={25} height={25} />;
+            case "CsgorollLeaderboard":
+                return <Image src={csgoroll} className={styles.coin} alt="coin" width={25} height={25} />;
+            default:
+                return "$";
+        }
+    };
+
     const startDate = leaderboard?.data?.items[0]?.startDate ? new Date(leaderboard.data.items[0].startDate) : undefined;
     const endDate = leaderboard?.data?.items[0]?.endDate ? new Date(leaderboard.data.items[0].endDate) : undefined;
     const totalPrize = leaderboard?.data?.totalPrize || 0;
@@ -79,7 +108,7 @@ const LeaderBoards = () => {
                 </h2>
                 <div className={styles.leaderBoardsContentDescription}>
                     <p>Weekly wager races - be first and grab insane prizes!</p>
-                    <h5>Over <span>${totalPrize}</span> in the prize pool!</h5>
+                    <h5>Over <span>{getCurrencySymbol()}{totalPrize}</span> in the prize pool!</h5>
                 </div>
             </div>
             <hr/>

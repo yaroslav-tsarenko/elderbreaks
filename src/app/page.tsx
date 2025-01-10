@@ -6,12 +6,9 @@ import LeaderBoards from "@/sections/leaderboards/LeaderBoards";
 import QuickLinks from "@/sections/quick-links/QuickLinks";
 import LatestVideos from "@/sections/latest-videos/LatestVideos";
 import FAQ from "@/sections/faq/FAQ";
-import { useUser } from '@/utils/UserContext';
 import { LeaderboardProvider } from '@/utils/LeaderboardContext';
 
 const Home: React.FC = () => {
-    const user = useUser();
-    console.log(user);
     return (
         <LeaderboardProvider>
             <WelcomeSection/>

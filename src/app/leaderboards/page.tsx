@@ -17,7 +17,7 @@ const LeaderboardsPage = () => {
                 <LeaderBoards/>
                 <Leaders lastWeekLeaders={false}/>
                 <HowItWorks type="1"/>
-                <Leaders lastWeekLeaders={true} h2="LEADERBOARD" span="HISTORY"/>
+                <Leaders lastWeekLeaders={true} h2="PREVIOUS" span="LEADERBOARD"/>
             </LeaderboardHistoryProvider>
         </LeaderboardProvider>
     );

@@ -52,7 +52,6 @@ const AccountComponent = () => {
     };
 
 
-    console.log('Admin URL:', adminUrl);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(`!link ${code}`).then(() => {
@@ -82,7 +81,6 @@ const AccountComponent = () => {
             try {
                 const response = await newRequest.get('/user/statusLink');
                 if (response.data.isConfirmed) {
-                    console.log("Response link:", response.data);
                     setIsKickLinked(user.statusLink);
                     setIsProcessing(false);
                     window.location.reload();
@@ -114,7 +112,6 @@ const AccountComponent = () => {
     const togglePopup = async () => {
         try {
             const response = await newRequest.post('/user/generateLink');
-            console.log('Response data:', response.data);
             setCode(response.data.code);
         } catch (error) {
             console.error('Error fetching link:', error);
