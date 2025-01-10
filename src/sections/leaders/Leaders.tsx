@@ -29,8 +29,8 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
 
     useEffect(() => {
         if (lastWeekLeaders) {
-            if (leaderboardHistory && Array.isArray(leaderboardHistory.users) && leaderboardHistory.users.length > 0) {
-                const historyLeaders = leaderboardHistory.users.map((user: any) => ({
+            if (leaderboardHistory && Array.isArray(leaderboardHistory) && leaderboardHistory.length > 0) {
+                const historyLeaders = leaderboardHistory.map((user: any) => ({
                     name: user.username,
                     xp: user.wagered,
                     money: user.prize ? user.prize.toString() : '',
@@ -55,8 +55,8 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
         }
     }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
 
-    const sortedLeaders = leaders.sort((a, b) => parseFloat(b.prize.toString()) - parseFloat(a.prize.toString()));
-    const displayedLeaders = sortedLeaders.slice(0, 10);
+
+    const displayedLeaders = lastWeekLeaders ? leaders.slice(0, 10) : leaders.slice(3, 10);
 
     return (
         <>
