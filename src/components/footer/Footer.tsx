@@ -52,9 +52,10 @@ const Footer = () => {
                 </div>
                 <hr/>
                 <div className={styles.footerBottom}>
-                    <p>18+ | Gamble Responsibly | BeGambleAware. Most people gamble for fun and enjoyment. Do not think
-                        of gambling as a way to make money. Only gamble with money you can afford to lose. Set a money
-                        and time limit in</p>
+                    <p>18+ | Gamble Responsibly | BeGambleAware.
+                        Most people gamble for fun and enjoyment. Do not think of gambling as a way to make money.
+                        Only gamble with money you can afford to lose. Set a money and time limit in advance. Never
+                        chase your losses. Don't use gambling to distract yourself from everyday problems.</p>
                 </div>
             </div>
         </footer>
