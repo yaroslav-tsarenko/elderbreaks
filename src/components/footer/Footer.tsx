@@ -14,7 +14,7 @@ const Footer = () => {
                         <Link href={"/"}>
                             <Image src={FooterLogo.src} alt="Footer logo" width="307" height="64"/>
                         </Link>
-                        <p>Copyright@2024 ElderBreaks</p>
+                        <p>Made by <a href="https://tresor.tech" target="_blank" rel="noopener noreferrer">Tresor.</a> Managed by TK.</p>
                     </div>
                     <div className={styles.footerNav}>
                         <h3>Explore</h3>
