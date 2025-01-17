@@ -31,11 +31,14 @@ const LeaderboardContext = createContext<{
     setLeaderboard: React.Dispatch<React.SetStateAction<LeaderboardData | null>>;
     selectedAlt: string | null;
     setSelectedAlt: React.Dispatch<React.SetStateAction<string | null>>;
+    selectedLeaderboard: string | null;
+    setSelectedLeaderboard: React.Dispatch<React.SetStateAction<string | null>>;
 } | undefined>(undefined);
 
 export const LeaderboardProvider = ({ children }: { children: React.ReactNode }) => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
     const [selectedAlt, setSelectedAlt] = useState<string | null>("RoobetLeaderboard");
+    const [selectedLeaderboard, setSelectedLeaderboard] = useState<string | null>("RoobetLeaderboard");
 
     useEffect(() => {
         const fetchDefaultLeaderboard = async () => {
@@ -43,6 +46,7 @@ export const LeaderboardProvider = ({ children }: { children: React.ReactNode })
                 const response = await newRequest.get('/content/leaderboard/RoobetLeaderboard');
                 setLeaderboard(response.data);
                 setSelectedAlt('RoobetLeaderboard');
+                setSelectedLeaderboard('RoobetLeaderboard');
             } catch (error) {
                 console.error('Error fetching default leaderboard:', error);
             }
@@ -52,7 +56,7 @@ export const LeaderboardProvider = ({ children }: { children: React.ReactNode })
     }, []);
 
     return (
-        <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard, selectedAlt, setSelectedAlt }}>
+        <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard, selectedAlt, setSelectedAlt, selectedLeaderboard, setSelectedLeaderboard }}>
             {children}
         </LeaderboardContext.Provider>
     );

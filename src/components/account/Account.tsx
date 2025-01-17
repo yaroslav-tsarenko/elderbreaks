@@ -165,7 +165,7 @@ const AccountComponent = () => {
                     </div>
                 </div>
                 <hr />
-                {user.role === "admin" && (
+                {(user.role === "admin" || user.role === "editor") && (
                     <Button variant="orange" icon={FaCog} onClick={() => handleNav(adminUrl || '')}>Admin Panel</Button>
                 )}
             </div>

@@ -9,6 +9,7 @@ import Header from "@/components/header/Header";
 import LoginButton from "@/components/login-button/LoginButton";
 import { authWrapper } from "@/utils/AuthWrapper";
 import {LeaderboardProvider} from "@/utils/LeaderboardContext";
+import Head from "next/head";
 
 export const metadata: Metadata = {
     title: "ElderBreaks",
@@ -22,6 +23,9 @@ type RootLayoutProps = {
 function RootLayout({ children }: RootLayoutProps): React.ReactElement {
     return (
         <html lang="en">
+        <Head>
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
         <LeaderboardProvider>
             <PageWrapper>

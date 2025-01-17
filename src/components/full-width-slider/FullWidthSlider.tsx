@@ -1,29 +1,30 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './FullWidthSlider.module.scss';
-import {sliderImages} from '@/mockup-data/sliderImages';
+import { sliderImages } from '@/mockup-data/sliderImages';
 import Image from 'next/image';
-import {useLeaderboard} from '@/utils/LeaderboardContext';
-import {useLeaderboardHistory} from '@/utils/LeaderboardHistoryContext';
-import {newRequest} from '@/utils/newRequest';
+import { useLeaderboard } from '@/utils/LeaderboardContext';
+import { useLeaderboardHistory } from '@/utils/LeaderboardHistoryContext';
+import { newRequest } from '@/utils/newRequest';
 import CustomAlert from '@/components/custom-alert/CustomAlert';
 
 interface FullWidthSliderProps {
     onLeaderboardSelect: (name: string) => void;
 }
 
-const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) => {
+const FullWidthSlider: React.FC<FullWidthSliderProps> = ({ onLeaderboardSelect }) => {
     const [slidesToShow, setSlidesToShow] = useState(3);
     const [isProcessing, setIsProcessing] = useState(false);
     const [alertMessage, setAlertMessage] = useState<string | null>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
-    const {setLeaderboard, setSelectedAlt} = useLeaderboard();
-    const {setLeaderboardHistory, setSelectedCategory} = useLeaderboardHistory();
+    const { setLeaderboard, setSelectedAlt, setSelectedLeaderboard } = useLeaderboard();
+    const { setLeaderboardHistory, setSelectedCategory } = useLeaderboardHistory();
 
     useEffect(() => {
         const updateSlidesToShow = () => {
             setSlidesToShow(window.innerWidth <= 1028 ? 1 : 3);
         };
         updateSlidesToShow();
+        console.log(slidesToShow)
         window.addEventListener('resize', updateSlidesToShow);
         return () => {
             window.removeEventListener('resize', updateSlidesToShow);
@@ -43,8 +44,8 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) 
             const leaderboardResponse = await newRequest.get(`/content/leaderboard/${alt}`);
             setLeaderboard(leaderboardResponse.data);
             setSelectedAlt(alt);
+            setSelectedLeaderboard(alt)
             localStorage.setItem('leaderboard', JSON.stringify(leaderboardResponse.data));
-            console.log(slidesToShow)
             const historyResponse = await newRequest.get(`/content/leaderboards/${category}`);
             setLeaderboardHistory(historyResponse.data);
             setSelectedCategory(category);
@@ -69,7 +70,7 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({onLeaderboardSelect}) 
                 </div>
             )}
             {alertMessage && (
-                <CustomAlert message={alertMessage} onClose={() => setAlertMessage(null)}/>
+                <CustomAlert message={alertMessage} onClose={() => setAlertMessage(null)} />
             )}
             <div className={styles.slider}>
                 <div className={styles.sliderContent} ref={sliderRef}>

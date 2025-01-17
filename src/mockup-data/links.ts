@@ -40,7 +40,7 @@ export const links = [
         link: '/raffles',
     },
     {
-        title: 'Point Shop',
+        title: 'Points Shop',
         icon: FaStore,
         link: '/points-shop',
     },

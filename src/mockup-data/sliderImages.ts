@@ -4,7 +4,6 @@ import roobet from "../../public/roobet.png";
 import empireDrop from "../../public/empiredrop.png";
 import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
-import csgostake from "../../public/csgostake.png";
 import csgoroll from "../../public/csgoroll-logo.png";
 
 interface SliderImage {
@@ -50,12 +49,6 @@ export const sliderImages: SliderImage[] = [
         src: gpoints.src,
         alt: "DuelGpLeaderboard",
         category: "DuelGP"
-    },
-    {
-        id: 6,
-        src: csgostake.src,
-        alt: "CsgostakeLeaderboard",
-        category: "Csgostake"
     },
     {
         id: 7,

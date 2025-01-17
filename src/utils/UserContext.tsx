@@ -8,7 +8,7 @@ export type User = {
     discordAuth: boolean;
     email: string;
     points: number;
-    role: 'admin' | 'user';
+    role: 'admin' | 'user' | 'editor';
     dateAdded: string;
     avatarUrl: string;
     registerDate: string;

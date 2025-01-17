@@ -14,7 +14,8 @@ const Footer = () => {
                         <Link href={"/"}>
                             <Image src={FooterLogo.src} alt="Footer logo" width="307" height="64"/>
                         </Link>
-                        <p>Made by <a href="https://tresor.tech" target="_blank" rel="noopener noreferrer">Tresor.</a> Managed by ElderBreaks Team.</p>
+                        <p>Made by <a href="https://tresor.tech" target="_blank"
+                                      rel="noopener noreferrer">Tresor.</a> Managed by ElderBreaks Team.</p>
                     </div>
                     <div className={styles.footerNav}>
                         <h3>Explore</h3>
@@ -35,16 +36,20 @@ const Footer = () => {
                     <div className={styles.footerNav}>
                         <h3>Stay up to date</h3>
                         <div className={styles.footerSocials}>
-                            <Link className={styles.social} href="https://kick.com/elderbreaks" target="_blank" rel="noopener noreferrer">
+                            <Link className={styles.social} href="https://kick.com/elderbreaks" target="_blank"
+                                  rel="noopener noreferrer">
                                 <FaKickstarterK/>
                             </Link>
-                            <Link className={styles.social} href="https://discord.gg/VV3jJm45ux" target="_blank" rel="noopener noreferrer">
+                            <Link className={styles.social} href="https://discord.gg/VV3jJm45ux" target="_blank"
+                                  rel="noopener noreferrer">
                                 <FaDiscord/>
                             </Link>
-                            <Link className={styles.social} href="https://youtube.com/@elderbreaks_" target="_blank" rel="noopener noreferrer">
+                            <Link className={styles.social} href="https://youtube.com/@elderbreaks_" target="_blank"
+                                  rel="noopener noreferrer">
                                 <FaYoutube/>
                             </Link>
-                            <Link className={styles.social} href="https://twitter.com/ElderBreaks" target="_blank" rel="noopener noreferrer">
+                            <Link className={styles.social} href="https://twitter.com/ElderBreaks" target="_blank"
+                                  rel="noopener noreferrer">
                                 <FaTwitter/>
                             </Link>
                         </div>
@@ -55,7 +60,7 @@ const Footer = () => {
                     <p>18+ | Gamble Responsibly | BeGambleAware.
                         Most people gamble for fun and enjoyment. Do not think of gambling as a way to make money.
                         Only gamble with money you can afford to lose. Set a money and time limit in advance. Never
-                        chase your losses. Don't use gambling to distract yourself from everyday problems.</p>
+                        chase your losses. Don&apos;t use gambling to distract yourself from everyday problems.</p>
                 </div>
             </div>
         </footer>
