@@ -69,6 +69,22 @@ const LeaderBoards = () => {
     const startDate = leaderboard?.data?.items[0]?.startDate ? new Date(leaderboard.data.items[0].startDate) : undefined;
     const endDate = leaderboard?.data?.items[0]?.endDate ? new Date(leaderboard.data.items[0].endDate) : undefined;
 
+    const getUpdateIntervalText = () => {
+        switch (selectedAlt) {
+            case "CsgorollLeaderboard":
+            case "RoobetLeaderboard":
+            case "EmpireDropLeaderboard":
+                return "Leaderboard updates every 24 hours";
+            case "CsgobigLeaderboard":
+            case "CsgobigDepositLeaderboard":
+            case "RainLeaderboard":
+            case "DuelGpLeaderboard":
+                return "Leaderboard updates every 60 minutes";
+            default:
+                return "Leaderboard updates every 30-60 minutes";
+        }
+    };
+
     return (
         <div className={styles.wrapper}>
             <hr/>
@@ -125,7 +141,7 @@ const LeaderBoards = () => {
                     startDate={startDate}
                     endDate={endDate}
                 />
-                <p className={styles.leaderBoardUpdates}>Leaderboard updates every 30-60 minutes</p>
+                <p className={styles.leaderBoardUpdates}>{getUpdateIntervalText()}</p>
                 <Button variant="orange" icon={FaCrown} onClick={handleLeaderboard}>
                     leaderboard
                 </Button>

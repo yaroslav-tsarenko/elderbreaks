@@ -35,14 +35,6 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
         }
     };
 
-    /*const formatPrize = (prize: string | number | undefined) => {
-        let formattedPrize = typeof prize === 'string' ? parseFloat(prize) : prize ?? 0;
-        if (selectedAlt === "EmpireDropLeaderboard") {
-            formattedPrize /= 100;
-        }
-        return formattedPrize;
-    };*/
-
     return (
         <div className={styles.leaderItem}>
             <div className={styles.leaderItemCredentials}>
@@ -51,7 +43,7 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
             </div>
             <p className={styles.leaderItemXP}>
                 {getIcon('xp')}
-                {(selectedAlt === "EmpireDropLeaderboard" ? xp / 100 : xp).toLocaleString('en-US', {
+                {xp.toLocaleString('en-US', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
                 })}

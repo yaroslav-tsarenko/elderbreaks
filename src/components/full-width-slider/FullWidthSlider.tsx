@@ -16,7 +16,7 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({ onLeaderboardSelect }
     const [isProcessing, setIsProcessing] = useState(false);
     const [alertMessage, setAlertMessage] = useState<string | null>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
-    const { setLeaderboard, setSelectedAlt, setSelectedLeaderboard } = useLeaderboard();
+    const { setLeaderboard, setSelectedAlt, setSelectedLeaderboard, setSelectedLeaderboardAlt } = useLeaderboard();
     const { setLeaderboardHistory, setSelectedCategory } = useLeaderboardHistory();
 
     useEffect(() => {
@@ -40,6 +40,7 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({ onLeaderboardSelect }
 
     const handleImageClick = async (alt: string, category: string) => {
         setIsProcessing(true);
+        setSelectedLeaderboardAlt(alt);
         try {
             const leaderboardResponse = await newRequest.get(`/content/leaderboard/${alt}`);
             setLeaderboard(leaderboardResponse.data);

@@ -7,7 +7,7 @@ import bigCoin from "../../../public/big-coin.png";
 import rainCoin from "../../../public/rain-coin.png";
 import duelGP from "../../../public/duelgp-coinnew.png";
 import csgoroll from "../../../public/csgoroll.png";
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./ClashCasino.module.scss";
 import FullWidthSlider from "@/components/full-width-slider/FullWidthSlider";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
@@ -25,7 +25,7 @@ type LeaderboardAlt =
 const ClashCasino = () => {
 
     const { leaderboard } = useLeaderboard();
-    const { selectedAlt } = useLeaderboard();
+    const { selectedAlt, setSelectedAlt } = useLeaderboard();
 
     const leaderboardNameMap: { [key in LeaderboardAlt]: string[] } = {
         RoobetLeaderboard: ["ROOBET", "LEADERBOARD"],
@@ -61,6 +61,13 @@ const ClashCasino = () => {
         }
     };
 
+    useEffect(() => {
+        const savedAlt = localStorage.getItem('selectedAlt');
+        if (savedAlt) {
+            setSelectedAlt(savedAlt);
+        }
+    }, [setSelectedAlt]);
+
     const getDescription = () => {
         switch (selectedAlt) {
             case "RoobetLeaderboard":
@@ -90,7 +97,8 @@ const ClashCasino = () => {
             default:
                 return (
                     <>
-                        Every WAGER under Code ELDER counts towards your score. The leaderboard updates every 60 minutes.
+                        <div>Every WAGER under Code ELDER counts towards your score.</div>
+                        <div>The leaderboard updates every 60 minutes.</div>
                     </>
                 );
         }
@@ -102,6 +110,7 @@ const ClashCasino = () => {
     const handleLeaderboardSelect = (name: string) => {
         const alt = name as LeaderboardAlt;
         if (alt in leaderboardNameMap) {
+            console.log(leaderboardName)
             setLeaderboardName(leaderboardNameMap[alt]);
         } else {
             console.error(`Invalid leaderboard name: ${name}`);
@@ -112,15 +121,15 @@ const ClashCasino = () => {
         <section className={styles.clashcasino}>
             <div className={styles.clashcasinoContent}>
                 <h1>
-                    {leaderboardName[0]}
-                    <span> {leaderboardName[1]}</span>
+                    {selectedAlt && leaderboardNameMap[selectedAlt as LeaderboardAlt][0]}
+                    <span> {selectedAlt && leaderboardNameMap[selectedAlt as LeaderboardAlt][1]}</span>
                 </h1>
                 <h4>Total prize pool</h4>
                 <div className={styles.h2}>{getCurrencySymbol()}{totalPrize}</div>
                 <p>{getDescription()}</p>
                 <div className={styles.code}>Code: ELDER</div>
             </div>
-            <FullWidthSlider onLeaderboardSelect={handleLeaderboardSelect} />
+            <FullWidthSlider onLeaderboardSelect={handleLeaderboardSelect}/>
         </section>
     );
 };

@@ -32,31 +32,36 @@ const LeaderboardContext = createContext<{
     selectedAlt: string | null;
     setSelectedAlt: React.Dispatch<React.SetStateAction<string | null>>;
     selectedLeaderboard: string | null;
+    setSelectedLeaderboardAlt: (alt: string) => void;
     setSelectedLeaderboard: React.Dispatch<React.SetStateAction<string | null>>;
 } | undefined>(undefined);
 
 export const LeaderboardProvider = ({ children }: { children: React.ReactNode }) => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
-    const [selectedAlt, setSelectedAlt] = useState<string | null>("RoobetLeaderboard");
-    const [selectedLeaderboard, setSelectedLeaderboard] = useState<string | null>("RoobetLeaderboard");
+    const [selectedAlt, setSelectedAlt] = useState<string | null>(localStorage.getItem('selectedAlt') || 'RoobetLeaderboard');
+    const [selectedLeaderboard, setSelectedLeaderboard] = useState<string | null>(localStorage.getItem('selectedAlt') || 'RoobetLeaderboard');
+
+    const setSelectedLeaderboardAlt = (alt: string) => {
+        setSelectedAlt(alt);
+        localStorage.setItem('selectedAlt', alt);
+    };
 
     useEffect(() => {
         const fetchDefaultLeaderboard = async () => {
             try {
-                const response = await newRequest.get('/content/leaderboard/RoobetLeaderboard');
+                const response = await newRequest.get(`/content/leaderboard/${selectedAlt}`);
                 setLeaderboard(response.data);
-                setSelectedAlt('RoobetLeaderboard');
-                setSelectedLeaderboard('RoobetLeaderboard');
+                setSelectedLeaderboard(selectedAlt);
             } catch (error) {
                 console.error('Error fetching default leaderboard:', error);
             }
         };
 
         fetchDefaultLeaderboard();
-    }, []);
+    }, [selectedAlt]);
 
     return (
-        <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard, selectedAlt, setSelectedAlt, selectedLeaderboard, setSelectedLeaderboard }}>
+        <LeaderboardContext.Provider value={{ leaderboard, setLeaderboard, selectedAlt, setSelectedAlt, setSelectedLeaderboardAlt, selectedLeaderboard, setSelectedLeaderboard }}>
             {children}
         </LeaderboardContext.Provider>
     );
