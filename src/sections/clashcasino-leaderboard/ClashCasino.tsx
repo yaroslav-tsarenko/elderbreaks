@@ -73,7 +73,7 @@ const ClashCasino = () => {
             case "RoobetLeaderboard":
                 return (
                     <div className={styles.article}>
-                        <p className={styles.pTitle}>Every bet on Roobet under Code ELDER counts towards your score. The leaderboard updates every 60 minutes. Your wagers on Roobet will count at the below weights based on the games that you&apos;re playing to help prevent leaderboard abuse:</p>
+                        <p className={styles.pTitle}>Every bet on Roobet under Code ELDER counts towards your score. The leaderboard updates every 24 hours. Your wagers on Roobet will count at the below weights based on the games that you&apos;re playing to help prevent leaderboard abuse:</p>
                         <ul>
                             <li>Games with an RTP of 97% or less will contribute 100% of the amount wagered to the leaderboard.</li>
                             <li>Games with an RTP of 97-98% will contribute 50% of the amount wagered to the leaderboard.</li>
@@ -91,14 +91,14 @@ const ClashCasino = () => {
             case "CsgorollLeaderboard":
                 return (
                     <>
-                        Every DEPOSIT under Code ELDER counts towards your score. The leaderboard updates every 60 minutes.
+                        Every DEPOSIT under Code ELDER counts towards your score. The leaderboard updates every 24 hours.
                     </>
                 );
             default:
                 return (
                     <>
                         <div>Every WAGER under Code ELDER counts towards your score.</div>
-                        <div>The leaderboard updates every 60 minutes.</div>
+                        <div>The leaderboard updates every 30-60 minutes.</div>
                     </>
                 );
         }
