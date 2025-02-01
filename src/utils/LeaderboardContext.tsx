@@ -38,8 +38,8 @@ const LeaderboardContext = createContext<{
 
 export const LeaderboardProvider = ({ children }: { children: React.ReactNode }) => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
-    const [selectedAlt, setSelectedAlt] = useState<string | null>(localStorage.getItem('selectedAlt') || 'RoobetLeaderboard');
-    const [selectedLeaderboard, setSelectedLeaderboard] = useState<string | null>(localStorage.getItem('selectedAlt') || 'RoobetLeaderboard');
+    const [selectedAlt, setSelectedAlt] = useState<string | null>(localStorage.getItem('selectedAlt') || 'DuelGPLeaderboard');
+    const [selectedLeaderboard, setSelectedLeaderboard] = useState<string | null>(localStorage.getItem('selectedAlt') || 'DuelGPLeaderboard');
 
     const setSelectedLeaderboardAlt = (alt: string) => {
         setSelectedAlt(alt);

@@ -49,8 +49,12 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ startDate, endDate }) =
             setTimeLeft(calculateTimeLeft());
         }, 1000);
 
-        return () => clearInterval(timer); // Cleanup interval on unmount
+        return () => clearInterval(timer);
     }, [end]);
+
+    if (!end) {
+        return <div className={styles.countdownText}>Next leaderboard starts soon</div>;
+    }
 
     return (
         <div className={styles.countdown}>

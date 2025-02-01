@@ -97,6 +97,24 @@
   }
 }
 
+.leaderboardDescription{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+
+  p:first-child{
+    font-size: var(--24px);
+    font-weight: bold;
+    color: var(--white);
+  }
+
+  p:last-child{
+    font-size: var(--16px);
+    color: var(--grey);
+  }
+}
+
 .coin{
   display: flex;
   margin: 0 7px 0 0;

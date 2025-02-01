@@ -35,6 +35,15 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
         }
     };
 
+    const formatValue = (value: number) => {
+        return selectedAlt === "DuelGpLeaderboard"
+            ? `${value.toLocaleString('en-US')}M`
+            : value.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+    };
+
     return (
         <div className={styles.leaderItem}>
             <div className={styles.leaderItemCredentials}>
@@ -43,14 +52,11 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
             </div>
             <p className={styles.leaderItemXP}>
                 {getIcon('xp')}
-                {xp.toLocaleString('en-US', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                })}
+                {formatValue(xp)}
             </p>
             <h3>
                 {getIcon('prize')}
-                {(prize).toLocaleString('de-DE')}
+                {formatValue(Number(prize))}
             </h3>
         </div>
     );

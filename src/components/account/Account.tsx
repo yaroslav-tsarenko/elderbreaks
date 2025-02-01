@@ -51,8 +51,6 @@ const AccountComponent = () => {
         router.push("/");
     };
 
-
-
     const handleCopy = () => {
         navigator.clipboard.writeText(`!link ${code}`).then(() => {
             setCopyButtonText('Copied!');

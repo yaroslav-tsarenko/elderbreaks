@@ -90,9 +90,14 @@ const ClashCasino = () => {
                 );
             case "CsgorollLeaderboard":
                 return (
-                    <>
-                        Every DEPOSIT under Code ELDER counts towards your score. The leaderboard updates every 24 hours.
-                    </>
+                    <div className={styles.leaderboardDescription}>
+                        <p>
+                            Every DEPOSIT under Code ELDER counts towards your score. The leaderboard updates every 24 hours.
+                        </p>
+                        <p>
+                            ONLY CRYPTO DEPOSITS count for the Leaderboard
+                        </p>
+                    </div>
                 );
             default:
                 return (

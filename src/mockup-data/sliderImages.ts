@@ -1,10 +1,11 @@
 import csgobig from "../../public/csgobig-deposit.png";
 import csgobigWager from "../../public/csgo-big-wager.png";
 import roobet from "../../public/roobet.png";
-import empireDrop from "../../public/empiredrop.png";
+import csgogem from "../../public/csgogem.png";
 import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
 import csgoroll from "../../public/csgoroll-logo.png";
+import upgrader from "../../public/upgrader.png";
 
 interface SliderImage {
     id: number;
@@ -21,9 +22,9 @@ export const sliderImages: SliderImage[] = [
         category: "Roobet"
     }, {
         id: 2,
-        src: empireDrop.src,
-        alt: "EmpireDropLeaderboard",
-        category: "EmpireDrop"
+        src: csgogem.src,
+        alt: "CsgoGemLeaderboard",
+        category: "CsgoGem"
     },
     {
         id: 3,
@@ -55,5 +56,11 @@ export const sliderImages: SliderImage[] = [
         src: csgoroll.src,
         alt: "CsgorollLeaderboard",
         category: "Csgoroll"
+    },
+    {
+        id: 8,
+        src: upgrader.src,
+        alt: "UpgraderLeaderboard",
+        category: "Upgrader"
     }
 ];
