@@ -23,7 +23,7 @@ export const sliderImages: SliderImage[] = [
     }, {
         id: 2,
         src: csgogem.src,
-        alt: "CsgoGemLeaderboard",
+        alt: "CsgogemLeaderboard",
         category: "CsgoGem"
     },
     {
