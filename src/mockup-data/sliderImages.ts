@@ -23,8 +23,8 @@ export const sliderImages: SliderImage[] = [
     }, {
         id: 2,
         src: csgogem.src,
-        alt: "CsgogemLeaderboard",
-        category: "CsgoGem"
+        alt: "RoobetLeaderboard",
+        category: "Roobet"
     },
     {
         id: 3,
@@ -60,7 +60,7 @@ export const sliderImages: SliderImage[] = [
     {
         id: 8,
         src: upgrader.src,
-        alt: "UpgraderLeaderboard",
-        category: "Upgrader"
+        alt: "RoobetLeaderboard",
+        category: "Roobet"
     }
 ];
