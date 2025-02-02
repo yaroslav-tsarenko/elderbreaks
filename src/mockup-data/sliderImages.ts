@@ -1,11 +1,9 @@
 import csgobig from "../../public/csgobig-deposit.png";
 import csgobigWager from "../../public/csgo-big-wager.png";
 import roobet from "../../public/roobet.png";
-import csgogem from "../../public/csgogem.png";
 import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
 import csgoroll from "../../public/csgoroll-logo.png";
-import upgrader from "../../public/upgrader.png";
 
 interface SliderImage {
     id: number;
@@ -20,20 +18,15 @@ export const sliderImages: SliderImage[] = [
         src: roobet.src,
         alt: "RoobetLeaderboard",
         category: "Roobet"
-    }, {
-        id: 2,
-        src: csgogem.src,
-        alt: "RoobetLeaderboard",
-        category: "Roobet"
     },
     {
-        id: 3,
+        id: 2,
         src: csgobigWager.src,
         alt: "CsgobigLeaderboard",
         category: "CSGOBIG"
     },
     {
-        id: 4,
+        id: 3,
         src: csgobig.src,
         alt: "CsgobigDepositLeaderboard",
         category: "CSGOBIG-DEPOSIT"
@@ -52,15 +45,9 @@ export const sliderImages: SliderImage[] = [
         category: "DuelGP"
     },
     {
-        id: 7,
+        id: 6,
         src: csgoroll.src,
         alt: "CsgorollLeaderboard",
         category: "Csgoroll"
     },
-    {
-        id: 8,
-        src: upgrader.src,
-        alt: "RoobetLeaderboard",
-        category: "Roobet"
-    }
 ];
