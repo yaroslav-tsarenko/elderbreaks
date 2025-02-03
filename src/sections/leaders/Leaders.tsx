@@ -3,7 +3,6 @@
 import React, { useState, useEffect, FC } from 'react';
 import styles from "./Leaders.module.scss";
 import LeaderItem from "@/components/leader-item/LeaderItem";
-import { leaders as mockupLeaders } from "@/mockup-data/leaders";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
 import { useLeaderboardHistory } from "@/utils/LeaderboardHistoryContext";
 import Title from "@/components/title/Title";
@@ -24,7 +23,7 @@ interface LeadersProps {
 const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
     const { leaderboard } = useLeaderboard();
     const { leaderboardHistory } = useLeaderboardHistory();
-    const [leaders, setLeaders] = useState<LeaderProps[]>(mockupLeaders);
+    const [leaders, setLeaders] = useState<LeaderProps[]>([]);
     const { selectedAlt } = useLeaderboard();
 
     useEffect(() => {
@@ -33,24 +32,24 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
                 const historyLeaders = leaderboardHistory.map((user: any) => ({
                     name: user.username,
                     xp: user.wagered,
-                    money: user.prize ? user.prize.toString() : '',
-                    prize: user.prize ? user.prize.toString() : ''
+                    money: user.prize ? user.prize.toString() : 'No available data',
+                    prize: user.prize ? user.prize.toString() : 'No available data'
                 }));
                 setLeaders(historyLeaders);
             } else {
-                setLeaders([]);
+                setLeaders([{ name: "No available data", xp: 0, money: "No available data", prize: "No available data" }]);
             }
         } else {
             if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
                 const serverLeaders = leaderboard.data.items.map((item: any) => ({
                     name: item.username,
                     xp: item.wagered,
-                    money: item.prize ? item.prize.toString() : '',
-                    prize: item.prize ? item.prize.toString() : ''
+                    money: item.prize ? item.prize.toString() : 'No available data',
+                    prize: item.prize ? item.prize.toString() : 'No available data'
                 }));
                 setLeaders(serverLeaders);
             } else {
-                setLeaders(mockupLeaders);
+                setLeaders([{ name: "No available data", xp: 0, money: "No available data", prize: "No available data" }]);
             }
         }
     }, [leaderboard, leaderboardHistory, lastWeekLeaders]);
@@ -77,16 +76,20 @@ const Leaders: FC<LeadersProps> = ({ h2, span, lastWeekLeaders }) => {
                         <span>Prize</span>
                     </div>
                     <div className={styles.leadersContent}>
-                        {displayedLeaders.map((leader, index) => (
-                            <LeaderItem
-                                key={index + (lastWeekLeaders ? 1 : 4)}
-                                count={index + (lastWeekLeaders ? 1 : 4)}
-                                name={leader.name}
-                                xp={leader.xp}
-                                money={leader.money}
-                                prize={leader.prize}
-                            />
-                        ))}
+                        {displayedLeaders.length > 0 ? (
+                            displayedLeaders.map((leader, index) => (
+                                <LeaderItem
+                                    key={index + (lastWeekLeaders ? 1 : 4)}
+                                    count={index + (lastWeekLeaders ? 1 : 4)}
+                                    name={leader.name}
+                                    xp={leader.xp}
+                                    money={leader.money}
+                                    prize={leader.prize}
+                                />
+                            ))
+                        ) : (
+                            <p>No available data</p>
+                        )}
                     </div>
                 </div>
             </div>

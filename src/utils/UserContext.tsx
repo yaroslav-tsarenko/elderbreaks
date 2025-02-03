@@ -5,6 +5,7 @@ export type User = {
     _id: string;
     username: string;
     discordId: string;
+    kick_username: string;
     discordAuth: boolean;
     email: string;
     points: number;

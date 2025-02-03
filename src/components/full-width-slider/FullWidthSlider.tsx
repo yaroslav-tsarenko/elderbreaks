@@ -24,8 +24,8 @@ const FullWidthSlider: React.FC<FullWidthSliderProps> = ({ onLeaderboardSelect }
             setSlidesToShow(window.innerWidth <= 1028 ? 1 : 3);
         };
         updateSlidesToShow();
-        console.log(slidesToShow)
         window.addEventListener('resize', updateSlidesToShow);
+        console.log(slidesToShow)
         return () => {
             window.removeEventListener('resize', updateSlidesToShow);
         };

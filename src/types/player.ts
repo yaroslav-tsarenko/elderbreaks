@@ -1,7 +1,7 @@
 
 export interface PlayerFrameProps {
     nickname: string;
-    xp: number;
+    xp: string | number;
     money: string;
     avatar:  string;
     place: number;

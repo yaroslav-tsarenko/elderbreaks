@@ -9,7 +9,6 @@ import CountdownTimer from "@/components/countdown-timer/CountdownTimer";
 import SliderItem from "@/components/slider-item/SliderItem";
 import {useRouter} from "next/navigation";
 import {useLeaderboard} from "@/utils/LeaderboardContext";
-import {players} from "@/mockup-data/players";
 import {sliderImages} from '@/mockup-data/sliderImages';
 
 type LeaderboardItem = {
@@ -33,10 +32,6 @@ const getRandomPrize = () => {
     return prizes[randomIndex];
 };
 
-const getRandomTotalPrize = () => {
-    return Math.floor(Math.random() * (25000 - 5000 + 1)) + 5000;
-};
-
 const getSliderImage = (alt: string): string => {
     const image = sliderImages.find(img => img.alt === alt);
     return image?.src || '/default-avatar.png'; // Provide a default value if image.src is undefined
@@ -53,12 +48,50 @@ const LeaderBoards = () => {
         if (leaderboard && leaderboard.data && Array.isArray(leaderboard.data.items) && leaderboard.data.items.length > 0) {
             setDisplayPlayers(leaderboard.data.items);
         } else {
-            const mockupPlayers = players.map(player => ({
-                ...player,
-                category: player.category.src,
-                totalPrize: getRandomTotalPrize()
-            }));
-            setDisplayPlayers(mockupPlayers);
+            setDisplayPlayers([
+                {
+                    _id: "0",
+                    userId: "0",
+                    username: "No available data",
+                    wagered: 0,
+                    rank: 0,
+                    prize: "No available data",
+                    category: "No available data",
+                    startDate: "",
+                    endDate: "",
+                    createdAt: "",
+                    updatedAt: "",
+                    totalPrize: 0
+                },
+                {
+                    _id: "1",
+                    userId: "1",
+                    username: "No available data",
+                    wagered: 0,
+                    rank: 0,
+                    prize: "No available data",
+                    category: "No available data",
+                    startDate: "",
+                    endDate: "",
+                    createdAt: "",
+                    updatedAt: "",
+                    totalPrize: 0
+                },
+                {
+                    _id: "2",
+                    userId: "2",
+                    username: "No available data",
+                    wagered: 0,
+                    rank: 0,
+                    prize: "No available data",
+                    category: "No available data",
+                    startDate: "",
+                    endDate: "",
+                    createdAt: "",
+                    updatedAt: "",
+                    totalPrize: 0
+                }
+            ]);
         }
     }, [leaderboard]);
 
@@ -95,7 +128,7 @@ const LeaderBoards = () => {
                             key={sortedPlayers[1]._id}
                             nickname={sortedPlayers[1].username}
                             xp={sortedPlayers[1].wagered}
-                            money={sortedPlayers[1].prize || getRandomPrize()}
+                            money={sortedPlayers[1].prize || "No data available"}
                             avatar={sortedPlayers[1].category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
                             place={2}
                             category={sortedPlayers[1].category}
@@ -106,7 +139,7 @@ const LeaderBoards = () => {
                             key={sortedPlayers[0]._id}
                             nickname={sortedPlayers[0].username}
                             xp={sortedPlayers[0].wagered}
-                            money={sortedPlayers[0].prize || getRandomPrize()}
+                            money={sortedPlayers[0].prize || "No data available"}
                             avatar={sortedPlayers[0].category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
                             place={1}
                             category={sortedPlayers[0].category}
@@ -117,8 +150,8 @@ const LeaderBoards = () => {
                             key={sortedPlayers[2]._id}
                             nickname={sortedPlayers[2].username}
                             xp={sortedPlayers[2].wagered}
-                            money={sortedPlayers[2].prize || getRandomPrize()}
-                            avatar={sortedPlayers[2].category ? getSliderImage(selectedAlt || '') : getSliderImage('')}
+                            money={sortedPlayers[2].prize || "No data available"}
+                            avatar={getSliderImage(selectedAlt || '')}
                             place={3}
                             category={sortedPlayers[2].category}
                         />

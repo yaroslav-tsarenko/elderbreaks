@@ -29,6 +29,10 @@
   }
 }
 
+.noData{
+  font-size: 15px;
+}
+
 .playerCredentials {
   display: flex;
   flex-direction: column;
@@ -38,7 +42,7 @@
     text-align: center;
 
   p{
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   span{

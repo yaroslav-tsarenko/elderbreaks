@@ -4,7 +4,12 @@ import { LeaderboardHistoryItemProps } from "@/types/leaderboardHistoryItem";
 import { FaEye } from 'react-icons/fa';
 import Button from "@/components/button/Button";
 import Image from "next/image";
-import { players } from "@/mockup-data/players";
+
+const players = [
+    { category: "Category1" },
+    { category: "Category2" },
+    { category: "Category3" }
+];
 
 const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
                                                                      leaderboard,
@@ -54,8 +59,7 @@ const LeaderboardHistoryItem: FC<LeaderboardHistoryItemProps> = ({
                 <h3>leaderboard</h3><h3>{leaderboard}</h3>
             </div>
             <div className={styles.nickname}>
-                {avatar ? <Image src={getRandomAvatar()} alt="avatar" className={styles.avatar} width="110"
-                                 height="110"/> : "none"}
+                {avatar ? <Image src={getRandomAvatar()} alt="avatar" className={styles.avatar} width="110" height="110"/> : "none"}
                 <p>{nickname}</p>
             </div>
             <div className={styles.dateInfo}>

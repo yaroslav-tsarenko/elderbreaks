@@ -5,13 +5,19 @@ import styles from "./Account.module.scss";
 import Image from "next/image";
 import avatar from "../../../public/avatar.png";
 import Button from "@/components/button/Button";
-import { FaBitcoin, FaEthereum, FaUser, FaCog, FaSave, FaLink } from "react-icons/fa";
+import {
+    FaUser,
+    FaCog,
+    FaSave,
+    FaLink,
+    FaSignOutAlt
+} from "react-icons/fa";
+import { SiLitecoin } from "react-icons/si";
 import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
-import {useRouter} from "next/navigation";
-import { SiLitecoin } from "react-icons/si";
-import { FaSignOutAlt } from "react-icons/fa";
-import {ADMIN_PANEL_URL, KICK_URL} from "@/constants/url";
+import { useRouter } from "next/navigation";
+import { ADMIN_PANEL_URL, KICK_URL } from "@/constants/url";
+import { Formik, Form, Field } from 'formik';
 
 const AccountComponent = () => {
     const user = useUser();
@@ -117,6 +123,17 @@ const AccountComponent = () => {
         setIsPopupOpen(!isPopupOpen);
     };
 
+    const handleSubmit = async (values: any) => {
+        try {
+            const response = await newRequest.post('/add-Link-lb', { links: values });
+            if (response.status === 201) {
+                handleAlert("Changes saved!");
+            }
+        } catch (error) {
+            console.error('Error saving changes:', error);
+        }
+    };
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.account}>
@@ -130,38 +147,64 @@ const AccountComponent = () => {
                     </div>
                 </div>
                 <hr />
-                <div className={styles.options}>
-                    <div className={styles.inputs}>
-                        <div className={styles.input}>
-                            <SiLitecoin className={styles.icon}/>
-                            <input type="text" placeholder="LTC Address"/>
-                        </div>
-                        <div className={styles.input}>
-                            <FaEthereum className={styles.icon}/>
-                            <input type="text" placeholder="ETH Address"/>
-                        </div>
-                        <div className={styles.input}>
-                            <FaBitcoin className={styles.icon}/>
-                            <input type="text" placeholder="BTC Address"/>
-                        </div>
-                        <div className={styles.input}>
-                            <FaUser className={styles.icon}/>
-                            <input type="text" placeholder="Username" value={user.username}/>
-                        </div>
-                    </div>
-                    <div className={styles.optionButtons}>
-                        <Button variant="outlined-small" icon={FaSave} onClick={() => handleAlert("Changes saved!")}>SAVE
-                            CHANGES</Button>
-                        {isProcessing ? (
-                            <p>Processing...</p>
-                        ) : isKickLinked ? (
-                            <Button variant="blue-small" icon={FaLink}>{user.username}</Button>
-                        ) : (
-                            <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
-                        )}
-                        <Button variant="outlined-small" icon={FaSignOutAlt} onClick={() => handleSignOut()}>SIGN OUT</Button>
-                    </div>
-                </div>
+                <Formik
+                    initialValues={{
+                        ltcAddress: '',
+                        roobetUsername: '',
+                        empireDropId: '',
+                        csgoBigId: '',
+                        rainGgUsername: '',
+                        duelGpUsername: '',
+                        csgoRollUsername: ''
+                    }}
+                    onSubmit={handleSubmit}
+                >
+                    {() => (
+                        <Form className={styles.options}>
+                            <div className={styles.inputs}>
+                                <div className={styles.input}>
+                                    <SiLitecoin className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="ltcAddress" placeholder="LTC Address" />
+                                </div>
+                                <div className={styles.input}>
+                                    <FaUser className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="roobetUsername" placeholder="Roobet Username" />
+                                </div>
+                                <div className={styles.input}>
+                                    <FaUser className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="empireDropId" placeholder="EmpireDrop ID" />
+                                </div>
+                                <div className={styles.input}>
+                                    <FaUser className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="csgoBigId" placeholder="CSGOBig ID" />
+                                </div>
+                                <div className={styles.input}>
+                                    <FaUser className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="rainGgUsername" placeholder="Rain.gg Username" />
+                                </div>
+                                <div className={styles.input}>
+                                    <FaUser className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="duelGpUsername" placeholder="DuelGP Username" />
+                                </div>
+                                <div className={styles.input}>
+                                    <FaUser className={styles.icon} />
+                                    <Field type="text" className={styles.formikInput} name="csgoRollUsername" placeholder="CSGORoll Username" />
+                                </div>
+                            </div>
+                            <div className={styles.optionButtons}>
+                                <Button variant="outlined-small" icon={FaSave} type="submit">SAVE CHANGES</Button>
+                                {isProcessing ? (
+                                    <p>Processing...</p>
+                                ) : isKickLinked ? (
+                                    <Button variant="blue-small" icon={FaLink}>{user.kick_username}</Button>
+                                ) : (
+                                    <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
+                                )}
+                                <Button variant="outlined-small" icon={FaSignOutAlt} onClick={() => handleSignOut()}>SIGN OUT</Button>
+                            </div>
+                        </Form>
+                    )}
+                </Formik>
                 <hr />
                 {(user.role === "admin" || user.role === "editor") && (
                     <Button variant="orange" icon={FaCog} onClick={() => handleNav(adminUrl || '')}>Admin Panel</Button>
@@ -175,8 +218,7 @@ const AccountComponent = () => {
                             <Button variant="outlined" onClick={togglePopup}>Close</Button>
                         </div>
                         <div className={styles.popupContent}>
-                            <p>To verify your Kick account, copy the command below and paste it in elderbreak&apos;s
-                                Kick chat:</p>
+                            <p>To verify your Kick account, copy the command below and paste it in elderbreak&apos;s Kick chat:</p>
                             <div className={styles.popupInput}>
                                 <p>!link {code}</p>
                                 <button className={styles.copyButton} onClick={handleCopy}
