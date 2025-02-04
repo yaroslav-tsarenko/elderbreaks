@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext } from 'react';
+
 export type User = {
     _id: string;
     username: string;
@@ -14,8 +15,15 @@ export type User = {
     avatarUrl: string;
     registerDate: string;
     statusLink: boolean;
+    roobetVerify: boolean;
+    EmpireDrop: { value: string; status: boolean };
+    CSGOBig: { value: string; status: boolean };
+    Raingg: { value: string; status: boolean };
+    DuelGP: { value: string; status: boolean };
+    CSGORoll: { value: string; status: boolean };
     __v: number;
 };
+
 export const UserContext = createContext<User | undefined>(undefined);
 
 export function useUser() {

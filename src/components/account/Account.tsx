@@ -12,17 +12,23 @@ import {
     FaLink,
     FaSignOutAlt
 } from "react-icons/fa";
-import { SiLitecoin } from "react-icons/si";
+import { Snackbar, Alert } from '@mui/material';
 import { useUser } from '@/utils/UserContext';
 import { newRequest } from "@/utils/newRequest";
 import { useRouter } from "next/navigation";
 import { ADMIN_PANEL_URL, KICK_URL } from "@/constants/url";
 import { Formik, Form, Field } from 'formik';
+import {IoIosCheckmarkCircle, IoIosWarning} from "react-icons/io";
+import { LiaTimesSolid } from "react-icons/lia";
+import { GiRabbit } from "react-icons/gi";
+import * as Yup from 'yup';
 
 const AccountComponent = () => {
     const user = useUser();
     const [code, setCode] = useState('');
     const router = useRouter();
+    const [open, setOpen] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
     const [isCopyButtonDisabled, setIsCopyButtonDisabled] = useState(false);
@@ -73,6 +79,13 @@ const AccountComponent = () => {
         router.push(str)
     }
 
+    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
     useEffect(() => {
         if (!user) {
             const timer = setTimeout(() => {
@@ -109,10 +122,6 @@ const AccountComponent = () => {
         return <div className={styles.loading}>Loading...</div>;
     }
 
-    const handleAlert = (string: string) => {
-        alert(string);
-    }
-
     const togglePopup = async () => {
         try {
             const response = await newRequest.post('/user/generateLink');
@@ -127,111 +136,163 @@ const AccountComponent = () => {
         try {
             const response = await newRequest.post('/add-Link-lb', { links: values });
             if (response.status === 201) {
-                handleAlert("Changes saved!");
+                setAlertMessage("Changes saved!");
+                setOpen(true);
             }
         } catch (error) {
             console.error('Error saving changes:', error);
+            setAlertMessage("Error saving changes!");
+            setOpen(true);
         }
     };
 
+    const validationSchema = Yup.object({
+        ltcAddress: Yup.string().required('Required'),
+        roobetUsername: Yup.string().required('Required'),
+        empireDropId: Yup.string().required('Required'),
+        csgoBigId: Yup.string().required('Required'),
+        rainGgUsername: Yup.string().required('Required'),
+        duelGpUsername: Yup.string().required('Required'),
+        csgoRollUsername: Yup.string().required('Required')
+    });
+
+    const getStatusIcon = (value: string, status: boolean) => {
+        if (value) {
+            return status ? <IoIosCheckmarkCircle className={styles.icon} /> : <IoIosWarning className={styles.icon} />;
+        }
+        return <LiaTimesSolid className={styles.icon} />;
+    };
+
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.account}>
-                <div className={styles.user}>
-                    <Image src={user.avatarUrl || avatar} className={styles.userAvatar} alt="avatar" height={96} width={96} />
-                    <div className={styles.userCredentials}>
-                        <h2>{user.username}
-                            <span>{user.role}</span>
-                        </h2>
-                        <p>Joined at: {user.registerDate}</p>
-                    </div>
-                </div>
-                <hr />
-                <Formik
-                    initialValues={{
-                        ltcAddress: '',
-                        roobetUsername: '',
-                        empireDropId: '',
-                        csgoBigId: '',
-                        rainGgUsername: '',
-                        duelGpUsername: '',
-                        csgoRollUsername: ''
-                    }}
-                    onSubmit={handleSubmit}
+        <>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+            >
+                <Alert
+                    onClose={handleClose}
+                    severity="info"
+                    sx={{backgroundColor: '#f09b00' }}
                 >
-                    {() => (
-                        <Form className={styles.options}>
-                            <div className={styles.inputs}>
-                                <div className={styles.input}>
-                                    <SiLitecoin className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="ltcAddress" placeholder="LTC Address" />
+                    {alertMessage}
+                </Alert>
+            </Snackbar>
+            <div className={styles.wrapper}>
+                <div className={styles.account}>
+                    <div className={styles.user}>
+                        <Image src={user.avatarUrl || avatar} className={styles.userAvatar} alt="avatar" height={96}
+                               width={96}/>
+                        <div className={styles.userCredentials}>
+                            <h2>{user.username}
+                                <span>{user.role}</span>
+                            </h2>
+                            <p>Joined at: {user.registerDate}</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <Formik
+                        initialValues={{
+                            ltcAddress: '',
+                            roobetUsername: '',
+                            empireDropId: '',
+                            csgoBigId: '',
+                            rainGgUsername: '',
+                            duelGpUsername: '',
+                            csgoRollUsername: ''
+                        }}
+                        validationSchema={validationSchema}
+                        onSubmit={handleSubmit}
+                    >
+                        {({values}) => (
+                            <Form className={styles.options}>
+                                <div className={styles.inputs}>
+                                    <div className={styles.input}>
+                                        <GiRabbit className={styles.icon}/>
+                                        <Field type="text" className={styles.formikInput} name="roobetUsername"
+                                               placeholder="Roobet Username"/>
+                                        {getStatusIcon(values.roobetUsername, user?.roobetVerify)}
+                                    </div>
+                                    <div className={styles.input}>
+                                        <FaUser className={styles.icon}/>
+                                        <Field type="text" className={styles.formikInput} name="empireDropId"
+                                               placeholder="EmpireDrop ID"/>
+                                        {getStatusIcon(values.empireDropId, user?.EmpireDrop.status)}
+                                    </div>
+                                    <div className={styles.input}>
+                                        <FaUser className={styles.icon}/>
+                                        <Field type="text" className={styles.formikInput} name="csgoBigId"
+                                               placeholder="CSGOBig ID"/>
+                                        {getStatusIcon(values.csgoBigId, user?.CSGOBig.status)}
+                                    </div>
+                                    <div className={styles.input}>
+                                        <FaUser className={styles.icon}/>
+                                        <Field type="text" className={styles.formikInput} name="rainGgUsername"
+                                               placeholder="Rain.gg Username"/>
+                                        {getStatusIcon(values.rainGgUsername, user?.Raingg.status)}
+                                    </div>
+                                    <div className={styles.input}>
+                                        <FaUser className={styles.icon}/>
+                                        <Field type="text" className={styles.formikInput} name="duelGpUsername"
+                                               placeholder="DuelGP Username"/>
+                                        {getStatusIcon(values.duelGpUsername, user?.DuelGP.status)}
+                                    </div>
+                                    <div className={styles.input}>
+                                        <FaUser className={styles.icon}/>
+                                        <Field type="text" className={styles.formikInput} name="csgoRollUsername"
+                                               placeholder="CSGORoll Username"/>
+                                        {getStatusIcon(values.csgoRollUsername, user?.CSGORoll.status)}
+                                    </div>
                                 </div>
-                                <div className={styles.input}>
-                                    <FaUser className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="roobetUsername" placeholder="Roobet Username" />
+                                <div className={styles.optionButtons}>
+                                    <Button variant="outlined-small" icon={FaSave} type="submit">SAVE CHANGES</Button>
+                                    {isProcessing ? (
+                                        <p>Processing...</p>
+                                    ) : isKickLinked ? (
+                                        <Button variant="blue-small" icon={FaLink}>{user.kick_username}</Button>
+                                    ) : (
+                                        <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK
+                                            KICK</Button>
+                                    )}
+                                    <Button variant="outlined-small" icon={FaSignOutAlt}
+                                            onClick={() => handleSignOut()}>SIGN OUT</Button>
                                 </div>
-                                <div className={styles.input}>
-                                    <FaUser className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="empireDropId" placeholder="EmpireDrop ID" />
-                                </div>
-                                <div className={styles.input}>
-                                    <FaUser className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="csgoBigId" placeholder="CSGOBig ID" />
-                                </div>
-                                <div className={styles.input}>
-                                    <FaUser className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="rainGgUsername" placeholder="Rain.gg Username" />
-                                </div>
-                                <div className={styles.input}>
-                                    <FaUser className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="duelGpUsername" placeholder="DuelGP Username" />
-                                </div>
-                                <div className={styles.input}>
-                                    <FaUser className={styles.icon} />
-                                    <Field type="text" className={styles.formikInput} name="csgoRollUsername" placeholder="CSGORoll Username" />
-                                </div>
-                            </div>
-                            <div className={styles.optionButtons}>
-                                <Button variant="outlined-small" icon={FaSave} type="submit">SAVE CHANGES</Button>
-                                {isProcessing ? (
-                                    <p>Processing...</p>
-                                ) : isKickLinked ? (
-                                    <Button variant="blue-small" icon={FaLink}>{user.kick_username}</Button>
-                                ) : (
-                                    <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
-                                )}
-                                <Button variant="outlined-small" icon={FaSignOutAlt} onClick={() => handleSignOut()}>SIGN OUT</Button>
-                            </div>
-                        </Form>
+                            </Form>
+                        )}
+                    </Formik>
+
+                    <hr/>
+                    {(user.role === "admin" || user.role === "editor") && (
+                        <Button variant="orange" icon={FaCog} onClick={() => handleNav(adminUrl || '')}>Admin
+                            Panel</Button>
                     )}
-                </Formik>
-                <hr />
-                {(user.role === "admin" || user.role === "editor") && (
-                    <Button variant="orange" icon={FaCog} onClick={() => handleNav(adminUrl || '')}>Admin Panel</Button>
+                </div>
+                {isPopupOpen && (
+                    <div className={styles.overlay}>
+                        <div className={styles.popup}>
+                            <div className={styles.headerButton}>
+                                <h2>Verify Kick Account</h2>
+                                <Button variant="outlined" onClick={togglePopup}>Close</Button>
+                            </div>
+                            <div className={styles.popupContent}>
+                                <p>To verify your Kick account, copy the command below and paste it in elderbreak&apos;s
+                                    Kick chat:</p>
+                                <div className={styles.popupInput}>
+                                    <p>!link {code}</p>
+                                    <button className={styles.copyButton} onClick={handleCopy}
+                                            disabled={isCopyButtonDisabled}>{copyButtonText}</button>
+                                </div>
+                                <Button variant="outlined" onClick={() => window.open(KICK_URL, "_blank")}>
+                                    Go to Elder&apos;s Chat
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
                 )}
             </div>
-            {isPopupOpen && (
-                <div className={styles.overlay}>
-                    <div className={styles.popup}>
-                        <div className={styles.headerButton}>
-                            <h2>Verify Kick Account</h2>
-                            <Button variant="outlined" onClick={togglePopup}>Close</Button>
-                        </div>
-                        <div className={styles.popupContent}>
-                            <p>To verify your Kick account, copy the command below and paste it in elderbreak&apos;s Kick chat:</p>
-                            <div className={styles.popupInput}>
-                                <p>!link {code}</p>
-                                <button className={styles.copyButton} onClick={handleCopy}
-                                        disabled={isCopyButtonDisabled}>{copyButtonText}</button>
-                            </div>
-                            <Button variant="outlined" onClick={() => window.open(KICK_URL, "_blank")}>
-                                Go to Elder&apos;s Chat
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
+
+        </>
     );
 };
 
