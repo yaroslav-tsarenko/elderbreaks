@@ -246,7 +246,7 @@ const AccountComponent = () => {
                                     </div>
                                 </div>
                                 <div className={styles.optionButtons}>
-                                    <Button variant="outlined-small" icon={FaSave} type="submit">SAVE CHANGES</Button>
+                                    <button className={styles.outlinedSmall} type="submit"> <FaSave className={styles.icon}/> SAVE CHANGES</button>
                                     {isProcessing ? (
                                         <p>Processing...</p>
                                     ) : isKickLinked ? (
