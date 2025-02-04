@@ -6,6 +6,7 @@ import bigCoin from "../../../public/big-coin.png";
 import csgoroll from "../../../public/csgoroll.png";
 import duelGP from "../../../public/duelgp-coinnew.png";
 import csgotakecoin from "../../../public/csgostakecoin.png";
+import csgogemcoin from "../../../public/csgogemcoin.png";
 import Image from "next/image";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
 
@@ -30,6 +31,8 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
                 return type === 'xp' ? <Image src={duelGP} alt="coin" width={20} height={19} /> : <Image src={duelGP} alt="coin" width={20} height={19} />;
             case "CsgorollLeaderboard":
                 return type === 'xp' ? <Image src={csgoroll} alt="coin" width={20} height={19} /> : <Image src={csgoroll} alt="coin" width={20} height={19} />;
+            case "CsgogemLeaderboard":
+                return type === 'xp' ? <Image src={csgogemcoin} alt="coin" width={20} height={19} /> : <Image src={csgogemcoin} alt="coin" width={20} height={19} />;
             default:
                 return type === 'xp' ? "$" : "$";
         }

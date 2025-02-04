@@ -134,7 +134,7 @@ const AccountComponent = () => {
 
     const handleSubmit = async (values: any) => {
         try {
-            const response = await newRequest.post('/add-Link-lb', { links: values });
+            const response = await newRequest.post('/user/add-Link-lb', { links: values });
             if (response.status === 201) {
                 setAlertMessage("Changes saved!");
                 setOpen(true);

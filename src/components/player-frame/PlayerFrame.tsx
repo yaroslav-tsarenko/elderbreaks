@@ -7,6 +7,7 @@ import rainCoin from "../../../public/rain-coin.png";
 import bigCoin from "../../../public/big-coin.png";
 import duelGP from "../../../public/duelgp-coinnew.png";
 import csgoroll from "../../../public/csgoroll.png";
+import csgogemcoin from "../../../public/csgogemcoin.png";
 import { useLeaderboard } from "@/utils/LeaderboardContext";
 
 const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place }) => {
@@ -31,6 +32,8 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
                 return type === 'xp' ? "" : <Image src={duelGP} alt="coin" width={20} height={19} />;
             case "CsgorollLeaderboard":
                 return type === 'xp' ? "" : <Image src={csgoroll} alt="coin" width={20} height={19} />;
+            case "CsgogemLeaderboard":
+                return type === 'xp' ? "" : <Image src={csgogemcoin} alt="coin" width={20} height={19} />;
             default:
                 return type === 'xp' ? "$" : "$";
         }

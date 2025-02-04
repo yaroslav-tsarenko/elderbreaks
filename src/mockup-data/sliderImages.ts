@@ -4,6 +4,7 @@ import roobet from "../../public/roobet.png";
 import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
 import csgoroll from "../../public/csgoroll-logo.png";
+import csgogem from "../../public/csgogem.png";
 
 interface SliderImage {
     id: number;
@@ -49,5 +50,11 @@ export const sliderImages: SliderImage[] = [
         src: csgoroll.src,
         alt: "CsgorollLeaderboard",
         category: "Csgoroll"
+    },
+    {
+        id: 6,
+        src: csgogem.src,
+        alt: "CsgogemLeaderboard",
+        category: "Csgogem"
     },
 ];

@@ -1,4 +1,4 @@
-export const BACKEND_URL = 'http://localhost:8800';
+export const BACKEND_URL = 'https://api.elderbreaks.com';
 export const ADMIN_PANEL_URL=`https://admin.elderbreaks.com`
 export const DISCORD_AUTH=`https://discord.com/oauth2/authorize?client_id=1312902353510203432&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8800%2Fauth%2Fdiscord&scope=identify+email+openid`
 export const KICK_URL=`https://kick.com/elderbreaks`

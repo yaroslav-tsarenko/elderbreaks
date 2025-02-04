@@ -6,6 +6,7 @@ import csgotakecoin from "../../../public/csgostakecoin.png";
 import bigCoin from "../../../public/big-coin.png";
 import rainCoin from "../../../public/rain-coin.png";
 import duelGP from "../../../public/duelgp-coinnew.png";
+import csgogemcoin from "../../../public/csgogemcoin.png";
 import csgoroll from "../../../public/csgoroll.png";
 import React, {useEffect, useState} from 'react';
 import styles from "./ClashCasino.module.scss";
@@ -20,6 +21,7 @@ type LeaderboardAlt =
     | "DuelGpLeaderboard"
     | "CsgostakeLeaderboard"
     | "CsgorollLeaderboard"
+    | "CsgogemLeaderboard"
     | "CsgobigDepositLeaderboard";
 
 const ClashCasino = () => {
@@ -36,6 +38,7 @@ const ClashCasino = () => {
         DuelGpLeaderboard: ["DUELGP", "LEADERBOARD"],
         CsgostakeLeaderboard: ["CSGOSTAKE", "LEADERBOARD"],
         CsgorollLeaderboard: ["CSGOROLL", "LEADERBOARD"],
+        CsgogemLeaderboard: ["CSGOGEM", "LEADERBOARD"],
     };
 
     const getCurrencySymbol = () => {
@@ -56,6 +59,8 @@ const ClashCasino = () => {
                 return <Image src={duelGP} className={styles.coin} alt="coin" width={45} height={45} />;
             case "CsgorollLeaderboard":
                 return <Image src={csgoroll} className={styles.coin} alt="coin" width={45} height={45} />;
+            case "CsgogemLeaderboard":
+                return <Image src={csgogemcoin} className={styles.coin} alt="coin" width={45} height={45} />;
             default:
                 return "$";
         }
