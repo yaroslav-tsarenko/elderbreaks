@@ -205,58 +205,52 @@ const AccountComponent = () => {
                         validationSchema={validationSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({values}) => (
+                        {({ values }) => (
                             <Form className={styles.options}>
                                 <div className={styles.inputs}>
                                     <div className={styles.input}>
-                                        <GiRabbit className={styles.icon}/>
-                                        <Field type="text" className={styles.formikInput} name="roobetUsername"
-                                               placeholder="Roobet Username"/>
+                                        <GiRabbit className={styles.icon} />
+                                        <Field type="text" className={styles.formikInput} name="roobetUsername" placeholder="Roobet Username" />
                                         {getStatusIcon(values.roobetUsername, user?.roobetVerify)}
                                     </div>
                                     <div className={styles.input}>
-                                        <FaUser className={styles.icon}/>
-                                        <Field type="text" className={styles.formikInput} name="empireDropId"
-                                               placeholder="EmpireDrop ID"/>
+                                        <FaUser className={styles.icon} />
+                                        <Field type="text" className={styles.formikInput} name="empireDropId" placeholder="EmpireDrop ID" />
                                         {getStatusIcon(values.empireDropId, user?.EmpireDrop.status)}
                                     </div>
                                     <div className={styles.input}>
-                                        <FaUser className={styles.icon}/>
-                                        <Field type="text" className={styles.formikInput} name="csgoBigId"
-                                               placeholder="CSGOBig ID"/>
+                                        <FaUser className={styles.icon} />
+                                        <Field type="text" className={styles.formikInput} name="csgoBigId" placeholder="CSGOBig ID" />
                                         {getStatusIcon(values.csgoBigId, user?.CSGOBig.status)}
                                     </div>
                                     <div className={styles.input}>
-                                        <FaUser className={styles.icon}/>
-                                        <Field type="text" className={styles.formikInput} name="rainGgUsername"
-                                               placeholder="Rain.gg Username"/>
+                                        <FaUser className={styles.icon} />
+                                        <Field type="text" className={styles.formikInput} name="rainGgUsername" placeholder="Rain.gg Username" />
                                         {getStatusIcon(values.rainGgUsername, user?.Raingg.status)}
                                     </div>
                                     <div className={styles.input}>
-                                        <FaUser className={styles.icon}/>
-                                        <Field type="text" className={styles.formikInput} name="duelGpUsername"
-                                               placeholder="DuelGP Username"/>
+                                        <FaUser className={styles.icon} />
+                                        <Field type="text" className={styles.formikInput} name="duelGpUsername" placeholder="DuelGP Username" />
                                         {getStatusIcon(values.duelGpUsername, user?.DuelGP.status)}
                                     </div>
                                     <div className={styles.input}>
-                                        <FaUser className={styles.icon}/>
-                                        <Field type="text" className={styles.formikInput} name="csgoRollUsername"
-                                               placeholder="CSGORoll Username"/>
+                                        <FaUser className={styles.icon} />
+                                        <Field type="text" className={styles.formikInput} name="csgoRollUsername" placeholder="CSGORoll Username" />
                                         {getStatusIcon(values.csgoRollUsername, user?.CSGORoll.status)}
                                     </div>
                                 </div>
                                 <div className={styles.optionButtons}>
-                                    <button className={styles.outlinedSmall} type="submit"> <FaSave className={styles.icon}/> SAVE CHANGES</button>
+                                    <button className={styles.outlinedSmall} onClick={handleSubmit} type="submit">
+                                        <FaSave className={styles.icon} />SAVE CHANGES
+                                    </button>
                                     {isProcessing ? (
                                         <p>Processing...</p>
                                     ) : isKickLinked ? (
                                         <Button variant="blue-small" icon={FaLink}>{user.kick_username}</Button>
                                     ) : (
-                                        <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK
-                                            KICK</Button>
+                                        <Button variant="blue-small" icon={FaLink} onClick={togglePopup}>LINK KICK</Button>
                                     )}
-                                    <Button variant="outlined-small" icon={FaSignOutAlt}
-                                            onClick={() => handleSignOut()}>SIGN OUT</Button>
+                                    <Button variant="outlined-small" icon={FaSignOutAlt} onClick={() => handleSignOut()}>SIGN OUT</Button>
                                 </div>
                             </Form>
                         )}
