@@ -105,13 +105,13 @@
 
   p:first-child{
     font-size: var(--24px);
-    font-weight: bold;
+    font-weight: normal;
     color: var(--white);
   }
 
   p:last-child{
     font-size: var(--16px);
-    color: var(--grey);
+    color: red;
   }
 }
 
