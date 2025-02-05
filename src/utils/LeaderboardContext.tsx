@@ -20,6 +20,7 @@ type LeaderboardItem = {
 
 type LeaderboardData = {
     success: boolean;
+    endDate: string;
     data: {
         items: LeaderboardItem[];
         totalPrize: number;

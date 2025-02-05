@@ -240,7 +240,7 @@ const AccountComponent = () => {
                                     </div>
                                 </div>
                                 <div className={styles.optionButtons}>
-                                    <button className={styles.outlinedSmall} onClick={handleSubmit} type="submit">
+                                    <button className={styles.outlinedSmall} type="submit">
                                         <FaSave className={styles.icon} />SAVE CHANGES
                                     </button>
                                     {isProcessing ? (

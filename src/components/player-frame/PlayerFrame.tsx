@@ -60,22 +60,33 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
         );
     };
 
+    const formatXp = (xp: number) => {
+        if (xp >= 1_000_000) {
+            return `${(xp / 1_000_000).toLocaleString('en-US', {
+                minimumFractionDigits: 3,
+                maximumFractionDigits: 3
+            })}M`;
+        }
+        return xp.toLocaleString('en-US');
+    };
+
     return (
         <div className={className}>
-            {avatar ? <Image src={avatar} alt="avatar" className={styles.avatar} width="110" height="110" /> : getPlaceholder()}
+            {avatar ? <Image src={avatar} alt="avatar" className={styles.avatar} width="110"
+                             height="110"/> : getPlaceholder()}
             <h4>{nickname}</h4>
             <div className={styles.playerCredentials}>
-                <p>{selectedAlt === "CsgobigDepositLeaderboard" || selectedAlt === "CsgorollLeaderboard" ? "deposited:" : "wagered:"}</p>
+                <p>{selectedAlt === "CsgobigDepositLeaderboard" || selectedAlt === "CsgorollLeaderboard" ? "Deposited:" : "Wagered:"}</p>
                 <span>
-                    {getIcon('xp')}
-                    {typeof xp === 'number' ? Math.floor(xp) : getPlaceholder()}
-                </span>
+            {getIcon('xp')}
+                    {typeof xp === 'number' ? formatXp(xp) : getPlaceholder()}
+        </span>
             </div>
             <h3>
                 {getIcon('prize')}
                 <span>
-                    {typeof money === 'number' ? Math.floor(money) : getPlaceholder()}
-                </span>
+            {typeof money === 'number' ? Math.floor(money) : getPlaceholder()}
+        </span>
             </h3>
         </div>
     );

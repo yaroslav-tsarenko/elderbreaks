@@ -99,8 +99,8 @@ const LeaderBoards = () => {
         router.push('/leaderboards');
     };
 
-    const startDate = leaderboard?.data?.items[0]?.startDate ? new Date(leaderboard.data.items[0].startDate) : undefined;
-    const endDate = leaderboard?.data?.items[0]?.endDate ? new Date(leaderboard.data.items[0].endDate) : undefined;
+    const startDate = new Date();
+    const endDate = leaderboard?.endDate ? new Date(leaderboard.endDate) : undefined;
 
     const getUpdateIntervalText = () => {
         switch (selectedAlt) {
