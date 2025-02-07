@@ -21,6 +21,8 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
                 return type === 'xp' ? "$" : "$";
             case "EmpireDropLeaderboard":
                 return type === 'xp' ? "€" : "€";
+            case "upgraderLeaderboard":
+                return type === 'xp' ? "$" : "$";
             case "CsgobigLeaderboard":
                 return type === 'xp' ? <Image src={bigCoin} alt="coin" width={25} height={25} /> : <Image src={bigCoin} alt="coin" width={25} height={25} />;
             case "CsgobigDepositLeaderboard":

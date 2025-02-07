@@ -20,6 +20,8 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
                 return type === 'xp' ? "$" : <Image src={csgotakecoin} alt="coin" width={20} height={19} />;
             case "RoobetLeaderboard":
                 return type === 'xp' ? "$" : "$";
+            case "upgraderLeaderboard":
+                return type === 'xp' ? "$" : "$";
             case "EmpireDropLeaderboard":
                 return type === 'xp' ? "€" : "€";
             case "CsgobigLeaderboard":

@@ -16,7 +16,6 @@ export type User = {
     registerDate: string;
     statusLink: boolean;
     roobetVerify: boolean;
-    EmpireDrop: { value: string; status: boolean };
     CSGOBig: { value: string; status: boolean };
     Raingg: { value: string; status: boolean };
     DuelGP: { value: string; status: boolean };

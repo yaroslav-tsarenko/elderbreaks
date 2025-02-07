@@ -5,6 +5,7 @@ import gpoints from "../../public/duelgp.png";
 import rain from "../../public/rain.png";
 import csgoroll from "../../public/csgoroll-logo.png";
 import csgogem from "../../public/csgogem.png";
+import upgrader from "../../public/upgrader.png";
 
 interface SliderImage {
     id: number;
@@ -57,4 +58,11 @@ export const sliderImages: SliderImage[] = [
         alt: "CsgogemLeaderboard",
         category: "Csgogem"
     },
+    {
+        id: 7,
+        src: upgrader.src,
+        alt: "upgraderLeaderboard",
+        category: "Upgrader"
+    }
+
 ];

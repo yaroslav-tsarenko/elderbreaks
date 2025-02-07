@@ -22,7 +22,8 @@ type LeaderboardAlt =
     | "CsgostakeLeaderboard"
     | "CsgorollLeaderboard"
     | "CsgogemLeaderboard"
-    | "CsgobigDepositLeaderboard";
+    | "CsgobigDepositLeaderboard"
+    | "upgraderLeaderboard";
 
 const ClashCasino = () => {
 
@@ -39,6 +40,7 @@ const ClashCasino = () => {
         CsgostakeLeaderboard: ["CSGOSTAKE", "LEADERBOARD"],
         CsgorollLeaderboard: ["CSGOROLL", "LEADERBOARD"],
         CsgogemLeaderboard: ["CSGOGEM", "LEADERBOARD"],
+        upgraderLeaderboard: ["UPGRADER", "LEADERBOARD"],
     };
 
     const getCurrencySymbol = () => {
@@ -49,6 +51,8 @@ const ClashCasino = () => {
                 return "$";
             case "EmpireDropLeaderboard":
                 return "€";
+            case "upgraderLeaderboard":
+                return "$";
             case "CsgobigLeaderboard":
                 return <Image src={bigCoin} className={styles.coin} alt="coin" width={45} height={45} />;
             case "CsgobigDepositLeaderboard":
