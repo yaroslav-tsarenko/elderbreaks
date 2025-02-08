@@ -179,11 +179,13 @@
   gap: 10px;
   background-color: var(--quaternary-color);
   color: var(--white);
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+    justify-content: center;
   width: 100%;
   border: 1px solid var(--secondary-color);
   border-radius: 55px;
-  align-content: center;
-  justify-content: center;
   font-size: 14px;
   padding: 10px 30px;
   font-weight: 600;

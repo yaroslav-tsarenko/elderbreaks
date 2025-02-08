@@ -44,6 +44,7 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    gap: 15px;
     flex-wrap: nowrap;
   }
 }
@@ -126,10 +127,10 @@
 .sliderImage {
   object-fit: contain;
   cursor: pointer;
-  height: auto;
   align-content: center;
   justify-content: center;
   justify-items: center;
+  height: 75px;
   border: 1px solid transparent;
   transition: transform 0.2s ease-in-out;
 

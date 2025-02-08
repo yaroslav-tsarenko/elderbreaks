@@ -135,8 +135,16 @@ const AccountComponent = () => {
         const formData = new FormData(event.currentTarget);
         const values = Object.fromEntries(formData.entries());
 
+        const links = [
+            { type: "csgogem", value: values["csgogemUsername"] || "" },
+            { type: "csgoBig", value: values["csgoBigId"] || "" },
+            { type: "rainGg", value: values["rainGgUsername"] || "" },
+            { type: "duelGp", value: values["duelGpUsername"] || "" },
+            { type: "csgoRoll", value: values["csgoRollUsername"] || "" }
+        ].filter(link => link.value);
+
         try {
-            const response = await newRequest.post('/user/add-Link-lb', { links: values });
+            const response = await newRequest.post('/user/add-Link-lb', { links });
             if (response.status === 201) {
                 setAlertMessage("Changes saved!");
                 setOpen(true);
@@ -147,6 +155,7 @@ const AccountComponent = () => {
             setOpen(true);
         }
     };
+
 
     const getStatusIcon = (value: string, status: boolean) => {
         if (value) {
@@ -166,7 +175,7 @@ const AccountComponent = () => {
                 <Alert
                     onClose={handleClose}
                     severity="info"
-                    sx={{backgroundColor: '#f09b00' }}
+                    sx={{backgroundColor: '#e4571b' }}
                 >
                     {alertMessage}
                 </Alert>

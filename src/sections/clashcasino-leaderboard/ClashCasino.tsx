@@ -146,7 +146,10 @@ const ClashCasino = () => {
                     <span> {selectedAlt && leaderboardNameMap[selectedAlt as LeaderboardAlt][1]}</span>
                 </h1>
                 <h4>Total prize pool</h4>
-                <div className={styles.h2}>{getCurrencySymbol()}{totalPrize}</div>
+                <div className={styles.h2}>
+                    {getCurrencySymbol()}
+                    {totalPrize >= 1_000_000 ? `${totalPrize / 1_000}M` : totalPrize}
+                </div>
                 <p>{getDescription()}</p>
                 <div className={styles.code}>Code: ELDER</div>
             </div>
