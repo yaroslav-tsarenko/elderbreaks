@@ -42,10 +42,10 @@ const LeaderItem: FC<LeaderProps> = ({ name, xp, prize, count }) => {
 
     const formatValue = (value: number) => {
         return selectedAlt === "DuelGpLeaderboard"
-            ? `${value}M`
+            ? `${value / 1_000}M`
             : value.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
             });
     };
 
