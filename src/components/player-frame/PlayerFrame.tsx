@@ -62,16 +62,6 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
         );
     };
 
-  /*  const formatXp = (xp: number) => {
-        if (xp >= 1_000_000) {
-            return `${(xp / 1_000_000).toLocaleString('en-US', {
-                minimumFractionDigits: 3,
-                maximumFractionDigits: 3
-            })}M`;
-        }
-        return xp.toLocaleString('en-US');
-    };*/
-
     return (
         <div className={className}>
             {avatar ? <Image src={avatar} alt="avatar" className={styles.avatar} width="110"
@@ -80,8 +70,8 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
             <div className={styles.playerCredentials}>
                 <p>{selectedAlt === "CsgobigDepositLeaderboard" || selectedAlt === "CsgorollLeaderboard" ? "Deposited:" : "Wagered:"}</p>
                 <span>
-           {getIcon('xp')}
-                    {typeof xp === 'number' ? `${xp}M` : getPlaceholder()}
+          {getIcon('xp')}
+                    {selectedAlt === "DuelGpLeaderboard" && typeof xp === 'number' ? `${xp}M` : xp}
         </span>
             </div>
             <h3>
