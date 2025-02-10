@@ -196,31 +196,41 @@ const AccountComponent = () => {
                         <div className={styles.inputs}>
                             <div className={styles.input}>
                                 <GiRabbit className={styles.icon}/>
-                                <input type="text" className={styles.formikInput} name="roobetUsername"
+                                <input type="text"
+                                       value={user?.roobetVerify ? "Verified" : 'Not Verified'}
+                                       className={styles.formikInput} name="roobetUsername"
                                        placeholder="Roobet Username"/>
                                 {getStatusIcon(user?.roobetVerify ? "verified" : "", user?.roobetVerify)}
                             </div>
                             <div className={styles.input}>
                                 <FaUser className={styles.icon}/>
-                                <input type="text" className={styles.formikInput} name="csgoBigId"
+                                <input type="text" className={styles.formikInput}
+                                       value={user?.CSGOBig.value ? user?.CSGOBig.value : ''}
+                                       name="csgoBigId"
                                        placeholder="CSGOBig ID"/>
                                 {getStatusIcon(user?.CSGOBig.value, user?.CSGOBig.status)}
                             </div>
                             <div className={styles.input}>
                                 <FaUser className={styles.icon}/>
-                                <input type="text" className={styles.formikInput} name="rainGgUsername"
+                                <input type="text"
+                                       value={user?.Raingg.value ? user?.Raingg.value : ''}
+                                       className={styles.formikInput} name="rainGgUsername"
                                        placeholder="Rain.gg Username"/>
                                 {getStatusIcon(user?.Raingg.value, user?.Raingg.status)}
                             </div>
                             <div className={styles.input}>
                                 <FaUser className={styles.icon}/>
-                                <input type="text" className={styles.formikInput} name="duelGpUsername"
+                                <input type="text" className={styles.formikInput}
+                                       value={user?.DuelGP.value ? user?.DuelGP.value : ''}
+                                       name="duelGpUsername"
                                        placeholder="DuelGP Username"/>
                                 {getStatusIcon(user?.DuelGP.value, user?.DuelGP.status)}
                             </div>
                             <div className={styles.input}>
                                 <FaUser className={styles.icon}/>
-                                <input type="text" className={styles.formikInput} name="csgoRollUsername"
+                                <input type="text" className={styles.formikInput}
+                                       value={user?.CSGORoll.value ? user?.CSGORoll.value : ''}
+                                       name="csgoRollUsername"
                                        placeholder="CSGORoll Username"/>
                                 {getStatusIcon(user?.CSGORoll.value, user?.CSGORoll.status)}
                             </div>
