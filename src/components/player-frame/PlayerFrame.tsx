@@ -70,8 +70,8 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
             <div className={styles.playerCredentials}>
                 <p>{selectedAlt === "CsgobigDepositLeaderboard" || selectedAlt === "CsgorollLeaderboard" ? "Deposited:" : "Wagered:"}</p>
                 <span>
-          {getIcon('xp')}
-                    {selectedAlt === "DuelGpLeaderboard" && typeof xp === 'number' ? `${xp}M` : xp}
+       {getIcon('xp')}
+                    {selectedAlt === "DuelGpLeaderboard" && typeof xp === 'number' ? `${xp / 1_000}M` : xp}
         </span>
             </div>
             <h3>
