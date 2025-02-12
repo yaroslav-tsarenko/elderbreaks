@@ -197,10 +197,10 @@ const AccountComponent = () => {
                             <div className={styles.input}>
                                 <GiRabbit className={styles.icon}/>
                                 <input type="text"
-                                       value={user?.roobetVerify ? "Verified" : 'Not Verified'}
+                                       value={user?.Roobet.value ? "Verified" : 'Not Verified'}
                                        className={styles.formikInput} name="roobetUsername"
                                        placeholder="Roobet Username"/>
-                                {getStatusIcon(user?.roobetVerify ? "verified" : "", user?.roobetVerify)}
+                                {getStatusIcon(user?.Roobet.value, user?.Roobet.status)}
                             </div>
                             <div className={styles.input}>
                                 <FaUser className={styles.icon}/>

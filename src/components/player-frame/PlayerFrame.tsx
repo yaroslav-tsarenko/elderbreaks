@@ -77,8 +77,10 @@ const PlayerFrame: FC<PlayerFrameProps> = ({ nickname, xp, money, avatar, place 
             <h3>
                 {getIcon('prize')}
                 <span>
-            {typeof money === 'number' ? Math.floor(money) : getPlaceholder()}
-        </span>
+    {selectedAlt === "DuelGpLeaderboard" && typeof money === 'number'
+        ? `${(money / 10_000_000).toLocaleString('de-DE', {minimumFractionDigits: 1, maximumFractionDigits: 1})}B`
+        : (typeof money === 'number' ? Math.floor(money) : getPlaceholder())}
+</span>
             </h3>
         </div>
     );

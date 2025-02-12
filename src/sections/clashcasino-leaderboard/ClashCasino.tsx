@@ -138,6 +138,27 @@ const ClashCasino = () => {
         }
     };
 
+    const getReferralLink = () => {
+        switch (selectedAlt) {
+            case "RoobetLeaderboard":
+                return "https://roobet.com/?ref=elder";
+            case "CsgobigLeaderboard":
+                return "https://csgobig.com/r/elderbreaks";
+            case "CsgobigDepositLeaderboard":
+                return "https://csgobig.com/r/elderbreaks";
+            case "RainLeaderboard":
+                return "https://rain.gg/r/Elder";
+            case "CsgorollLeaderboard":
+                return "https://csgoroll.com/r/ELDER";
+            case "CsgogemLeaderboard":
+                return "https://csgogem.com/r/elder";
+            case "upgraderLeaderboard":
+                return "https://upgrader.com/r/ELDER";
+            default:
+                return "/";
+        }
+    };
+
     return (
         <section className={styles.clashcasino}>
             <div className={styles.clashcasinoContent}>
@@ -148,10 +169,11 @@ const ClashCasino = () => {
                 <h4>Total prize pool</h4>
                 <div className={styles.h2}>
                     {getCurrencySymbol()}
-                    {selectedAlt === "DuelGpLeaderboard" ? `${totalPrize / 1_000}M` : totalPrize}
+                    {selectedAlt === "DuelGpLeaderboard" ? `${totalPrize / 1_000}B` : totalPrize}
                 </div>
                 <p>{getDescription()}</p>
-                <div className={styles.code}>Code: ELDER</div>
+                <button className={styles.code} onClick={() => window.location.href = getReferralLink()}>Code: ELDER
+                </button>
             </div>
             <FullWidthSlider onLeaderboardSelect={handleLeaderboardSelect}/>
         </section>

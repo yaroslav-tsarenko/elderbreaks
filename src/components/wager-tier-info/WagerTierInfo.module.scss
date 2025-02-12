@@ -1,0 +1,28 @@
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  h4{
+    font-size: 36px;
+    color: var(--dark-grey);
+    font-weight: bold;
+  }
+
+  p{
+    font-size: 20px;
+    color: var(--grey-light);
+  }
+}
+
+.noRank{
+  display: flex;
+  width: 100px;
+  align-content: center;
+  justify-content: center;
+    align-items: center;
+    justify-items: center;
+  color: var(--white);
+  text-shadow: 0 0 1px var(--white), 0 0 5px var(--white);
+}

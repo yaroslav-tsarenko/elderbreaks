@@ -3,7 +3,7 @@ import styles from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import FooterLogo from "../../../public/elder-logo.png";
-import { FaKickstarterK, FaDiscord, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaKickstarterK, FaDiscord, FaYoutube, FaTwitter, FaTwitch } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -51,6 +51,10 @@ const Footer = () => {
                             <Link className={styles.social} href="https://twitter.com/ElderBreaks" target="_blank"
                                   rel="noopener noreferrer">
                                 <FaTwitter/>
+                            </Link>
+                            <Link className={styles.social} href="https://www.twitch.tv/elderbreaks" target="_blank"
+                                  rel="noopener noreferrer">
+                                <FaTwitch/>
                             </Link>
                         </div>
                     </div>
